@@ -1,6 +1,6 @@
 /**
- * CLICOM - Agence Marketing Digital Suisse
- * JavaScript Interactions
+ * CLICOM - Neo-Swiss Dark Performance
+ * JavaScript Interactions & Micro-animations
  */
 
 // ==========================================
@@ -63,8 +63,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
 
-        // Ignore empty hash
-        if (href === '#' || href === '#mentions-legales' || href === '#politique-confidentialite' || href === '#cgv') {
+        // Ignore empty hash or legal links
+        if (href === '#' || href.includes('mentions-legales') || href.includes('politique-confidentialite') || href.includes('cgv')) {
             return;
         }
 
@@ -84,28 +84,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==========================================
-// FAQ ACCORDION
+// ANIMATED COUNTERS (Hero Stats)
 // ==========================================
-const faqQuestions = document.querySelectorAll('.faq-question');
+const animateCounter = (element, target, duration = 2000) => {
+    const start = 0;
+    const increment = target / (duration / 16); // 60fps
+    let current = start;
 
-faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        const faqItem = question.closest('.faq-item');
-        const isActive = faqItem.classList.contains('active');
-
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
-            item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-            faqItem.classList.add('active');
-            question.setAttribute('aria-expanded', 'true');
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
         }
-    });
-});
+    }, 16);
+};
+
+// Trigger counters when hero stats are visible
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) {
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    animateCounter(stat, target);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(heroStats);
+}
 
 // ==========================================
 // FORM VALIDATION
@@ -260,7 +274,13 @@ if (contactForm) {
         // Clear all errors
         fieldsToValidate.forEach(clearError);
 
-        // Optional: Scroll to top or show confirmation section
+        // Track conversion (if analytics is set up)
+        trackEvent('form_submit', {
+            form_name: 'contact_form',
+            objective: formData.objective
+        });
+
+        // Scroll to top
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -276,28 +296,51 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            // Stop observing after reveal
-            observer.unobserve(entry.target);
+            // Continue observing for potential re-animations
+            // revealObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 // Observe elements that should animate on scroll
-const revealElements = document.querySelectorAll('.expertise-card, .timeline-item, .pricing-card, .faq-item');
+const revealElements = document.querySelectorAll('.bento-card, .timeline-item, .pricing-card, .client-card');
 revealElements.forEach(el => {
     el.classList.add('scroll-reveal');
-    observer.observe(el);
+    revealObserver.observe(el);
 });
 
 // ==========================================
-// PERFORMANCE OPTIMIZATION: Lazy Loading for Background Images
+// PROGRESS BAR ANIMATIONS (Timeline)
+// ==========================================
+const timelineItems = document.querySelectorAll('.timeline-item');
+if (timelineItems.length > 0) {
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target.querySelector('.progress-bar');
+                if (progressBar) {
+                    // Trigger CSS animation by adding a class
+                    progressBar.style.animation = 'none';
+                    setTimeout(() => {
+                        progressBar.style.animation = '';
+                    }, 10);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    timelineItems.forEach(item => progressObserver.observe(item));
+}
+
+// ==========================================
+// PERFORMANCE OPTIMIZATION: Lazy Loading
 // ==========================================
 const lazyBackgrounds = document.querySelectorAll('[data-bg]');
-if ('IntersectionObserver' in window) {
+if ('IntersectionObserver' in window && lazyBackgrounds.length > 0) {
     const lazyBgObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -312,7 +355,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ==========================================
-// ANALYTICS TRACKING (Ready for Google Analytics 4)
+// ANALYTICS TRACKING (Google Analytics 4 Ready)
 // ==========================================
 const trackEvent = (eventName, eventParams = {}) => {
     // Check if gtag is available (Google Analytics 4)
@@ -327,31 +370,23 @@ const trackEvent = (eventName, eventParams = {}) => {
 };
 
 // Track CTA clicks
-document.querySelectorAll('.btn-primary').forEach(btn => {
+document.querySelectorAll('.btn-primary-glow, .btn-primary-large, .btn-primary-block').forEach(btn => {
     btn.addEventListener('click', (e) => {
         trackEvent('cta_click', {
             button_text: btn.textContent.trim(),
-            button_location: btn.closest('section')?.id || 'unknown'
+            button_location: btn.closest('section')?.id || 'header',
+            button_type: 'primary'
         });
     });
 });
 
-// Track form submission
-if (contactForm) {
-    contactForm.addEventListener('submit', () => {
-        trackEvent('form_submit', {
-            form_name: 'contact_form',
-            form_location: 'contact_section'
-        });
-    });
-}
-
-// Track external link clicks
-document.querySelectorAll('a[href^="http"]').forEach(link => {
-    link.addEventListener('click', () => {
-        trackEvent('external_link_click', {
-            link_url: link.href,
-            link_text: link.textContent.trim()
+// Track secondary CTA clicks
+document.querySelectorAll('.btn-secondary, .btn-secondary-large').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        trackEvent('cta_click', {
+            button_text: btn.textContent.trim(),
+            button_location: btn.closest('section')?.id || 'unknown',
+            button_type: 'secondary'
         });
     });
 });
@@ -370,6 +405,16 @@ document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
     link.addEventListener('click', () => {
         trackEvent('email_click', {
             email: link.href.replace('mailto:', '')
+        });
+    });
+});
+
+// Track navigation clicks
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        trackEvent('navigation_click', {
+            nav_item: link.textContent.trim(),
+            destination: link.getAttribute('href')
         });
     });
 });
@@ -415,6 +460,20 @@ window.addEventListener('load', () => {
                 });
             }).observe({ entryTypes: ['first-input'] });
 
+            // Cumulative Layout Shift (CLS)
+            let clsScore = 0;
+            new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (!entry.hadRecentInput) {
+                        clsScore += entry.value;
+                    }
+                }
+                trackEvent('core_web_vitals', {
+                    metric: 'CLS',
+                    value: clsScore
+                });
+            }).observe({ entryTypes: ['layout-shift'] });
+
         } catch (error) {
             // Silently fail if observers are not supported
         }
@@ -422,19 +481,111 @@ window.addEventListener('load', () => {
 });
 
 // ==========================================
-// CONSOLE MESSAGE (Development)
+// GLITCH TEXT EFFECT (Subtle, on hover)
+// ==========================================
+const glitchTexts = document.querySelectorAll('.glitch-text');
+glitchTexts.forEach(text => {
+    text.addEventListener('mouseenter', () => {
+        text.style.animation = 'glitch-effect 0.3s ease-in-out';
+        setTimeout(() => {
+            text.style.animation = '';
+        }, 300);
+    });
+});
+
+// Define glitch animation via CSS (if not already defined)
+if (!document.querySelector('#glitch-keyframes')) {
+    const style = document.createElement('style');
+    style.id = 'glitch-keyframes';
+    style.textContent = `
+        @keyframes glitch-effect {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ==========================================
+// CONSOLE MESSAGE (Development/Branding)
 // ==========================================
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     console.log(
-        '%c🚀 CLICOM - Agence Marketing Digital Suisse',
-        'font-size: 20px; font-weight: bold; color: #3366ff;'
+        '%c🚀 CLICOM - Neo-Swiss Dark Performance',
+        'font-size: 20px; font-weight: bold; color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);'
     );
     console.log(
-        '%cChez Clicom, on ne fait pas faire, on sait faire.',
-        'font-size: 14px; color: #1a1a2e;'
+        '%cOn ne fait pas faire, on sait faire.',
+        'font-size: 14px; color: #ffffff;'
     );
     console.log(
         '%c✓ JavaScript loaded successfully',
-        'font-size: 12px; color: #00b894;'
+        'font-size: 12px; color: #00ff88;'
+    );
+    console.log(
+        '%c✓ Micro-interactions active',
+        'font-size: 12px; color: #00ff88;'
+    );
+    console.log(
+        '%c✓ Analytics tracking ready',
+        'font-size: 12px; color: #00ff88;'
     );
 }
+
+// ==========================================
+// EASTER EGG: Konami Code
+// ==========================================
+let konamiCode = [];
+const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.key);
+    konamiCode = konamiCode.slice(-10);
+
+    if (konamiCode.join(',') === konamiPattern.join(',')) {
+        // Easter egg activated
+        document.body.style.animation = 'rainbow 2s linear infinite';
+        setTimeout(() => {
+            document.body.style.animation = '';
+        }, 5000);
+
+        console.log('%c🎉 KONAMI CODE ACTIVATED! 🎉', 'font-size: 24px; color: #ff0033;');
+    }
+});
+
+// Rainbow animation for Easter egg
+if (!document.querySelector('#rainbow-keyframes')) {
+    const style = document.createElement('style');
+    style.id = 'rainbow-keyframes';
+    style.textContent = `
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ==========================================
+// THEME TOGGLE (Future feature - Optional)
+// ==========================================
+// Uncomment if you want to add a light/dark mode toggle
+/*
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+    }
+}
+*/
