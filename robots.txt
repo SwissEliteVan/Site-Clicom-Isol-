@@ -1,0 +1,14 @@
+# robots.txt pour CLICOM - Agence Marketing Digital Suisse
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.clicom.ch/sitemap.xml
+
+# Délai entre les requêtes (en secondes)
+Crawl-delay: 1
+
+# Bloquer les ressources inutiles pour les crawlers
+Disallow: /assets/videos/
+Disallow: /*.pdf$
