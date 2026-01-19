@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Codex - Agence de marketing digital à Lausanne. SEO, sites web performants et stratégies digitales pour les entreprises de Suisse romande.">
+    <meta name="keywords" content="agence marketing digital Genève, SEO Lausanne, création site web Suisse romande, stratégie digitale Fribourg">
+    <meta name="geo.region" content="CH-VD">
+    <meta name="geo.placename" content="Lausanne">
+    <meta name="geo.position" content="46.519962;6.633597">
+    <title>Codex - Marketing Digital en Suisse Romande</title>
+
+    <!-- Préchargements & optimisation Core Web Vitals -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Codex",
+        "description": "Agence de marketing digital spécialisée en Suisse romande",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lausanne",
+            "addressRegion": "VD",
+            "addressCountry": "CH",
+            "postalCode": "1000"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "46.519962",
+            "longitude": "6.633597"
+        },
+        "areaServed": [
+            {"@type": "State", "name": "Vaud"},
+            {"@type": "State", "name": "Genève"},
+            {"@type": "State", "name": "Fribourg"},
+            {"@type": "State", "name": "Valais"},
+            {"@type": "State", "name": "Neuchâtel"}
+        ],
+        "languages": ["French"],
+        "priceRange": "CHF",
+        "telephone": "+41 21 XXX XX XX"
+    }
+    </script>
+
+    <style>
+        /* ========================================
+           VARIABLES CSS - THEME SUISSE
+        ======================================== */
+        :root {
+            /* Couleurs inspirées de la Suisse */
+            --swiss-blue: #0a3d62;
+            --swiss-red: #eb3b5a;
+            --swiss-white: #f9f9f9;
+            --swiss-gray: #4a4a4a;
+            --swiss-green: #00b894;
+            --swiss-dark: #2d3436;
+
+            /* Typographies */
+            --font-primary: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --font-secondary: 'Courier New', monospace;
+
+            /* Espacements */
+            --space-unit: 8px;
+            --space-xs: calc(var(--space-unit) * 1);
+            --space-sm: calc(var(--space-unit) * 2);
+            --space-md: calc(var(--space-unit) * 3);
+            --space-lg: calc(var(--space-unit) * 4);
+            --space-xl: calc(var(--space-unit) * 6);
+
+            /* Autres */
+            --border-radius: 4px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* ========================================
+           RESET & BASE
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--swiss-dark);
+            line-height: 1.6;
+            background: var(--swiss-white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========================================
+           LAYOUT
+        ======================================== */
+        .container {
+            width: 100%;
+            padding: 0 var(--space-md);
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1200px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md);
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: none;
+            list-style: none;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-menu {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            color: var(--swiss-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--swiss-blue);
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            padding: var(--space-sm);
+            min-width: 250px;
+            list-style: none;
+        }
+
+        .nav-menu > li:hover .submenu {
+            display: block;
+        }
+
+        .submenu li {
+            padding: var(--space-xs);
+        }
+
+        .submenu a {
+            display: block;
+            padding: var(--space-xs);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .submenu a:hover {
+            background: var(--swiss-white);
+            color: var(--swiss-blue);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--swiss-dark);
+            position: relative;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--swiss-dark);
+            transition: var(--transition);
+        }
+
+        .hamburger::before { top: -8px; }
+        .hamburger::after { bottom: -8px; }
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--swiss-red);
+            color: white;
+            border-color: var(--swiss-red);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--swiss-red);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--swiss-blue);
+            border-color: var(--swiss-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--swiss-blue);
+            color: white;
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        .btn-highlight {
+            background: var(--swiss-green);
+            color: white;
+            border-color: var(--swiss-green);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--swiss-blue) 0%, #1e5a8e 100%);
+            color: white;
+            padding: calc(var(--space-xl) * 2) 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .hero-title {
+            margin-bottom: var(--space-md);
+        }
+
+        .highlight {
+            color: var(--swiss-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-lg);
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-trust {
+            margin-top: var(--space-xl);
+            opacity: 0.8;
+        }
+
+        .trust-logos {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--space-md);
+        }
+
+        /* ========================================
+           SERVICES
+        ======================================== */
+        .services-preview {
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .service-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .service-link {
+            color: var(--swiss-blue);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-top: var(--space-md);
+        }
+
+        .service-link:hover {
+            gap: var(--space-sm);
+        }
+
+        /* ========================================
+           LOCALISATION
+        ======================================== */
+        .localisation-section {
+            background: var(--swiss-white);
+            text-align: center;
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .city-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .city-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .city-card h4 {
+            color: var(--swiss-blue);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* ========================================
+           TRUST BADGES
+        ======================================== */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            padding: var(--space-xl) 0;
+            background: white;
+        }
+
+        .trust-badge {
+            text-align: center;
+            padding: var(--space-md);
+        }
+
+        .trust-badge img {
+            margin: 0 auto var(--space-sm);
+        }
+
+        /* ========================================
+           AUDIT OFFER
+        ======================================== */
+        .audit-offer {
+            background: linear-gradient(135deg, var(--swiss-green) 0%, #00a378 100%);
+            color: white;
+            text-align: center;
+            padding: calc(var(--space-xl) * 1.5) var(--space-md);
+        }
+
+        .audit-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .audit-benefits {
+            list-style: none;
+            margin: var(--space-lg) 0;
+        }
+
+        .audit-benefits li {
+            margin: var(--space-sm) 0;
+            font-size: 1.1rem;
+        }
+
+        .audit-benefits li::before {
+            content: '✓';
+            margin-right: var(--space-sm);
+            font-weight: bold;
+        }
+
+        /* ========================================
+           CONTACT FORM
+        ======================================== */
+        .contact-section {
+            background: var(--swiss-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        .contact-form {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+            color: var(--swiss-gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--swiss-blue);
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+        }
+
+        .form-submit {
+            margin-top: var(--space-lg);
+        }
+
+        .form-note {
+            margin-top: var(--space-sm);
+            font-size: 0.9rem;
+            color: var(--swiss-gray);
+        }
+
+        .form-status {
+            margin-top: var(--space-md);
+            padding: var(--space-sm);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+        }
+
+        .form-status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .form-status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            background: var(--swiss-dark);
+            color: white;
+            padding: var(--space-xl) 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--swiss-green);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 768px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .services-grid,
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-main" role="navigation" aria-label="Navigation principale">
+        <div class="nav-logo">
+            <a href="/" aria-label="Codex - Retour à l'accueil">
+                <strong style="font-size: 1.5rem; color: var(--swiss-blue);">CODEX</strong>
+            </a>
+        </div>
+
+        <ul class="nav-menu">
+            <li>
+                <a href="#services" class="nav-link">Nos Services</a>
+                <ul class="submenu">
+                    <li><a href="/services/seo-local">SEO Local & International</a></li>
+                    <li><a href="/services/sites-web">Sites Web Performants</a></li>
+                    <li><a href="/services/publicite-en-ligne">Publicité en Ligne</a></li>
+                    <li><a href="/services/strategie-contenu">Stratégie de Contenu</a></li>
+                    <li><a href="/services/social-media">Social Media Romand</a></li>
+                </ul>
+            </li>
+            <li><a href="#localisation" class="nav-link">Notre Couverture</a></li>
+            <li><a href="#audit" class="nav-link">Audit Gratuit</a></li>
+            <li><a href="#contact" class="btn btn-primary">Contact & Devis</a></li>
+        </ul>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Menu mobile" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Votre croissance digitale commence <span class="highlight">ici en Suisse romande</span></h1>
+            <p class="hero-subtitle">Codex crée des stratégies digitales sur mesure pour les entreprises de Genève, Lausanne, Fribourg et toute la Suisse romande.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary btn-large">Obtenir un audit gratuit</a>
+                <a href="#services" class="btn btn-secondary btn-large">Découvrir nos services</a>
+            </div>
+            <div class="hero-trust">
+                <p>Recommandé par des entreprises locales de Suisse romande</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-preview container">
+        <h2>Nos expertises pour votre succès digital</h2>
+        <p style="color: var(--swiss-gray); max-width: 700px; margin: var(--space-md) auto;">
+            Inspiré des meilleures agences européennes, notre modèle est conçu pour livrer vite et scaler proprement.
+        </p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>SEO Local Romand</h3>
+                <p>Référencement naturel adapté aux moteurs de recherche et aux habitudes de recherche en Suisse romande.</p>
+                <a href="/services/seo-local" class="service-link">Optimiser ma visibilité →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Sites Web Performants</h3>
+                <p>Création de sites rapides, optimisés SEO et conformes aux standards suisses (LPD, accessibilité).</p>
+                <a href="/services/sites-web" class="service-link">Créer mon site →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Publicité en Ligne</h3>
+                <p>Campagnes Google Ads, Meta Ads et LinkedIn optimisées pour le marché suisse romand.</p>
+                <a href="/services/publicite" class="service-link">Lancer une campagne →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✍️</div>
+                <h3>Stratégie de Contenu</h3>
+                <p>Content marketing adapté à la culture romande avec ton professionnel et local.</p>
+                <a href="/services/contenu" class="service-link">Développer mon contenu →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Romand</h3>
+                <p>Gestion de vos réseaux sociaux avec une approche locale et professionnelle.</p>
+                <a href="/services/social-media" class="service-link">Booster mes réseaux →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Analytics & Reporting</h3>
+                <p>Mesure de performance avec KPIs adaptés au marché B2B/B2C suisse.</p>
+                <a href="/services/analytics" class="service-link">Mesurer mes résultats →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localisation Section -->
+    <section id="localisation" class="localisation-section">
+        <div class="container">
+            <h2>Actifs dans toute la Suisse romande</h2>
+            <p style="color: var(--swiss-gray); margin: var(--space-md) 0;">
+                Une présence locale forte pour comprendre vos enjeux régionaux
+            </p>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <h4>🏙️ Genève</h4>
+                    <p>Stratégies internationales & marché frontalier</p>
+                </div>
+
+                <div class="city-card">
+                    <h4>🌊 Lausanne</h4>
+                    <p>Hub technologique & startups</p>
+                </div>
+
+                <div class="city-card">
+                    <h4>🏔️ Fribourg</h4>
+                    <p>PME locales & commerce bilingue</p>
+                </div>
+
+                <div class="city-card">
+                    <h4>🍷 Valais</h4>
+                    <p>Tourisme & gastronomie alpine</p>
+                </div>
+
+                <div class="city-card">
+                    <h4>⚙️ Neuchâtel</h4>
+                    <p>Industrie horlogère & tech</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="trust-badge">
+            <div style="width: 60px; height: 60px; background: var(--swiss-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm); color: white; font-weight: bold;">CH</div>
+            <p><strong>Conçu en Suisse</strong></p>
+        </div>
+        <div class="trust-badge">
+            <div style="width: 60px; height: 60px; background: var(--swiss-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm); color: white; font-weight: bold;">LPD</div>
+            <p><strong>Conforme LPD suisse</strong></p>
+        </div>
+        <div class="trust-badge">
+            <div style="width: 60px; height: 60px; background: var(--swiss-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-sm); color: white; font-weight: bold;">💳</div>
+            <p><strong>TWINT & PostFinance</strong></p>
+        </div>
+    </section>
+
+    <!-- Audit Offer Section -->
+    <section id="audit" class="audit-offer">
+        <div class="audit-content">
+            <h3>Audit SEO Gratuit pour votre entreprise</h3>
+            <p style="font-size: 1.1rem; margin: var(--space-md) 0;">
+                Obtenez une analyse détaillée de votre présence digitale en Suisse romande
+            </p>
+            <ul class="audit-benefits">
+                <li>Analyse de votre positionnement local</li>
+                <li>Recommandations personnalisées</li>
+                <li>Plan d'action concret</li>
+                <li>Estimation de budget transparent</li>
+            </ul>
+            <a href="#contact" class="btn btn-highlight btn-large">
+                Demander mon audit gratuit
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2>Parlons de votre projet digital</h2>
+                    <p style="color: var(--swiss-gray); margin: var(--space-md) 0;">
+                        Remplissez ce formulaire et recevez une réponse personnalisée sous 24h ouvrées.
+                    </p>
+                    <div style="margin-top: var(--space-xl);">
+                        <h4 style="color: var(--swiss-blue);">Pourquoi choisir Codex ?</h4>
+                        <ul style="list-style: none; margin-top: var(--space-md);">
+                            <li style="margin-bottom: var(--space-sm);">✓ Expertise locale Suisse romande</li>
+                            <li style="margin-bottom: var(--space-sm);">✓ Résultats mesurables garantis</li>
+                            <li style="margin-bottom: var(--space-sm);">✓ Support en français</li>
+                            <li style="margin-bottom: var(--space-sm);">✓ Transparence totale</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="entreprise">Entreprise *</label>
+                        <input type="text" id="entreprise" name="entreprise" required
+                               placeholder="Nom de votre société">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_name">Votre nom *</label>
+                        <input type="text" id="contact_name" name="contact_name" required
+                               placeholder="Prénom Nom">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="localite">Localité *</label>
+                        <select id="localite" name="localite" required>
+                            <option value="">Sélectionnez votre région</option>
+                            <option value="geneve">Genève</option>
+                            <option value="vaud">Vaud (Lausanne)</option>
+                            <option value="fribourg">Fribourg</option>
+                            <option value="valais">Valais</option>
+                            <option value="neuchatel">Neuchâtel</option>
+                            <option value="jura">Jura</option>
+                            <option value="autre">Autre canton</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required
+                               placeholder="votre@email.ch">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone"
+                               placeholder="+41 79 XXX XX XX" pattern="\+41\s?[0-9\s]{9,12}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="besoin">Votre besoin principal *</label>
+                        <select id="besoin" name="besoin" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="nouveau-site">Nouveau site web</option>
+                            <option value="referencement">SEO & référencement</option>
+                            <option value="publicite">Publicité en ligne</option>
+                            <option value="strategie">Stratégie digitale globale</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="audit">Audit digital</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="4" required
+                                  placeholder="Décrivez votre projet et vos objectifs..."></textarea>
+                    </div>
+
+                    <!-- Honeypot -->
+                    <input type="text" name="website" tabindex="-1" autocomplete="off"
+                           style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Envoyer ma demande
+                        </button>
+                        <p class="form-note">Nous répondons sous 24h ouvrées. Vos données sont protégées (LPD).</p>
+                    </div>
+
+                    <div id="formStatus" class="form-status" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Codex</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        Agence de marketing digital spécialisée en Suisse romande.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/seo-local">SEO Local</a></li>
+                        <li><a href="/services/sites-web">Sites Web</a></li>
+                        <li><a href="/services/publicite">Publicité</a></li>
+                        <li><a href="/services/contenu">Contenu</a></li>
+                        <li><a href="/services/social-media">Social Media</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Régions</h4>
+                    <ul>
+                        <li><a href="/geneve">Genève</a></li>
+                        <li><a href="/lausanne">Lausanne</a></li>
+                        <li><a href="/fribourg">Fribourg</a></li>
+                        <li><a href="/valais">Valais</a></li>
+                        <li><a href="/neuchatel">Neuchâtel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: contact@codex.ch</li>
+                        <li>Tél: +41 21 XXX XX XX</li>
+                        <li>Lausanne, Suisse</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Codex - Marketing Digital Suisse Romande. Tous droits réservés.</p>
+                <p style="margin-top: var(--space-sm);">
+                    <a href="/mentions-legales" style="margin: 0 var(--space-sm);">Mentions légales</a> |
+                    <a href="/politique-confidentialite" style="margin: 0 var(--space-sm);">Politique de confidentialité</a> |
+                    <a href="/conditions" style="margin: 0 var(--space-sm);">CGV</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            navMenu.style.display = isExpanded ? 'none' : 'flex';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '100%';
+            navMenu.style.left = '0';
+            navMenu.style.right = '0';
+            navMenu.style.background = 'white';
+            navMenu.style.padding = 'var(--space-md)';
+            navMenu.style.boxShadow = 'var(--shadow)';
+        });
+
+        // ========================================
+        // SMOOTH SCROLLING
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ========================================
+        // FORM SUBMISSION
+        // ========================================
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Honeypot check
+            const honeypot = this.querySelector('input[name="website"]').value;
+            if (honeypot !== '') {
+                // Bot detected, fake success
+                showFormStatus('Merci ! Nous vous recontactons rapidement.', 'success');
+                contactForm.reset();
+                return;
+            }
+
+            const formData = new FormData(contactForm);
+            const data = {
+                entreprise: formData.get('entreprise'),
+                contact_name: formData.get('contact_name'),
+                localite: formData.get('localite'),
+                email: formData.get('email'),
+                telephone: formData.get('telephone') || '',
+                besoin: formData.get('besoin'),
+                message: formData.get('message')
+            };
+
+            // Show loading
+            showFormStatus('Envoi en cours...', 'success');
+
+            try {
+                // Replace with your actual API endpoint
+                const apiUrl = 'https://votre-backend.ch/api/contact.php';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showFormStatus('✓ Merci ! Nous vous recontactons sous 24h.', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message || 'Erreur lors de l\'envoi');
+                }
+            } catch (error) {
+                showFormStatus('Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.', 'error');
+                console.error('Form submission error:', error);
+            }
+        });
+
+        function showFormStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status ' + type;
+            formStatus.style.display = 'block';
+        }
+
+        // ========================================
+        // ANALYTICS - LOCAL TRACKING
+        // ========================================
+        const analyticsConfig = {
+            trackLocalEngagement: true,
+            trackCantons: true,
+            trackLocalKeywords: true,
+            conversionEvents: [
+                'contact_form_submit',
+                'audit_request',
+                'service_click_local',
+                'phone_call_ch'
+            ]
+        };
+
+        // Detect Swiss French visitor
+        document.addEventListener('DOMContentLoaded', function() {
+            if (navigator.language.includes('fr-CH') || navigator.language.includes('fr')) {
+                document.body.classList.add('visitor-romand');
+                console.log('Visitor from French-speaking Switzerland detected');
+            }
+
+            // Track page view
+            trackEvent('page_view', {
+                page: window.location.pathname,
+                language: navigator.language
+            });
+        });
+
+        // Track events
+        function trackEvent(eventName, eventData) {
+            // Log locally (replace with your analytics service)
+            console.log('Event tracked:', eventName, eventData);
+
+            // You can send to your backend analytics
+            // fetch('/api/analytics', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ event: eventName, data: eventData })
+            // });
+        }
+
+        // Track service clicks
+        document.querySelectorAll('.service-link').forEach(link => {
+            link.addEventListener('click', function() {
+                trackEvent('service_click', {
+                    service: this.textContent.trim()
+                });
+            });
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.btn-primary, .btn-highlight').forEach(btn => {
+            btn.addEventListener('click', function() {
+                trackEvent('cta_click', {
+                    cta_text: this.textContent.trim(),
+                    cta_location: this.closest('section')?.id || 'unknown'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
