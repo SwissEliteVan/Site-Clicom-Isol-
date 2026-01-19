@@ -1,0 +1,484 @@
+/* ========================================
+   CODEX - RESPONSIVE CSS
+   Mobile First Approach
+======================================== */
+
+/* ========================================
+   BASE (Mobile) - Default
+   < 768px
+======================================== */
+
+/* Le CSS principal est déjà mobile-first */
+/* Ces styles s'appliquent par défaut */
+
+/* Navigation mobile */
+.nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    flex-direction: column;
+    padding: var(--space-xl) var(--space-md);
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.nav-menu.is-open {
+    display: flex;
+}
+
+.mobile-menu-toggle {
+    display: block;
+    z-index: 1000;
+}
+
+/* Hero mobile */
+.hero-cta {
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.hero-cta .btn {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Grids mobile */
+.services-grid,
+.cities-grid,
+.pricing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+/* Contact grid mobile */
+.contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+/* Footer mobile */
+.footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+/* ========================================
+   SMALL TABLETS
+   >= 576px
+======================================== */
+@media (min-width: 576px) {
+    .container {
+        padding: 0 var(--space-lg);
+    }
+
+    /* Services grid 2 colonnes sur petites tablettes */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Cities grid 2 colonnes */
+    .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Hero CTA inline */
+    .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hero-cta .btn {
+        width: auto;
+    }
+}
+
+/* ========================================
+   TABLETS
+   >= 768px
+======================================== */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 var(--space-md);
+    }
+
+    /* Typography adjustments */
+    body {
+        font-size: 17px;
+    }
+
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.5rem); }
+
+    /* Sections padding */
+    section {
+        padding: calc(var(--space-xl) * 1.5) 0;
+    }
+
+    /* Services grid 2 colonnes */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+
+    /* Cities grid 3 colonnes */
+    .cities-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Contact grid 2 colonnes */
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+    }
+
+    /* Footer grid 2 colonnes */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Cards hover effects */
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    /* Button hover effects */
+    .btn:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* ========================================
+   DESKTOP
+   >= 1024px
+======================================== */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    /* Typography */
+    body {
+        font-size: 18px;
+    }
+
+    /* Navigation desktop */
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        background: transparent;
+        overflow: visible;
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    /* Hero section */
+    .hero-section {
+        padding: calc(var(--space-xl) * 2.5) 0;
+    }
+
+    /* Sections padding */
+    section {
+        padding: var(--space-2xl) 0;
+    }
+
+    /* Services grid 3 colonnes */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Cities grid 5 colonnes */
+    .cities-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-lg);
+    }
+
+    /* Contact grid ratio optimal */
+    .contact-grid {
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    /* Footer grid 4 colonnes */
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Trust badges spacing */
+    .trust-badges {
+        gap: calc(var(--space-xl) * 1.5);
+    }
+
+    /* Submenu hover */
+    .nav-menu > li:hover .submenu {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+}
+
+/* ========================================
+   LARGE DESKTOP
+   >= 1280px
+======================================== */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+
+    /* Typography grande écran */
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.75rem; }
+
+    /* Hero padding */
+    .hero-section {
+        padding: calc(var(--space-xl) * 3) 0;
+    }
+
+    /* Sections padding */
+    section {
+        padding: calc(var(--space-2xl) * 1.25) 0;
+    }
+
+    /* Services grid spacing */
+    .services-grid {
+        gap: var(--space-xl);
+    }
+
+    /* Contact grid wider */
+    .contact-grid {
+        gap: calc(var(--space-xl) * 1.5);
+    }
+}
+
+/* ========================================
+   EXTRA LARGE DESKTOP
+   >= 1440px
+======================================== */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    /* Typography extra large */
+    body {
+        font-size: 19px;
+    }
+
+    /* Hero extra spacing */
+    .hero-section {
+        padding: calc(var(--space-xl) * 3.5) 0;
+    }
+
+    .hero-content {
+        max-width: 1000px;
+    }
+
+    /* Sections extra padding */
+    section {
+        padding: calc(var(--space-2xl) * 1.5) 0;
+    }
+}
+
+/* ========================================
+   ULTRA WIDE
+   >= 1920px
+======================================== */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    /* Typography ultra wide */
+    h1 { font-size: 4rem; }
+    h2 { font-size: 3rem; }
+
+    /* Services grid peut aller à 4 colonnes */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* ========================================
+   LANDSCAPE MODE (Mobile & Tablet)
+======================================== */
+@media (max-width: 1023px) and (orientation: landscape) {
+    .hero-section {
+        padding: var(--space-xl) 0;
+    }
+
+    section {
+        padding: var(--space-lg) 0;
+    }
+
+    /* Navigation en mode paysage */
+    .nav-menu.is-open {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: var(--space-md);
+    }
+}
+
+/* ========================================
+   HIGH DPI / RETINA
+======================================== */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+    /* Optimisations pour écrans Retina */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Images haute résolution */
+    .img-retina {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* ========================================
+   DARK MODE SUPPORT
+======================================== */
+@media (prefers-color-scheme: dark) {
+    /* Optionnel : Support du dark mode */
+    /* À activer si souhaité */
+    /*
+    :root {
+        --swiss-white: #1a1a1a;
+        --swiss-dark: #f9f9f9;
+    }
+
+    body {
+        background: #1a1a1a;
+        color: #f9f9f9;
+    }
+
+    .card {
+        background: #2d2d2d;
+    }
+    */
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ========================================
+   TOUCH DEVICES
+======================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Augmenter les zones tactiles */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-link {
+        padding: var(--space-sm);
+    }
+
+    /* Désactiver les hover effects sur tactile */
+    .card:hover,
+    .btn:hover {
+        transform: none;
+    }
+
+    /* Feedback tactile */
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* ========================================
+   PRINT SPECIFIC
+======================================== */
+@media print {
+    /* Hide navigation */
+    .nav-main,
+    .mobile-menu-toggle,
+    .hero-cta,
+    .btn,
+    footer {
+        display: none;
+    }
+
+    /* Reset colors for print */
+    body {
+        background: white;
+        color: black;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    /* Page breaks */
+    section {
+        page-break-inside: avoid;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* ========================================
+   UTILITIES RESPONSIVE
+======================================== */
+
+/* Hide/Show par breakpoint */
+.hide-mobile {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .hide-mobile {
+        display: block;
+    }
+    .hide-tablet {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hide-tablet {
+        display: block;
+    }
+    .hide-desktop {
+        display: none;
+    }
+}
+
+.show-mobile {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .show-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .show-tablet {
+        display: none;
+    }
+}
