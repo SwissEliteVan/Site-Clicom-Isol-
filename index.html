@@ -365,16 +365,24 @@
         </div>
         <form id="contactForm" class="glass">
           <div class="form-row">
-            <label for="name">Nom complet</label>
-            <input id="name" name="name" type="text" placeholder="Claire Martin" required />
+            <label for="contact_name">Nom complet</label>
+            <input id="contact_name" name="contact_name" type="text" placeholder="Claire Martin" required />
+          </div>
+          <div class="form-row">
+            <label for="company_name">Entreprise</label>
+            <input id="company_name" name="company_name" type="text" placeholder="Votre Entreprise SA" />
           </div>
           <div class="form-row">
             <label for="email">Email professionnel</label>
             <input id="email" name="email" type="email" placeholder="claire@entreprise.ch" required />
           </div>
           <div class="form-row">
-            <label for="project">Projet & objectifs</label>
-            <textarea id="project" name="project" rows="4" placeholder="Décrivez votre besoin..."></textarea>
+            <label for="phone">Téléphone (optionnel)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+41 22 123 45 67" />
+          </div>
+          <div class="form-row">
+            <label for="message">Projet & objectifs</label>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin..."></textarea>
           </div>
           <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
           <button class="cta" type="submit">Recevoir mon audit</button>
@@ -392,14 +400,23 @@
   <script>
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
+    // Remplacer par l'URL de votre backend Hostinger
     const apiUrl = 'https://votre-domaine-hostinger.ch/api/contact.php';
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      status.textContent = 'Envoi en cours...';
+      status.textContent = '⏳ Envoi en cours...';
+      status.style.color = '#7dd3fc';
 
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
+      const payload = {
+        contact_name: formData.get('contact_name'),
+        company_name: formData.get('company_name') || '',
+        email: formData.get('email'),
+        phone: formData.get('phone') || '',
+        message: formData.get('message') || '',
+        website: formData.get('website') // Honeypot anti-spam
+      };
 
       try {
         const response = await fetch(apiUrl, {
@@ -410,15 +427,19 @@
           body: JSON.stringify(payload),
         });
 
-        if (!response.ok) {
-          throw new Error('Erreur lors de la soumission.');
-        }
-
         const data = await response.json();
-        status.textContent = data.message || 'Merci, nous revenons vers vous rapidement.';
-        form.reset();
+
+        if (response.ok && data.success) {
+          status.textContent = '✅ ' + (data.message || 'Merci ! Nous vous recontactons sous 24h.');
+          status.style.color = '#22c55e';
+          form.reset();
+        } else {
+          throw new Error(data.message || 'Erreur lors de la soumission');
+        }
       } catch (error) {
-        status.textContent = 'Impossible d\'envoyer votre demande. Merci de réessayer.';
+        status.textContent = '❌ Impossible d\'envoyer votre demande. Merci de réessayer.';
+        status.style.color = '#ef4444';
+        console.error('Erreur formulaire:', error);
       }
     });
   </script>
