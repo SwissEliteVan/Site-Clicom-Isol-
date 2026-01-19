@@ -1,114 +1,174 @@
 <?php
-$config = [
-    'db' => [
-        'host' => 'localhost',
-        'name' => 'clicom_db',
-        'user' => 'clicom_user',
-        'pass' => 'change_me',
-        'charset' => 'utf8mb4',
-    ],
-    'send_emails' => true,
-    'notification_email' => 'contact@clicom.ch',
-];
+/**
+ * CLICOM - API Contact
+ * ====================
+ * Endpoint pour le formulaire de contact du site vitrine
+ *
+ * Actions:
+ * 1. Validation des données (honeypot, email)
+ * 2. Insertion dans la table 'clients'
+ * 3. Création d'une tâche 'Rappeler prospect' (priorité haute)
+ * 4. Envoi email de notification
+ */
 
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
+require_once 'config.php';
+
+// =========================================
+// HEADERS CORS (Vercel -> Hostinger)
+// =========================================
+header('Access-Control-Allow-Origin: ' . ALLOWED_ORIGINS);
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Content-Type: application/json; charset=utf-8');
 
+// Gérer la requête OPTIONS (preflight CORS)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(204);
+    http_response_code(200);
     exit;
 }
 
+// Accepter uniquement POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Méthode non autorisée.']);
+    echo json_encode(['success' => false, 'message' => 'Méthode non autorisée']);
     exit;
 }
 
-$rawBody = file_get_contents('php://input');
-$data = [];
+// =========================================
+// RÉCUPÉRATION DES DONNÉES
+// =========================================
+$input = json_decode(file_get_contents('php://input'), true);
 
-if (!empty($rawBody)) {
-    $decoded = json_decode($rawBody, true);
-    if (json_last_error() === JSON_ERROR_NONE) {
-        $data = $decoded;
-    }
-}
+$companyName = isset($input['company_name']) ? sanitizeInput($input['company_name']) : '';
+$contactName = isset($input['contact_name']) ? sanitizeInput($input['contact_name']) : '';
+$email = isset($input['email']) ? sanitizeInput($input['email']) : '';
+$phone = isset($input['phone']) ? sanitizeInput($input['phone']) : '';
+$message = isset($input['message']) ? sanitizeInput($input['message']) : '';
+$honeypot = isset($input['website']) ? $input['website'] : ''; // Champ piège anti-spam
 
-if (empty($data)) {
-    $data = $_POST;
-}
+// =========================================
+// VALIDATION
+// =========================================
 
-$honeypot = trim($data['website'] ?? '');
-if ($honeypot !== '') {
-    http_response_code(204);
+// 1. Vérification Honeypot
+if (ENABLE_HONEYPOT && !empty($honeypot)) {
+    // Bot détecté
+    http_response_code(200); // Renvoyer 200 pour ne pas alerter le bot
+    echo json_encode(['success' => true, 'message' => 'Merci pour votre message']);
     exit;
 }
 
-$name = trim($data['name'] ?? '');
-$email = trim($data['email'] ?? '');
-$project = trim($data['project'] ?? '');
-
-if ($name === '' || $email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(422);
-    echo json_encode(['success' => false, 'message' => 'Veuillez fournir un nom et un email valide.']);
+// 2. Validation des champs obligatoires
+if (empty($contactName) || empty($email)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Nom et email sont obligatoires']);
     exit;
 }
 
+// 3. Validation de l'email
+if (!isValidEmail($email)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Format d\'email invalide']);
+    exit;
+}
+
+// =========================================
+// INSERTION DANS LA BASE
+// =========================================
 try {
-    $dsn = sprintf(
-        'mysql:host=%s;dbname=%s;charset=%s',
-        $config['db']['host'],
-        $config['db']['name'],
-        $config['db']['charset']
-    );
-    $pdo = new PDO($dsn, $config['db']['user'], $config['db']['pass'], [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    ]);
+    $db = getDBConnection();
 
-    $pdo->beginTransaction();
+    // 1. Vérifier si le client existe déjà (par email)
+    $stmt = $db->prepare("SELECT id FROM clients WHERE email = :email");
+    $stmt->execute(['email' => $email]);
+    $existingClient = $stmt->fetch();
 
-    $clientStmt = $pdo->prepare(
-        'INSERT INTO clients (company_name, contact_name, email, phone, status) VALUES (:company, :contact, :email, :phone, :status)'
-    );
-    $clientStmt->execute([
-        ':company' => $project !== '' ? $project : null,
-        ':contact' => $name,
-        ':email' => $email,
-        ':phone' => null,
-        ':status' => 'lead',
-    ]);
+    if ($existingClient) {
+        $clientId = $existingClient['id'];
 
-    $clientId = (int) $pdo->lastInsertId();
-
-    $taskStmt = $pdo->prepare(
-        'INSERT INTO tasks (related_to_id, type, priority, due_date) VALUES (:client_id, :type, :priority, :due_date)'
-    );
-    $taskStmt->execute([
-        ':client_id' => $clientId,
-        ':type' => 'Rappeler prospect',
-        ':priority' => 'high',
-        ':due_date' => date('Y-m-d', strtotime('+1 day')),
-    ]);
-
-    $pdo->commit();
-} catch (Throwable $e) {
-    if (isset($pdo) && $pdo->inTransaction()) {
-        $pdo->rollBack();
+        // Mettre à jour les informations si elles ont changé
+        $stmt = $db->prepare("
+            UPDATE clients
+            SET company_name = COALESCE(NULLIF(:company_name, ''), company_name),
+                contact_name = :contact_name,
+                phone = COALESCE(NULLIF(:phone, ''), phone),
+                updated_at = CURRENT_TIMESTAMP
+            WHERE id = :id
+        ");
+        $stmt->execute([
+            'company_name' => $companyName,
+            'contact_name' => $contactName,
+            'phone' => $phone,
+            'id' => $clientId
+        ]);
+    } else {
+        // Insérer nouveau client
+        $stmt = $db->prepare("
+            INSERT INTO clients (company_name, contact_name, email, phone, status, source, notes)
+            VALUES (:company_name, :contact_name, :email, :phone, 'lead', 'website', :notes)
+        ");
+        $stmt->execute([
+            'company_name' => $companyName ?: 'Non renseigné',
+            'contact_name' => $contactName,
+            'email' => $email,
+            'phone' => $phone,
+            'notes' => $message
+        ]);
+        $clientId = $db->lastInsertId();
     }
 
+    // 2. Créer une tâche "Rappeler prospect" (Priorité Haute)
+    $stmt = $db->prepare("
+        INSERT INTO tasks (related_to_id, related_to_type, type, priority, due_date, description, status)
+        VALUES (:client_id, 'client', 'Rappeler prospect', 'high', DATE_ADD(CURRENT_DATE, INTERVAL 1 DAY), :description, 'todo')
+    ");
+    $stmt->execute([
+        'client_id' => $clientId,
+        'description' => "Nouveau lead via formulaire web\nMessage: " . $message
+    ]);
+
+    // =========================================
+    // ENVOI EMAIL NOTIFICATION
+    // =========================================
+    if (SEND_EMAILS) {
+        $subject = "🔔 Nouveau Lead - " . $contactName;
+        $emailBody = "
+            <html>
+            <body style='font-family: Arial, sans-serif;'>
+                <h2>Nouveau Lead CLICOM</h2>
+                <p><strong>Nom:</strong> {$contactName}</p>
+                <p><strong>Entreprise:</strong> {$companyName}</p>
+                <p><strong>Email:</strong> {$email}</p>
+                <p><strong>Téléphone:</strong> {$phone}</p>
+                <p><strong>Message:</strong><br>{$message}</p>
+                <hr>
+                <p style='color: #666;'>Source: Formulaire site vitrine</p>
+            </body>
+            </html>
+        ";
+
+        $headers = "From: " . FROM_NAME . " <" . FROM_EMAIL . ">\r\n";
+        $headers .= "Reply-To: " . $email . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+        mail(ADMIN_EMAIL, $subject, $emailBody, $headers);
+    }
+
+    // =========================================
+    // RÉPONSE SUCCESS
+    // =========================================
+    http_response_code(200);
+    echo json_encode([
+        'success' => true,
+        'message' => 'Merci ! Nous vous recontactons sous 24h.',
+        'client_id' => $clientId
+    ]);
+
+} catch (PDOException $e) {
+    error_log("Contact API Error: " . $e->getMessage());
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Erreur serveur.']);
-    exit;
+    echo json_encode([
+        'success' => false,
+        'message' => 'Une erreur est survenue. Veuillez réessayer.'
+    ]);
 }
-
-if ($config['send_emails'] === true) {
-    $subject = 'Nouveau prospect CLICOM';
-    $message = "Nom: {$name}\nEmail: {$email}\nProjet: {$project}\n";
-    $headers = "From: no-reply@clicom.ch\r\n";
-    @mail($config['notification_email'], $subject, $message, $headers);
-}
-
-echo json_encode(['success' => true, 'message' => 'Merci, nous revenons vers vous rapidement.']);
