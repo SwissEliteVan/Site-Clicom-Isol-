@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #050505;
-      --text: #f4f4f4;
-      --muted: #9b9b9b;
-      --glass: rgba(255, 255, 255, 0.04);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --cyan: #22d3ee;
-      --violet: #8b5cf6;
+      color-scheme: light;
+      --bg: #f8f9fa;
+      --text: #1a1a2e;
+      --muted: #667085;
+      --glass: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(15, 23, 42, 0.08);
+      --cyan: #3366ff;
+      --violet: #4f46e5;
       --deep-blue: #1d4ed8;
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -60,25 +60,25 @@
       border-radius: 50%;
       filter: blur(120px);
       opacity: 0.55;
-      mix-blend-mode: screen;
+      mix-blend-mode: multiply;
       animation: float 18s ease-in-out infinite;
     }
 
     .aurora span:nth-child(1) {
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.8), transparent 60%);
+      background: radial-gradient(circle, rgba(51, 102, 255, 0.2), transparent 60%);
       top: -15%;
       left: -10%;
     }
 
     .aurora span:nth-child(2) {
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.85), transparent 60%);
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.2), transparent 60%);
       bottom: -20%;
       right: -5%;
       animation-delay: -6s;
     }
 
     .aurora span:nth-child(3) {
-      background: radial-gradient(circle, rgba(29, 78, 216, 0.7), transparent 60%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.18), transparent 60%);
       top: 20%;
       right: 20%;
       animation-delay: -12s;
@@ -123,8 +123,8 @@
     .pill {
       padding: 0.7rem 1.6rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: rgba(255, 255, 255, 0.8);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -159,9 +159,9 @@
       padding: 1rem 2.4rem;
       border-radius: 999px;
       font-weight: 600;
-      color: #050505;
+      color: #ffffff;
       background: linear-gradient(120deg, var(--cyan), var(--violet));
-      box-shadow: 0 20px 60px rgba(34, 211, 238, 0.35);
+      box-shadow: 0 20px 60px rgba(51, 102, 255, 0.25);
       position: relative;
       overflow: hidden;
       transition: transform 0.3s ease;
@@ -189,8 +189,8 @@
       gap: 1.2rem;
       padding: 2rem;
       border-radius: 28px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(15, 23, 42, 0.08);
       backdrop-filter: blur(20px);
     }
 
@@ -236,7 +236,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(34, 211, 238, 0.18), transparent 45%);
+      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(51, 102, 255, 0.18), transparent 45%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -306,7 +306,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, rgba(34, 211, 238, 0.2), rgba(139, 92, 246, 0.6), rgba(34, 211, 238, 0.2));
+      background: linear-gradient(90deg, rgba(51, 102, 255, 0.12), rgba(79, 70, 229, 0.4), rgba(51, 102, 255, 0.12));
     }
 
     .method-step {
@@ -328,9 +328,9 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: var(--bg);
+      background: #ffffff;
       border: 2px solid var(--cyan);
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+      box-shadow: 0 0 20px rgba(51, 102, 255, 0.25);
     }
 
     .pricing-grid {
@@ -346,6 +346,7 @@
     .price {
       font-size: 2.6rem;
       margin: 1.2rem 0;
+      font-weight: 700;
     }
 
     .pricing-card ul {
@@ -365,10 +366,26 @@
       display: inline-flex;
       padding: 0.35rem 0.8rem;
       border-radius: 999px;
-      background: rgba(34, 211, 238, 0.12);
+      background: rgba(51, 102, 255, 0.12);
       color: var(--cyan);
       font-size: 0.8rem;
       font-weight: 600;
+    }
+
+    .pricing-note {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card h3 {
+      font-size: 1.4rem;
     }
 
     .contact-grid {
@@ -406,7 +423,7 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.2);
       padding: 0.6rem 0;
       color: var(--text);
       font-family: "Inter", sans-serif;
@@ -432,7 +449,7 @@
     footer {
       padding: 5rem 0 3rem;
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
     }
 
     .footer-logo {
@@ -495,6 +512,7 @@
         <a href="#services">Services</a>
         <a href="#method">Méthode</a>
         <a href="#pricing">Tarifs</a>
+        <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
       </div>
       <a class="pill" href="#contact">Audit Digital Offert</a>
@@ -511,11 +529,11 @@
         </div>
       </div>
       <div class="hero-stats glow-card">
-        <h3>Dark Mode Premium</h3>
-        <p class="stat">Stratégie, performance et contenus réunis dans un écosystème digital conçu pour la croissance.</p>
-        <div class="stat">✦ Audit &amp; positionnement 360°</div>
-        <div class="stat">✦ CRM, acquisition &amp; automation</div>
-        <div class="stat">✦ Production vidéo et social native</div>
+        <h3>Une agence engagée pour votre croissance</h3>
+        <p class="stat">Stratégie, visibilité et contenus réunis pour accélérer la performance des PME suisses.</p>
+        <div class="stat">✦ Audit stratégique et plan d'action clair</div>
+        <div class="stat">✦ Visibilité locale sur Google</div>
+        <div class="stat">✦ Contenus professionnels &amp; réguliers</div>
       </div>
     </section>
   </header>
@@ -523,40 +541,34 @@
   <main>
     <section id="services" class="container">
       <p class="section-kicker">Services</p>
-      <h2 class="section-title">Une Bento Grid pensée pour la croissance.</h2>
-      <p class="section-subtitle">Chaque pôle fonctionne comme une cellule autonome, connectée à votre CRM pour amplifier votre acquisition.</p>
+      <h2 class="section-title">Des expertises claires, pensées pour votre croissance.</h2>
+      <p class="section-subtitle">Trois pôles essentiels pour structurer votre présence digitale, attirer vos clients et renforcer votre crédibilité.</p>
       <div class="bento-grid">
-        <article class="glass glow-card bento-card span-4">
-          <h3>Stratégie &amp; Conseil</h3>
-          <p>Audit, positionnement et roadmap sur-mesure pour créer l'effet de levier.</p>
+        <article class="glass glow-card bento-card span-2">
+          <h3>Stratégie &amp; Sites Web</h3>
+          <p>Audit, conseil et création de sites sur mesure pour convertir vos visiteurs en clients.</p>
           <ul>
-            <li>Audit digital &amp; diagnostics 360°</li>
-            <li>Positionnement, branding &amp; offre</li>
-            <li>Architecture CRM orientée leads</li>
+            <li>Sites vitrines &amp; boutiques en ligne</li>
+            <li>Expérience utilisateur claire et efficace</li>
+            <li>Identité visuelle cohérente</li>
           </ul>
         </article>
         <article class="glass glow-card bento-card span-2">
-          <h3>Performance &amp; Growth</h3>
-          <p>Déclenchement rapide et itérations hebdo pour scaler.</p>
+          <h3>Visibilité &amp; Performance</h3>
+          <p>Référencement et campagnes ciblées pour gagner en visibilité et en prospects qualifiés.</p>
           <ul>
-            <li>SEO &amp; Ads multi-canal</li>
-            <li>Tracking avancé &amp; CRO</li>
+            <li>Référencement naturel local</li>
+            <li>Publicités Google et réseaux sociaux</li>
+            <li>Suivi des conversions et résultats</li>
           </ul>
         </article>
-        <article class="glass glow-card bento-card span-3">
-          <h3>Content Factory</h3>
-          <p>Production agile pour nourrir social, ads et brand content.</p>
+        <article class="glass glow-card bento-card span-2">
+          <h3>Création de Contenu</h3>
+          <p>Des contenus professionnels pour valoriser votre expertise et nourrir vos canaux.</p>
           <ul>
-            <li>Vidéo, Social, UGC</li>
-            <li>Direction créative &amp; motion</li>
-          </ul>
-        </article>
-        <article class="glass glow-card bento-card span-3">
-          <h3>Activation CRM</h3>
-          <p>Aligner marketing, sales et data pour convertir.</p>
-          <ul>
-            <li>Automations &amp; nurturing</li>
-            <li>Dashboards &amp; reporting live</li>
+            <li>Vidéo, photo et motion léger</li>
+            <li>Rédaction d'articles et pages clés</li>
+            <li>Contenus réseaux sociaux</li>
           </ul>
         </article>
       </div>
@@ -587,30 +599,52 @@
 
     <section id="pricing" class="container">
       <p class="section-kicker">Tarifs</p>
-      <h2 class="section-title">Des packs clairs, un rendu premium.</h2>
+      <h2 class="section-title">Des offres claires pour démarrer et accélérer.</h2>
       <div class="pricing-grid">
         <article class="glass glow-card pricing-card">
-          <h3>Starter</h3>
-          <p class="section-subtitle" style="margin: 0;">Site vitrine + Setup CRM</p>
+          <h3>STARTER</h3>
+          <p class="section-subtitle" style="margin: 0;">Pack pour lancer votre présence digitale</p>
           <div class="price">2'500 CHF</div>
           <ul>
-            <li>Audit de lancement &amp; stratégie</li>
-            <li>Site vitrine premium</li>
-            <li>CRM initialisé &amp; reporting</li>
+            <li>Site Vitrine</li>
+            <li>Design Sur Mesure</li>
+            <li>SEO de base</li>
           </ul>
           <a class="cta-glow" style="margin-top: 1.8rem; width: 100%; justify-content: center;" href="#contact">Démarrer</a>
         </article>
         <article class="glass glow-card pricing-card">
           <span class="tag">Recommandé</span>
-          <h3>Growth</h3>
-          <p class="section-subtitle" style="margin: 0;">Écosystème complet + Campagnes</p>
+          <h3>GROWTH</h3>
+          <p class="section-subtitle" style="margin: 0;">Pack complet pour accélérer vos ventes</p>
           <div class="price">5'000 CHF</div>
           <ul>
-            <li>Site, CRM, funnels &amp; automation</li>
-            <li>Campagnes Ads + contenus premium</li>
-            <li>Optimisation continue &amp; dashboard</li>
+            <li>Tout Starter</li>
+            <li>CRM Intégré</li>
+            <li>Portail Client</li>
+            <li>Campagne Pub</li>
           </ul>
           <a class="cta-glow" style="margin-top: 1.8rem; width: 100%; justify-content: center;" href="#contact">Activer la croissance</a>
+        </article>
+      </div>
+      <p class="pricing-note">Mandats mensuels dès 500 CHF/mois.</p>
+    </section>
+
+    <section id="blog" class="container">
+      <p class="section-kicker">Blog</p>
+      <h2 class="section-title">Nos conseils pour garder une longueur d'avance.</h2>
+      <p class="section-subtitle">Trois ressources clés pour comprendre les nouveaux enjeux digitaux en Suisse romande.</p>
+      <div class="blog-grid">
+        <article class="glass glow-card blog-card">
+          <h3>Pourquoi un site web ne suffit plus en 2025 ?</h3>
+          <p class="section-subtitle" style="margin: 0;">Une présence digitale performante passe par l'acquisition et le contenu.</p>
+        </article>
+        <article class="glass glow-card blog-card">
+          <h3>La méthode 30-60-90</h3>
+          <p class="section-subtitle" style="margin: 0;">Les étapes clés pour structurer une croissance mesurable en 90 jours.</p>
+        </article>
+        <article class="glass glow-card blog-card">
+          <h3>SEO Local : Dominez votre canton</h3>
+          <p class="section-subtitle" style="margin: 0;">Comment devenir la référence locale sur Google en Suisse romande.</p>
         </article>
       </div>
     </section>
