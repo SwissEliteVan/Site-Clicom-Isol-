@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr-CH" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | CLICOM</title>
+<meta name="description" content="Formulaire multi-étapes pour démarrer votre projet marketing en Suisse romande.">
+<link rel="canonical" href="https://www.clicom.ch/contact/">
+<meta property="og:title" content="Contact CLICOM">
+<meta property="og:description" content="Démarrer une collaboration en 3 étapes simples.">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+</head>
+<body>
+<a class="skip" href="#main-content">Aller au contenu</a>
+<header class="site-header">
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="logo" href="/">CLICOM.</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="/expertises/">Expertises</a>
+        <a href="/methode/">Méthode</a>
+        <a href="/tarifs/">Tarifs</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/" aria-current="page">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Activer le mode sombre"><span aria-hidden="true">🌙</span><span class="theme-label">Mode sombre</span></button>
+        <a class="cta" href="/tarifs/">Voir les tarifs</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="page">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li>Contact</li></ol></nav>
+    <section class="page-hero">
+      <p class="eyebrow">Démarrer en 3 étapes</p>
+      <h1>Parlons de votre croissance.</h1>
+      <p data-step-status aria-live="polite"></p>
+    </section>
+    <form class="card" data-multi-step>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
+      <input type="hidden" name="utm_source" data-utm="utm_source">
+      <input type="hidden" name="utm_medium" data-utm="utm_medium">
+      <input type="hidden" name="utm_campaign" data-utm="utm_campaign">
+      <input type="hidden" name="utm_content" data-utm="utm_content">
+      <input type="hidden" name="utm_term" data-utm="utm_term">
+      <input type="hidden" name="referrer" data-utm="referrer">
+      <input type="hidden" name="offre" data-utm="offre">
+      <input type="hidden" name="estimation" data-utm="estimation">
+      <div data-step>
+        <div class="form-grid">
+          <div><label for="contact-name">Nom</label><input id="contact-name" name="name" type="text" autocomplete="name" required></div>
+          <div><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="contact-phone">Téléphone</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="form-actions"><span></span><button class="cta" type="button" data-next>Continuer</button></div>
+      </div>
+      <div data-step hidden>
+        <div class="form-grid">
+          <div><label for="contact-need">Besoin principal</label><select id="contact-need" name="need" required><option value="">Choisir</option><option>Générer des leads</option><option>SEO local</option><option>CRM & suivi</option><option>Refonte site</option></select></div>
+          <div><label for="contact-budget">Budget mensuel</label><select id="contact-budget" name="budget" required><option value="">Choisir</option><option>2’500 - 5’000 CHF</option><option>5’000 - 10’000 CHF</option><option>10’000+ CHF</option></select></div>
+        </div>
+        <div class="form-actions"><button class="ghost" type="button" data-prev>Retour</button><button class="cta" type="button" data-next>Continuer</button></div>
+      </div>
+      <div data-step hidden>
+        <div class="form-grid">
+          <div><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" required></textarea></div>
+        </div>
+        <div class="form-actions"><button class="ghost" type="button" data-prev>Retour</button><button class="cta" type="submit">Envoyer</button></div>
+      </div>
+      <p class="meta" aria-live="polite">Aucune donnée n'est partagée. Stockage temporaire pour reprise automatique.</p>
+    </form>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><h3>CLICOM.</h3><p>hello@clicom.ch<br><a href="tel:+41788238950">078 823 89 50</a></p><p>Suisse Romande</p></div>
+    <div><h4>Navigation</h4><ul><li><a href="/tarifs/">Tarifs</a></li><li><a href="/blog/">Blog</a></li><li><a href="/ressources/">Ressources</a></li></ul></div>
+    <div><h4>Légal</h4><ul><li><a href="/legal/lpd/">LPD</a></li><li><a href="/legal/mentions/">Mentions</a></li></ul></div>
+  </div>
+</footer>
+<script src="/scripts/site.js"></script>
+</body>
+</html>

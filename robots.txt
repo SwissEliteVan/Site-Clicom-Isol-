@@ -11,4 +11,3 @@ Crawl-delay: 1
 
 # Bloquer les ressources inutiles pour les crawlers
 Disallow: /assets/videos/
-Disallow: /*.pdf$
