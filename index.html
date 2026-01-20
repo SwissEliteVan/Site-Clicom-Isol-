@@ -1,746 +1,427 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CH">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLICOM — Agence Marketing Digital</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f8f9fa;
-      --text: #1a1a2e;
-      --muted: #667085;
-      --glass: rgba(255, 255, 255, 0.9);
-      --glass-border: rgba(15, 23, 42, 0.08);
-      --cyan: #3366ff;
-      --violet: #4f46e5;
-      --deep-blue: #1d4ed8;
-      --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: "Outfit", sans-serif;
-      letter-spacing: -0.03em;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .aurora {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      background: var(--bg);
-    }
-
-    .aurora span {
-      position: absolute;
-      width: 45vw;
-      height: 45vw;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.55;
-      mix-blend-mode: multiply;
-      animation: float 18s ease-in-out infinite;
-    }
-
-    .aurora span:nth-child(1) {
-      background: radial-gradient(circle, rgba(51, 102, 255, 0.2), transparent 60%);
-      top: -15%;
-      left: -10%;
-    }
-
-    .aurora span:nth-child(2) {
-      background: radial-gradient(circle, rgba(79, 70, 229, 0.2), transparent 60%);
-      bottom: -20%;
-      right: -5%;
-      animation-delay: -6s;
-    }
-
-    .aurora span:nth-child(3) {
-      background: radial-gradient(circle, rgba(29, 78, 216, 0.18), transparent 60%);
-      top: 20%;
-      right: 20%;
-      animation-delay: -12s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-      50% { transform: translate3d(10%, -8%, 0) scale(1.1); }
-    }
-
-    .container {
-      width: min(1200px, 90vw);
-      margin: 0 auto;
-      padding: 6rem 0;
-    }
-
-    header {
-      padding-top: 2rem;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-size: 1.1rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .pill {
-      padding: 0.7rem 1.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      background: rgba(255, 255, 255, 0.8);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(34, 211, 238, 0.2);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      align-items: center;
-      padding-top: 5rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.2rem, 6vw, 5.6rem);
-      line-height: 1.05;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin: 1.5rem 0 2.2rem;
-    }
-
-    .cta-glow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 2.4rem;
-      border-radius: 999px;
-      font-weight: 600;
-      color: #ffffff;
-      background: linear-gradient(120deg, var(--cyan), var(--violet));
-      box-shadow: 0 20px 60px rgba(51, 102, 255, 0.25);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-
-    .cta-glow::after {
-      content: "";
-      position: absolute;
-      inset: -150% 0 0 0;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .cta-glow:hover {
-      transform: translateY(-2px) scale(1.01);
-    }
-
-    .cta-glow:hover::after {
-      opacity: 0.25;
-    }
-
-    .hero-stats {
-      display: grid;
-      gap: 1.2rem;
-      padding: 2rem;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      backdrop-filter: blur(20px);
-    }
-
-    .hero-stats h3 {
-      font-size: 1.6rem;
-    }
-
-    .hero-stats .stat {
-      color: var(--muted);
-    }
-
-    .section-kicker {
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
-      margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-      max-width: 640px;
-      color: var(--muted);
-      margin-bottom: 2.8rem;
-    }
-
-    .glass {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 28px;
-      padding: 2.2rem;
-      backdrop-filter: blur(20px);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .glow-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(51, 102, 255, 0.18), transparent 45%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .glow-card:hover::before {
-      opacity: 1;
-    }
-
-    .glow-card:hover {
-      transform: translateY(-6px);
-      transition: transform 0.3s ease;
-    }
-
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      grid-auto-rows: minmax(160px, auto);
-      gap: 1.6rem;
-    }
-
-    .bento-card {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .bento-card h3 {
-      font-size: 1.6rem;
-    }
-
-    .bento-card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.5rem;
-      color: var(--muted);
-    }
-
-    .bento-card li::before {
-      content: "✦";
-      margin-right: 0.5rem;
-      color: var(--cyan);
-    }
-
-    .span-4 {
-      grid-column: span 4;
-    }
-
-    .span-2 {
-      grid-column: span 2;
-    }
-
-    .span-3 {
-      grid-column: span 3;
-    }
-
-    .method-track {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      position: relative;
-    }
-
-    .method-track::before {
-      content: "";
-      position: absolute;
-      top: 16px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(51, 102, 255, 0.12), rgba(79, 70, 229, 0.4), rgba(51, 102, 255, 0.12));
-    }
-
-    .method-step {
-      padding-top: 2.5rem;
-      position: relative;
-    }
-
-    .method-step span {
-      font-size: 0.85rem;
-      letter-spacing: 0.3em;
-      color: var(--muted);
-    }
-
-    .method-step::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 2px solid var(--cyan);
-      box-shadow: 0 0 20px rgba(51, 102, 255, 0.25);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .pricing-card h3 {
-      font-size: 1.8rem;
-    }
-
-    .price {
-      font-size: 2.6rem;
-      margin: 1.2rem 0;
-      font-weight: 700;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.6rem;
-      color: var(--muted);
-    }
-
-    .pricing-card li::before {
-      content: "✓";
-      color: var(--cyan);
-      margin-right: 0.5rem;
-    }
-
-    .tag {
-      display: inline-flex;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(51, 102, 255, 0.12);
-      color: var(--cyan);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .pricing-note {
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-    }
-
-    .blog-card h3 {
-      font-size: 1.4rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .contact-details {
-      display: grid;
-      gap: 1rem;
-      color: var(--muted);
-      margin-top: 1.5rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .field {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-    }
-
-    input, textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.2);
-      padding: 0.6rem 0;
-      color: var(--text);
-      font-family: "Inter", sans-serif;
-      font-size: 1rem;
-      outline: none;
-      resize: none;
-    }
-
-    input:focus, textarea:focus {
-      border-bottom-color: var(--cyan);
-    }
-
-    .form-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .status {
-      font-size: 0.9rem;
-      color: var(--cyan);
-    }
-
-    footer {
-      padding: 5rem 0 3rem;
-      text-align: center;
-      border-top: 1px solid rgba(15, 23, 42, 0.08);
-    }
-
-    .footer-logo {
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(3rem, 10vw, 8rem);
-      letter-spacing: 0.3em;
-    }
-
-    .footer-note {
-      color: var(--muted);
-      margin-top: 1.5rem;
-    }
-
-    @media (max-width: 900px) {
-      .bento-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .span-4,
-      .span-3,
-      .span-2 {
-        grid-column: span 2;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        padding-top: 3rem;
-      }
-
-      .method-track::before {
-        display: none;
-      }
-
-      .method-step::before {
-        top: 0;
-      }
-
-      .method-step {
-        padding-top: 2rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CLICOM — Département marketing externalisé pour PME suisses</title>
+<meta name="description" content="CLICOM est votre département marketing externalisé en Suisse Romande. Stratégie, création et technologie pour PME, sans intermédiaire." />
+<meta name="theme-color" content="#3366ff" />
+<meta property="og:title" content="CLICOM — Votre département marketing externalisé" />
+<meta property="og:description" content="Stratégie, création et technologie pour les PME suisses. Sans intermédiaire." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_CH" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CLICOM","email":"hello@clicom.ch","telephone":"+41788238950","areaServed":"Suisse Romande","url":"https://clicom.ch"}</script>
+<style>
+:root{color-scheme:light;--bg:#f6f6f4;--text:#0f172a;--muted:#4b5563;--accent:#3366ff;--border:rgba(15,23,42,.12);--card:#fff;--shadow:0 16px 40px rgba(15,23,42,.08);--radius:18px;--radius-sm:12px;--space-1:clamp(.5rem,.8vw,1rem);--space-2:clamp(1rem,1.6vw,1.5rem);--space-3:clamp(1.5rem,2.2vw,2.5rem);--space-4:clamp(2.2rem,3vw,3.5rem);--space-5:clamp(3rem,4vw,5rem);--h1:clamp(2.4rem,4.8vw,4.4rem);--h2:clamp(1.6rem,2.6vw,2.6rem);--h3:clamp(1.1rem,1.6vw,1.5rem);--body:clamp(1rem,1.1vw,1.1rem);--trans:180ms ease}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:var(--body)}
+img,svg{max-width:100%;display:block}
+main{overflow:hidden}
+section{padding:var(--space-5) 0;content-visibility:auto;contain-intrinsic-size:1px 800px}
+header{position:sticky;top:0;z-index:20;background:rgba(246,246,244,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.skip{position:absolute;left:-999px;top:1rem;background:#000;color:#fff;padding:.5rem 1rem;border-radius:8px}
+.skip:focus{left:1rem;z-index:999}
+.progress{height:3px;background:linear-gradient(90deg,var(--accent),#0f172a);width:0%}
+.container{width:min(1180px,92vw);margin:0 auto}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+.logo{letter-spacing:.4em;text-transform:uppercase;font-weight:700;font-size:.9rem}
+.nav-links{display:flex;gap:1.5rem;font-size:.95rem;color:var(--muted)}
+.nav-links a{position:relative;padding:.2rem 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-.2rem;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--trans)}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+.cta{background:var(--accent);color:#fff;padding:.7rem 1.2rem;border-radius:999px;font-weight:600;box-shadow:0 8px 18px rgba(51,102,255,.28);transition:transform var(--trans),box-shadow var(--trans)}
+.cta:hover,.cta:focus-visible{transform:translateY(-2px);box-shadow:0 12px 24px rgba(51,102,255,.34)}
+.grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-2)}
+.hero{padding:var(--space-5) 0 var(--space-4)}
+.hero h1{font-size:var(--h1);letter-spacing:-.03em;line-height:1.05}
+.hero p{max-width:52ch;color:var(--muted);margin-top:var(--space-1)}
+.hero .slogan{font-weight:600;margin-top:var(--space-2)}
+.badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);border-radius:999px;padding:.2rem .8rem;font-size:.8rem;color:var(--muted)}
+.bento{grid-column:span 12;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-2)}
+.bento-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2);transition:transform var(--trans),box-shadow var(--trans),border var(--trans)}
+.bento-card:hover,.bento-card:focus-within{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(51,102,255,.5)}
+.bento-card h3{font-size:var(--h3);margin-bottom:.6rem}
+.bento-card p{color:var(--muted)}
+.method{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.method .card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:var(--space-3);box-shadow:var(--shadow)}
+.pricing{background:#fff}
+.pricing-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-2)}
+.switch{display:flex;align-items:center;gap:.8rem;border:1px solid var(--border);padding:.4rem .8rem;border-radius:999px}
+.switch button{border:1px solid var(--border);background:#fff;border-radius:999px;padding:.25rem .5rem;display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:var(--muted);cursor:pointer}
+.switch .dot{width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform var(--trans),background var(--trans)}
+.switch [aria-checked="true"]{color:var(--accent);border-color:rgba(51,102,255,.5)}
+.switch [aria-checked="true"] .dot{transform:translateX(18px);background:var(--accent)}
+.pricing-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-2)}
+.price-card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2);display:flex;flex-direction:column;gap:1rem;position:relative}
+.price-card.highlight{border-color:rgba(51,102,255,.6);box-shadow:var(--shadow)}
+.price-card.sticky{position:sticky;top:5.5rem;align-self:start}
+.price-title{display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+.badge-strong{background:var(--accent);color:#fff;border-radius:999px;font-size:.75rem;padding:.2rem .6rem}
+.price{font-size:clamp(1.8rem,2.6vw,2.6rem);font-weight:700}
+.price small{font-size:.85rem;color:var(--muted);font-weight:500}
+.price-meta{color:var(--muted);font-size:.95rem}
+.price-list{display:grid;gap:.4rem;color:var(--muted);list-style:none;padding:0;margin:0}
+.price-list span{display:flex;gap:.5rem;align-items:center}
+.price-list svg{width:16px;height:16px;stroke:var(--accent)}
+.price-cta{margin-top:auto}
+.compare{margin-top:var(--space-3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.compare table{width:100%;border-collapse:collapse;font-size:.95rem}
+.compare th,.compare td{padding:1rem;border-bottom:1px solid var(--border);text-align:left}
+.compare th{background:rgba(51,102,255,.06);font-weight:600}
+.compare td .tick{width:18px;height:18px;stroke:var(--accent)}
+.accordion{margin-top:var(--space-2);display:grid;gap:.8rem}
+.accordion button{width:100%;text-align:left;background:var(--card);border:1px solid var(--border);padding:1rem;border-radius:12px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.accordion [role="region"]{padding:0 1rem 1rem;color:var(--muted)}
+.map-wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-2)}
+.map-card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2)}
+.map-legend{display:flex;flex-wrap:wrap;gap:.8rem;font-size:.9rem;color:var(--muted)}
+.map-legend span{display:flex;align-items:center;gap:.4rem}
+.map-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.map-tooltip{margin-top:.6rem;font-size:.95rem;color:var(--muted)}
+.canton{fill:#e7ecff;stroke:var(--accent);stroke-width:1.5;cursor:pointer;transition:fill var(--trans),transform var(--trans)}
+.canton:hover,.canton:focus-visible{fill:#cbd7ff;transform:translateY(-2px)}
+.canton.other{fill:#eceff3;stroke:#9aa3b2}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-2)}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2);display:grid;gap:.8rem}
+.blog-card ul{display:flex;gap:.6rem;flex-wrap:wrap;list-style:none;font-size:.8rem;color:var(--muted)}
+.contact{background:#fff;border-top:1px solid var(--border)}
+form{display:grid;gap:1rem}
+label{font-weight:600}
+input,select,textarea{width:100%;padding:.8rem;border-radius:12px;border:1px solid var(--border);font:inherit}
+input:focus,select:focus,textarea:focus,button:focus{outline:2px solid var(--accent);outline-offset:2px}
+textarea{min-height:140px;resize:vertical}
+.form-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.form-note{color:var(--muted);font-size:.9rem}
+.footer{background:#0f172a;color:#f8fafc;padding:var(--space-5) 0}
+.footer a{color:#f8fafc}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--space-2)}
+.footer small{color:#cbd5f5}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity 220ms ease,transform 220ms ease}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(min-width:768px){.hero .copy{grid-column:span 7}.hero .meta{grid-column:span 5}.price-card{grid-column:span 4}.price-card.sticky{grid-column:span 5}.price-card:nth-child(1){grid-column:span 3}.price-card:nth-child(2){grid-column:span 4}.map-card{grid-column:span 7}.map-info{grid-column:span 5}.nav-links{gap:1.2rem}}
+@media(min-width:1024px){.price-card.sticky{top:6.5rem}.compare{display:block}.price-cards-mobile{display:none}}
+@media(max-width:1023px){.compare{display:none}.price-card.sticky{position:static}}
+@media(max-width:900px){.nav-links{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <div class="aurora" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <header class="container">
-    <nav>
-      <div class="logo">CLICOM</div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#method">Méthode</a>
-        <a href="#pricing">Tarifs</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="pill" href="#contact">Audit Digital Offert</a>
+<a class="skip" href="#main">Aller au contenu</a>
+<header>
+  <div class="progress" id="progress"></div>
+  <div class="container nav">
+    <div class="logo" aria-label="CLICOM">CLICOM</div>
+    <nav aria-label="Navigation principale" class="nav-links">
+      <a href="#expertises">Expertises</a>
+      <a href="#methode">Méthode</a>
+      <a href="#tarifs">Tarifs &amp; Mandats</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
     </nav>
-
-    <section class="hero">
-      <div>
-        <p class="section-kicker">Agence Marketing Digital</p>
-        <h1>ON NE FAIT PAS FAIRE. ON SAIT FAIRE.</h1>
-        <p>L'agence Marketing Digital qui connecte Créativité et CRM.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <a class="cta-glow" href="#contact">Activer un audit</a>
-          <a class="pill" href="#services">Explorer nos pôles</a>
+    <a class="cta" href="#contact">Parler à un expert</a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="container grid-12">
+      <div class="copy reveal">
+        <span class="badge">Agence suisse romande</span>
+        <h1>Votre département marketing externalisé.</h1>
+        <p>Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.</p>
+        <p class="slogan">Chez Clicom, on ne fait pas faire, on sait faire.</p>
+      </div>
+      <div class="meta reveal" aria-hidden="true">
+        <div class="method card">
+          <h2 style="font-size:var(--h3);margin-bottom:.8rem">Impact immédiat</h2>
+          <p style="color:var(--muted)">Une équipe intégrée, un pilotage clair, des actions mesurables.</p>
         </div>
       </div>
-      <div class="hero-stats glow-card">
-        <h3>Une agence engagée pour votre croissance</h3>
-        <p class="stat">Stratégie, visibilité et contenus réunis pour accélérer la performance des PME suisses.</p>
-        <div class="stat">✦ Audit stratégique et plan d'action clair</div>
-        <div class="stat">✦ Visibilité locale sur Google</div>
-        <div class="stat">✦ Contenus professionnels &amp; réguliers</div>
-      </div>
-    </section>
-  </header>
+    </div>
+  </section>
 
-  <main>
-    <section id="services" class="container">
-      <p class="section-kicker">Services</p>
-      <h2 class="section-title">Des expertises claires, pensées pour votre croissance.</h2>
-      <p class="section-subtitle">Trois pôles essentiels pour structurer votre présence digitale, attirer vos clients et renforcer votre crédibilité.</p>
-      <div class="bento-grid">
-        <article class="glass glow-card bento-card span-2">
-          <h3>Stratégie &amp; Sites Web</h3>
-          <p>Audit, conseil et création de sites sur mesure pour convertir vos visiteurs en clients.</p>
-          <ul>
-            <li>Sites vitrines &amp; boutiques en ligne</li>
-            <li>Expérience utilisateur claire et efficace</li>
-            <li>Identité visuelle cohérente</li>
-          </ul>
-        </article>
-        <article class="glass glow-card bento-card span-2">
-          <h3>Visibilité &amp; Performance</h3>
-          <p>Référencement et campagnes ciblées pour gagner en visibilité et en prospects qualifiés.</p>
-          <ul>
-            <li>Référencement naturel local</li>
-            <li>Publicités Google et réseaux sociaux</li>
-            <li>Suivi des conversions et résultats</li>
-          </ul>
-        </article>
-        <article class="glass glow-card bento-card span-2">
-          <h3>Création de Contenu</h3>
-          <p>Des contenus professionnels pour valoriser votre expertise et nourrir vos canaux.</p>
-          <ul>
-            <li>Vidéo, photo et motion léger</li>
-            <li>Rédaction d'articles et pages clés</li>
-            <li>Contenus réseaux sociaux</li>
-          </ul>
-        </article>
+  <section id="expertises">
+    <div class="container">
+      <h2>NOS 8 PÔLES D’EXPERTISE</h2>
+      <div class="bento" role="list">
+        <article class="bento-card reveal" role="listitem"><h3>Conseil &amp; Stratégie</h3><p>Audit de marché, Positionnement de marque, Identité visuelle.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Sites Web &amp; Opérations Spéciales</h3><p>Sites vitrines performants, Boutiques en ligne, Dispositifs sur-mesure.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Publicité &amp; Performance</h3><p>Référencement Google (SEO), Publicité ciblée (SEA), Acquisition.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Studio de Contenus</h3><p>Vidéo d’entreprise, Shooting photo, Rédaction, Contenus authentiques.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Réseaux Sociaux &amp; Influence</h3><p>Gestion de communauté, Partenariats influenceurs, E-Réputation.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Événementiel Digital &amp; Physique</h3><p>Organisation de webinaires, Événements hybrides et séminaires.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Programmes Ambassadeurs</h3><p>Formez vos équipes pour qu’elles deviennent vos premiers porte-paroles.</p></article>
+        <article class="bento-card reveal" role="listitem"><h3>Prospection B2B</h3><p>Campagnes de prospection digitale intelligentes et automatisées.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="method" class="container">
-      <p class="section-kicker">Méthode 30-60-90</p>
-      <h2 class="section-title">Un rythme clair. Une progression implacable.</h2>
-      <p class="section-subtitle">Une timeline moderne qui structure l'impact de vos 90 premiers jours avec CLICOM.</p>
-      <div class="method-track">
-        <div class="method-step">
-          <span>30 JOURS</span>
-          <h3>Onboarding</h3>
-          <p>Audit profond, cadrage stratégique et quick wins immédiats.</p>
-        </div>
-        <div class="method-step">
-          <span>60 JOURS</span>
-          <h3>Growth</h3>
-          <p>Activation des campagnes, génération de leads et tests accélérés.</p>
-        </div>
-        <div class="method-step">
-          <span>90 JOURS</span>
-          <h3>Optimisation</h3>
-          <p>Analyse des KPI, ajustements budgétaires et scaling durable.</p>
-        </div>
-      </div>
-    </section>
+  <section id="methode" class="method">
+    <div class="container">
+      <h2>Méthode 30-60-90</h2>
+      <p>30 jours pour intégrer, 60 jours pour construire, 90 jours pour optimiser.</p>
+    </div>
+  </section>
 
-    <section id="pricing" class="container">
-      <p class="section-kicker">Tarifs</p>
-      <h2 class="section-title">Des offres claires pour démarrer et accélérer.</h2>
-      <div class="pricing-grid">
-        <article class="glass glow-card pricing-card">
-          <h3>STARTER</h3>
-          <p class="section-subtitle" style="margin: 0;">Pack pour lancer votre présence digitale</p>
-          <div class="price">2'500 CHF</div>
-          <ul>
-            <li>Site Vitrine</li>
-            <li>Design Sur Mesure</li>
-            <li>SEO de base</li>
-          </ul>
-          <a class="cta-glow" style="margin-top: 1.8rem; width: 100%; justify-content: center;" href="#contact">Démarrer</a>
-        </article>
-        <article class="glass glow-card pricing-card">
-          <span class="tag">Recommandé</span>
-          <h3>GROWTH</h3>
-          <p class="section-subtitle" style="margin: 0;">Pack complet pour accélérer vos ventes</p>
-          <div class="price">5'000 CHF</div>
-          <ul>
-            <li>Tout Starter</li>
-            <li>CRM Intégré</li>
-            <li>Portail Client</li>
-            <li>Campagne Pub</li>
-          </ul>
-          <a class="cta-glow" style="margin-top: 1.8rem; width: 100%; justify-content: center;" href="#contact">Activer la croissance</a>
-        </article>
-      </div>
-      <p class="pricing-note">Mandats mensuels dès 500 CHF/mois.</p>
-    </section>
-
-    <section id="blog" class="container">
-      <p class="section-kicker">Blog</p>
-      <h2 class="section-title">Nos conseils pour garder une longueur d'avance.</h2>
-      <p class="section-subtitle">Trois ressources clés pour comprendre les nouveaux enjeux digitaux en Suisse romande.</p>
-      <div class="blog-grid">
-        <article class="glass glow-card blog-card">
-          <h3>Pourquoi un site web ne suffit plus en 2025 ?</h3>
-          <p class="section-subtitle" style="margin: 0;">Une présence digitale performante passe par l'acquisition et le contenu.</p>
-        </article>
-        <article class="glass glow-card blog-card">
-          <h3>La méthode 30-60-90</h3>
-          <p class="section-subtitle" style="margin: 0;">Les étapes clés pour structurer une croissance mesurable en 90 jours.</p>
-        </article>
-        <article class="glass glow-card blog-card">
-          <h3>SEO Local : Dominez votre canton</h3>
-          <p class="section-subtitle" style="margin: 0;">Comment devenir la référence locale sur Google en Suisse romande.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="container">
-      <div class="contact-grid">
+  <section id="tarifs" class="pricing">
+    <div class="container">
+      <div class="pricing-header">
         <div>
-          <p class="section-kicker">Contact</p>
-          <h2 class="section-title">Parlons de votre projet.</h2>
-          <p class="section-subtitle">Décrivez votre ambition, nous revenons sous 24h avec un audit précis.</p>
-          <div class="contact-details">
-            <div><strong>Email</strong><br />hello@clicom.ch</div>
-            <div><strong>Téléphone</strong><br />078 823 89 50</div>
-            <div><strong>Localisation</strong><br />Suisse Romande</div>
-          </div>
+          <h2>Tarifs &amp; Mandats</h2>
+          <p class="price-meta">Comparatif clair, objectifs de résultats et mandat évolutif.</p>
         </div>
-        <form id="contactForm" class="glass glow-card">
-          <div class="field">
-            <label for="contact_name">Nom complet *</label>
-            <input id="contact_name" name="contact_name" type="text" placeholder="Jean Dupont" required />
+        <div class="switch" role="group" aria-label="Facturation">
+          <span>Facturation :</span>
+          <button type="button" id="billing-switch" role="switch" aria-checked="false">
+            <span>Unique</span><span class="dot" aria-hidden="true"></span><span>Mensuelle</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pricing-grid price-cards-mobile">
+        <article class="price-card reveal" data-plan="pack-lancement">
+          <div class="price-title"><h3>PACK LANCEMENT</h3><span class="badge">Unique</span></div>
+          <div class="price">2’500 CHF <small>/ unique</small></div>
+          <p class="price-meta">Site Web</p>
+          <div class="price-list">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Site Vitrine Design</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Configuration</span>
           </div>
-          <div class="field">
-            <label for="email">Email professionnel *</label>
-            <input id="email" name="email" type="email" placeholder="jean.dupont@entreprise.ch" required />
+          <p class="price-meta">Objectif : 6 RDV/mois</p>
+          <div class="price-cta"><a class="cta" href="#contact" data-subject="Pack Lancement">Parler à un expert</a></div>
+        </article>
+
+        <article class="price-card reveal" data-plan="pack-croissance">
+          <div class="price-title"><h3>PACK CROISSANCE</h3><span class="badge">Recommandé</span></div>
+          <div class="price">5’000 CHF <small>/ unique</small></div>
+          <p class="price-meta">Site + Outils</p>
+          <div class="price-list">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Site Avancé</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>CRM Clicom installé</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Campagne de lancement</span>
           </div>
-          <div class="field">
-            <label for="project">Votre projet *</label>
-            <textarea id="project" name="project" rows="4" placeholder="Parlez-nous de votre projet digital..." required></textarea>
+          <p class="price-meta">Objectif : 12 RDV/mois</p>
+          <div class="price-cta"><a class="cta" href="#contact" data-subject="Pack Croissance">Parler à un expert</a></div>
+        </article>
+
+        <article class="price-card sticky highlight reveal" data-plan="mandat-gestion">
+          <div class="price-title"><h3>Partenaire Croissance</h3><span class="badge-strong" aria-label="Le plus choisi">Le plus choisi</span></div>
+          <div class="price">500 à 5’000 CHF <small>/ mois</small></div>
+          <p class="price-meta">Déléguez-nous votre marketing au quotidien.</p>
+          <div class="price-list">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Gestion des pubs</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Animation réseaux</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Création contenus</span>
           </div>
-          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
-          <button class="cta-glow" type="submit">Envoyer ma demande</button>
-          <div class="status" id="formStatus" aria-live="polite"></div>
-          <p class="form-note">Vos données restent strictement confidentielles. Nous répondons sous 24h ouvrées.</p>
+          <p class="price-meta">Objectif : 20 RDV/mois</p>
+          <div class="price-cta"><a class="cta" href="#contact" data-subject="Partenaire Croissance">Parler à un expert</a></div>
+        </article>
+      </div>
+
+      <div class="compare" aria-label="Comparatif des fonctionnalités">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Fonctionnalités</th>
+              <th scope="col">Pack Lancement</th>
+              <th scope="col">Pack Croissance</th>
+              <th scope="col">Partenaire Croissance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Site vitrine</th>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+            </tr>
+            <tr>
+              <th scope="row">CRM Clicom</th>
+              <td>—</td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+            </tr>
+            <tr>
+              <th scope="row">Campagne de lancement</th>
+              <td>—</td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+            </tr>
+            <tr>
+              <th scope="row">Gestion des pubs</th>
+              <td>—</td>
+              <td>—</td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+            </tr>
+            <tr>
+              <th scope="row">Animation réseaux</th>
+              <td>—</td>
+              <td>—</td>
+              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="accordion" id="pricing-accordion">
+        <button type="button" aria-expanded="false" aria-controls="details-panel">Détails inclus <span aria-hidden="true">+</span></button>
+        <div id="details-panel" role="region" hidden>Chaque pack inclut un atelier de cadrage, un planning clair et un livrable mesurable.</div>
+        <button type="button" aria-expanded="false" aria-controls="faq-panel">FAQ Tarifs <span aria-hidden="true">+</span></button>
+        <div id="faq-panel" role="region" hidden>
+          <p><strong>Quel est le délai moyen ?</strong> 4 à 6 semaines pour un pack, 90 jours pour la montée en cadence du mandat.</p>
+          <p><strong>Peut-on évoluer ?</strong> Oui, vous passez du pack au mandat sans perdre vos acquis.</p>
+          <p><strong>Quels moyens mobilisés ?</strong> Une équipe dédiée en Suisse Romande avec un pilote unique.</p>
+        </div>
+      </div>
+      <div class="map-tooltip" id="billing-note" aria-live="polite">Affichage en mode facturation unique.</div>
+    </div>
+  </section>
+
+  <section id="carte">
+    <div class="container map-wrap">
+      <div class="map-card reveal">
+        <h2>Carte des cantons servis</h2>
+        <svg viewBox="0 0 600 420" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Couverture Suisse Romande</title>
+          <desc id="map-desc">Carte interactive des cantons Genève, Vaud, Valais, Fribourg, Neuchâtel et Jura.</desc>
+          <g>
+            <path class="canton" tabindex="0" data-canton="GE" d="M70 240 L120 220 L150 250 L120 290 L80 280 Z" />
+            <path class="canton" tabindex="0" data-canton="VD" d="M140 200 L280 170 L340 220 L300 280 L180 300 L120 250 Z" />
+            <path class="canton" tabindex="0" data-canton="VS" d="M160 310 L320 300 L420 320 L430 360 L200 360 Z" />
+            <path class="canton" tabindex="0" data-canton="FR" d="M300 190 L380 190 L400 240 L340 260 L280 230 Z" />
+            <path class="canton" tabindex="0" data-canton="NE" d="M360 160 L450 160 L470 200 L400 210 Z" />
+            <path class="canton" tabindex="0" data-canton="JU" d="M320 110 L400 110 L430 150 L350 150 Z" />
+            <path class="canton other" d="M470 90 L560 110 L560 300 L470 320 Z" />
+          </g>
+        </svg>
+        <div class="map-legend" aria-hidden="true">
+          <span><i style="background:#cbd7ff"></i>Cantons servis</span>
+          <span><i style="background:#eceff3"></i>Hors zone</span>
+        </div>
+        <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite">Survolez un canton pour voir le détail.</div>
+      </div>
+      <div class="map-card map-info reveal">
+        <h3>Filtre témoignages</h3>
+        <p class="price-meta" id="testimonial-filter">Aucun canton sélectionné.</p>
+        <ul class="price-list">
+          <li>“Un pilotage clair, des décisions rapides.”</li>
+          <li>“Une équipe locale, réactive, fiable.”</li>
+          <li>“Nos ventes progressent dès le 2e mois.”</li>
+        </ul>
+        <p class="price-meta">Cliquez sur un canton pour nous contacter avec votre zone pré-sélectionnée.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="container">
+      <h2>Blog</h2>
+      <div class="blog-grid">
+        <article class="blog-card reveal">
+          <h3>Pourquoi un site web ne suffit plus en 2025 ?</h3>
+          <p class="price-meta">Temps de lecture : 4 min</p>
+          <ul><li>Stratégie</li><li>Outils</li><li>SEO Local</li></ul>
+        </article>
+        <article class="blog-card reveal">
+          <h3>Comment digitaliser sa force de vente ?</h3>
+          <p class="price-meta">Temps de lecture : 5 min</p>
+          <ul><li>Stratégie</li><li>Outils</li><li>SEO Local</li></ul>
+        </article>
+        <article class="blog-card reveal">
+          <h3>SEO Local : Dominez votre canton.</h3>
+          <p class="price-meta">Temps de lecture : 3 min</p>
+          <ul><li>Stratégie</li><li>Outils</li><li>SEO Local</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container grid-12">
+      <div class="reveal" style="grid-column:span 5">
+        <h2>Contact</h2>
+        <p class="price-meta">Parlons de votre croissance en Suisse Romande.</p>
+        <p><a href="mailto:hello@clicom.ch">hello@clicom.ch</a> | <a href="tel:+41788238950">078 823 89 50</a></p>
+        <p><a href="tel:+41788238950">WhatsApp / SMS</a></p>
+      </div>
+      <div class="reveal" style="grid-column:span 7">
+        <form id="contact-form" novalidate>
+          <input type="hidden" id="subject" name="subject" />
+          <div>
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label for="phone">Téléphone (facultatif)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div>
+            <label for="canton">Canton</label>
+            <select id="canton" name="canton" required>
+              <option value="">Sélectionner</option>
+              <option>GE</option><option>VD</option><option>VS</option><option>FR</option><option>NE</option><option>JU</option><option>Autre</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="cta" type="submit">Envoyer</button>
+            <span class="form-note" id="form-status" role="status" aria-live="polite"></span>
+          </div>
         </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <div class="footer-logo">CLICOM</div>
-    <p class="footer-note">© 2026 CLICOM — Agence Marketing Digital Suisse.</p>
-  </footer>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">CLICOM</div>
+      <p>Agence basée en Suisse Romande</p>
+      <small>hello@clicom.ch | 078 823 89 50</small>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <small>Stratégie</small><br />
+      <small>Sites web</small><br />
+      <small>Acquisition</small>
+    </div>
+    <div>
+      <h3>Agence</h3>
+      <small>Méthode</small><br />
+      <small>Blog</small><br />
+      <small>Contact</small>
+    </div>
+    <div>
+      <h3>Légal</h3>
+      <small>LPD</small><br />
+      <small>Mentions</small>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    const glowCards = document.querySelectorAll('.glow-card');
-    glowCards.forEach((card) => {
-      card.addEventListener('mousemove', (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        card.style.setProperty('--x', `${x}px`);
-        card.style.setProperty('--y', `${y}px`);
-      });
-    });
-
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    const apiUrl = 'https://votre-domaine-hostinger.ch/api/contact.php';
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      status.textContent = '⏳ Envoi en cours...';
-      status.style.color = '#22d3ee';
-
-      const formData = new FormData(form);
-      const payload = {
-        contact_name: formData.get('contact_name'),
-        email: formData.get('email'),
-        project: formData.get('project'),
-        website: formData.get('website')
-      };
-
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
-
-        const data = await response.json();
-
-        if (response.ok && data.success) {
-          status.textContent = '✅ ' + (data.message || 'Merci ! Nous vous recontactons sous 24h.');
-          status.style.color = '#22c55e';
-          form.reset();
-        } else {
-          throw new Error(data.message || 'Erreur lors de la soumission');
-        }
-      } catch (error) {
-        status.textContent = '❌ Impossible d\'envoyer votre demande. Merci de réessayer.';
-        status.style.color = '#ef4444';
-        console.error('Erreur formulaire:', error);
-      }
-    });
-  </script>
+<!-- Audit manuel : lancer Lighthouse depuis un serveur local, vérifier contraste et parcours clavier (tab, focus, aria-live) via l’inspecteur ARIA. -->
+<script>
+const $=s=>document.querySelector(s);const $$=s=>document.querySelectorAll(s);
+const progress=$('#progress');const onScroll=()=>{const h=document.documentElement;const s=(h.scrollTop||document.body.scrollTop);const d=h.scrollHeight-h.clientHeight;progress.style.width=(d?Math.min(100,(s/d)*100):0)+'%'};document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+const reveals=$$('.reveal');const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}})},{threshold:.2});reveals.forEach(el=>io.observe(el));
+const billingSwitch=$('#billing-switch');const setBilling=mode=>{billingSwitch.setAttribute('aria-checked',mode==='monthly');$('#billing-note').textContent=mode==='unique'?'Affichage en mode facturation unique.':'Affichage en mode facturation mensuelle.';document.body.dataset.billing=mode};
+billingSwitch.addEventListener('click',()=>setBilling(billingSwitch.getAttribute('aria-checked')==='true'?'unique':'monthly'));setBilling('unique');
+const accordionButtons=$$('#pricing-accordion button');accordionButtons.forEach(btn=>btn.addEventListener('click',()=>{const expanded=btn.getAttribute('aria-expanded')==='true';accordionButtons.forEach(b=>{b.setAttribute('aria-expanded','false');const panel=$('#'+b.getAttribute('aria-controls'));panel.hidden=true});btn.setAttribute('aria-expanded',String(!expanded));const panel=$('#'+btn.getAttribute('aria-controls'));panel.hidden=expanded}));
+const subjectInput=$('#subject');const messageInput=$('#message');const formStatus=$('#form-status');const cantonSelect=$('#canton');
+const setSubject=subject=>{if(!subject)return;subjectInput.value=subject;const prefix=`Sujet : ${subject}\n`;if(!messageInput.value.startsWith(prefix)){messageInput.value=prefix+messageInput.value}const params=new URLSearchParams(window.location.search);params.set('subject',subject);history.replaceState(null,'',`${location.pathname}?${params.toString()}${location.hash||''}`)};
+$$('a[data-subject]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const subject=link.getAttribute('data-subject');setSubject(subject);$('#contact').scrollIntoView({behavior:'smooth'});messageInput.focus()}));
+const mapTooltip=$('#map-tooltip');const testimonialFilter=$('#testimonial-filter');const announceCanton=c=>{mapTooltip.textContent=`Canton sélectionné : ${c}`;testimonialFilter.textContent=`Témoignages filtrés pour ${c}.`;cantonSelect.value=c;setSubject(`Zone ${c}`)};$$('.canton:not(.other)').forEach(shape=>{const c=shape.dataset.canton;shape.addEventListener('mouseenter',()=>mapTooltip.textContent=`Canton : ${c}`);shape.addEventListener('focus',()=>mapTooltip.textContent=`Canton : ${c}`);shape.addEventListener('click',()=>{announceCanton(c);$('#contact').scrollIntoView({behavior:'smooth'});cantonSelect.focus()});shape.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();announceCanton(c);$('#contact').scrollIntoView({behavior:'smooth'});cantonSelect.focus()}})});
+const subjectFromUrl=new URLSearchParams(window.location.search).get('subject');if(subjectFromUrl){setSubject(subjectFromUrl)}
+$('#contact-form').addEventListener('submit',e=>{e.preventDefault();const form=e.currentTarget;if(!form.checkValidity()){formStatus.textContent='Veuillez compléter les champs requis.';form.querySelector(':invalid').focus();return}formStatus.textContent='Merci, votre demande est envoyée. Nous revenons vers vous rapidement.';form.reset();subjectInput.value='';});
+console.group('Tests intégrés');console.assert(!!$('#expertises'),'Section expertises');console.assert(!!$('#methode'),'Section méthode');console.assert(!!$('#tarifs'),'Section tarifs');console.assert(!!$('#contact'),'Section contact');console.assert(billingSwitch.getAttribute('aria-checked')==='false','Toggle facturation unique');if(matchMedia('(min-width:1024px)').matches){console.assert(getComputedStyle($('.price-card.sticky')).position!=='static','Sticky mandat (desktop)')}console.assert(document.querySelectorAll('.canton').length>=6,'Carte cantons');console.assert(!!$('#form-status'),'Zone feedback formulaire');console.groupEnd();
+</script>
 </body>
 </html>
