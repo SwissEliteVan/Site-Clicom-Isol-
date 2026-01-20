@@ -6,6 +6,8 @@
 <title>CLICOM — Agence marketing en Suisse romande</title>
 <meta name="description" content="CLICOM, département marketing externalisé pour PME suisses. Stratégie, création et technologie, sans intermédiaire.">
 <meta name="theme-color" content="#3366ff">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://clicom.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CLICOM — Votre département marketing externalisé">
 <meta property="og:description" content="Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.">
@@ -14,8 +16,13 @@
 <meta property="twitter:title" content="CLICOM — Votre département marketing externalisé">
 <meta property="twitter:description" content="Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CLICOM","email":"hello@clicom.ch","telephone":"+41788238950","areaServed":"Suisse Romande","url":"https://clicom.ch"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CLICOM","url":"https://clicom.ch/","potentialAction":{"@type":"SearchAction","target":"https://clicom.ch/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://clicom.ch/"},{"@type":"ListItem","position":2,"name":"Tarifs & Mandats","item":"https://clicom.ch/#tarifs"},{"@type":"ListItem","position":3,"name":"Contact","item":"https://clicom.ch/#contact"}]}</script>
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
 </head>
 <body>
+<a class="skip" href="#main-content">Aller au contenu</a>
 <a class="skip" href="#contact">Aller au contact</a>
 <header class="site-header" id="top" data-section>
   <div class="progress" aria-hidden="true"><span></span></div>
@@ -30,11 +37,17 @@
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
       </div>
-      <a class="cta" href="#contact" data-focus="contact-name">Parler à un expert</a>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Activer le mode sombre">
+          <span aria-hidden="true">🌙</span>
+          <span class="theme-label">Mode sombre</span>
+        </button>
+        <a class="cta" href="#contact" data-focus="contact-name">Parler à un expert</a>
+      </div>
     </nav>
   </div>
 </header>
-<main>
+<main id="main-content">
   <section class="hero" id="hero" data-section>
     <div class="wrap grid-12">
       <div class="hero-copy reveal">
@@ -104,8 +117,8 @@
       </div>
       <div class="pricing-head">
         <div>
-          <p class="pricing-note" id="pricing-note">Packs en paiement unique. Mandat en mensuel. Hors TVA.</p>
-          <div class="switch" role="switch" tabindex="0" aria-checked="false" aria-label="Basculer entre paiement unique et mensuel"><span>Unique</span><span class="switch-track"><span class="switch-thumb"></span></span><span>Mensuel</span></div>
+          <p class="pricing-note" id="pricing-note" aria-live="polite">Packs en paiement unique. Mandat en mensuel. Hors TVA.</p>
+          <div class="switch" role="switch" tabindex="0" aria-checked="false" aria-describedby="pricing-note" aria-label="Basculer entre paiement unique et mensuel"><span>Unique</span><span class="switch-track"><span class="switch-thumb"></span></span><span>Mensuel</span></div>
           <p class="switch-live" aria-live="polite"></p>
         </div>
         <div class="pricing-cta"><a class="ghost" href="#contact" data-focus="contact-name">Demander une recommandation</a></div>
@@ -117,9 +130,9 @@
           <thead>
             <tr>
               <th scope="col">Fonctionnalités</th>
-              <th scope="col" id="col-pack-start">PACK LANCEMENT (Site Web)<span class="sub">2’500 CHF</span><span class="sub">Unique</span><span class="roi">Objectif: 2–3 RDV qualifiés/mois</span></th>
-              <th scope="col" id="col-pack-growth">PACK CROISSANCE (Site + Outils)<span class="sub">5’000 CHF</span><span class="sub">Unique</span><span class="roi">Objectif: 3–5 RDV qualifiés/mois</span></th>
-              <th scope="col" id="col-reco" class="reco">Partenaire Croissance<span class="badge">Recommandé</span><span class="sub">500 à 5’000 CHF / mois</span><span class="sub">Mensuel</span><span class="roi">Objectif: 4–6 RDV qualifiés/mois</span></th>
+              <th scope="col" id="col-pack-start">PACK LANCEMENT (Site Web)<span class="sub price-value" data-price-unique="2’500 CHF" data-price-monthly="350 CHF / mois">2’500 CHF</span><span class="sub billing-label" data-billing-unique="Unique" data-billing-monthly="Mensuel">Unique</span><span class="roi">Objectif: 2–3 RDV qualifiés/mois</span></th>
+              <th scope="col" id="col-pack-growth">PACK CROISSANCE (Site + Outils)<span class="sub price-value" data-price-unique="5’000 CHF" data-price-monthly="620 CHF / mois">5’000 CHF</span><span class="sub billing-label" data-billing-unique="Unique" data-billing-monthly="Mensuel">Unique</span><span class="roi">Objectif: 3–5 RDV qualifiés/mois</span></th>
+              <th scope="col" id="col-reco" class="reco">Partenaire Croissance<span class="badge">Recommandé</span><span class="sub price-value" data-price-unique="500 à 5’000 CHF / mois" data-price-monthly="500 à 5’000 CHF / mois">500 à 5’000 CHF / mois</span><span class="sub billing-label" data-billing-unique="Mensuel" data-billing-monthly="Mensuel">Mensuel</span><span class="roi">Objectif: 4–6 RDV qualifiés/mois</span></th>
             </tr>
           </thead>
           <tbody>
@@ -146,9 +159,9 @@
       </div>
 
       <div class="pricing-cards" aria-label="Offres en cartes">
-        <article class="price-card reveal"><p class="tag">PACK LANCEMENT (Site Web)</p><p class="price">2’500 CHF</p><p class="price-note">Unique · Hors TVA</p><p class="roi">Objectif: 2–3 RDV qualifiés/mois</p><ul><li>Site vitrine</li><li>Campagne de lancement</li><li>Maintenance</li></ul><a class="ghost" href="#contact" data-offer="pack-lancement">Lancer le pack</a></article>
-        <article class="price-card reveal"><p class="tag">PACK CROISSANCE (Site + Outils)</p><p class="price">5’000 CHF</p><p class="price-note">Unique · Hors TVA</p><p class="roi">Objectif: 3–5 RDV qualifiés/mois</p><ul><li>Site vitrine</li><li>CRM Clicom</li><li>Campagne de lancement</li><li>Création contenus</li></ul><a class="ghost" href="#contact" data-offer="pack-croissance">Activer le pack</a></article>
-        <article class="price-card highlight sticky reveal" aria-label="Mandat de gestion mis en avant"><span class="badge">Recommandé</span><p class="tag">Partenaire Croissance</p><p class="price">500 à 5’000 CHF / mois</p><p class="price-note">Mensuel · Hors TVA</p><p class="roi">Objectif: 4–6 RDV qualifiés/mois</p><ul><li>Gestion des pubs</li><li>Animation réseaux</li><li>Création contenus</li><li>Prospection B2B</li></ul><a class="cta" href="#contact" data-offer="partenaire-croissance">Parler d’un mandat</a></article>
+        <article class="price-card reveal"><p class="tag">PACK LANCEMENT (Site Web)</p><p class="price price-value" data-price-unique="2’500 CHF" data-price-monthly="350 CHF / mois">2’500 CHF</p><p class="price-note billing-label" data-billing-unique="Unique · Hors TVA" data-billing-monthly="Mensuel · Hors TVA">Unique · Hors TVA</p><p class="roi">Objectif: 2–3 RDV qualifiés/mois</p><ul><li>Site vitrine</li><li>Campagne de lancement</li><li>Maintenance</li></ul><a class="ghost" href="#contact" data-offer="pack-lancement">Lancer le pack</a></article>
+        <article class="price-card reveal"><p class="tag">PACK CROISSANCE (Site + Outils)</p><p class="price price-value" data-price-unique="5’000 CHF" data-price-monthly="620 CHF / mois">5’000 CHF</p><p class="price-note billing-label" data-billing-unique="Unique · Hors TVA" data-billing-monthly="Mensuel · Hors TVA">Unique · Hors TVA</p><p class="roi">Objectif: 3–5 RDV qualifiés/mois</p><ul><li>Site vitrine</li><li>CRM Clicom</li><li>Campagne de lancement</li><li>Création contenus</li></ul><a class="ghost" href="#contact" data-offer="pack-croissance">Activer le pack</a></article>
+        <article class="price-card highlight sticky reveal" aria-label="Mandat de gestion mis en avant"><span class="badge">Recommandé</span><p class="tag">Partenaire Croissance</p><p class="price price-value" data-price-unique="500 à 5’000 CHF / mois" data-price-monthly="500 à 5’000 CHF / mois">500 à 5’000 CHF / mois</p><p class="price-note billing-label" data-billing-unique="Mensuel · Hors TVA" data-billing-monthly="Mensuel · Hors TVA">Mensuel · Hors TVA</p><p class="roi">Objectif: 4–6 RDV qualifiés/mois</p><ul><li>Gestion des pubs</li><li>Animation réseaux</li><li>Création contenus</li><li>Prospection B2B</li></ul><a class="cta" href="#contact" data-offer="partenaire-croissance">Parler d’un mandat</a></article>
       </div>
 
       <div class="accordions">
@@ -282,7 +295,7 @@
   </div>
 </footer>
 
-<dialog class="media-dialog" id="media-dialog" aria-labelledby="media-title">
+<dialog class="media-dialog" id="media-dialog" aria-labelledby="media-title" aria-modal="true">
   <div class="dialog-content">
     <div class="dialog-head">
       <h3 id="media-title">Aperçu média</h3>
@@ -291,9 +304,420 @@
     <img id="media-image" alt="">
   </div>
 </dialog>
+<script>
+(function () {
+  var root = document.documentElement;
+  var themeToggle = document.querySelector('[data-theme-toggle]');
+  var storedTheme = window.localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  var pricingNote = document.getElementById('pricing-note');
 
-<style>:root{color-scheme:light;--bg:#f6f6f4;--text:#111113;--muted:#4b5563;--accent:#3366ff;--line:#e5e7eb;--panel:#fff;--shadow:0 24px 50px rgba(17,17,19,.08);--radius:18px;--t-100:120ms;--t-200:200ms;--t-400:420ms}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}img,svg{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}.skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}.skip:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.6rem 1rem;background:var(--panel);border:1px solid var(--line);border-radius:999px;z-index:5}.site-header{position:sticky;top:0;z-index:20;background:rgba(246,246,244,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.progress{height:3px;background:transparent}.progress span{display:block;height:100%;width:0;background:var(--accent);transition:width var(--t-100) ease}.wrap{width:min(1120px,90vw);margin:0 auto;padding:3.5rem 0}.grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:2.6rem;align-items:center}.nav{display:flex;align-items:center;gap:1.5rem;justify-content:space-between}.logo{font-weight:700;letter-spacing:.35em;text-transform:uppercase;font-size:.95rem}.nav-menu{display:flex;gap:1.4rem;font-size:.95rem;color:var(--muted)}.nav-menu a{padding:.2rem 0;border-bottom:2px solid transparent;background:linear-gradient(transparent,transparent 70%,rgba(51,102,255,.2) 0) 0 100%/0 2px no-repeat;transition:background-size var(--t-200) ease}.nav-menu a:hover,.nav-menu a:focus-visible{background-size:100% 2px}.nav-menu a[aria-current=page]{color:var(--text);border-color:var(--accent)}.nav-toggle{display:none;border:1px solid var(--line);background:var(--panel);padding:.45rem .9rem;border-radius:999px;font-size:.9rem}.cta,.ghost{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem 1.6rem;border-radius:999px;border:1px solid var(--accent);font-weight:600;transition:transform var(--t-200) ease,box-shadow var(--t-200) ease}.cta{background:var(--accent);color:#fff;box-shadow:0 16px 30px rgba(51,102,255,.2)}.ghost{background:transparent;color:var(--accent)}.cta:focus-visible,.ghost:focus-visible,.nav-menu a:focus-visible,.nav-toggle:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(51,102,255,.35);outline-offset:3px}.cta:hover,.ghost:hover{transform:translateY(-2px)}.hero{padding-top:2.5rem}.hero-copy{grid-column:span 6}.hero-media{grid-column:span 6;display:grid;gap:1.2rem}.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;color:var(--muted)}.hero h1{font-size:clamp(2.6rem,5vw,4.6rem);line-height:1.05;margin:.6rem 0 1rem}.lead{font-size:1.05rem;color:var(--muted)}.slogan{font-weight:600;margin:1rem 0 1.8rem}.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}.media-card{padding:1.2rem;border-radius:var(--radius);background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)}.media-caption{margin-top:.6rem;color:var(--muted);font-size:.95rem}.hero-highlights{display:grid;gap:1rem}.panel-card{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 1.4rem;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.panel-card svg{width:28px;height:28px;color:var(--accent)}.section-head{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}.section-head h2{font-size:clamp(2rem,3vw,2.8rem)}.section-head p{color:var(--muted)}.expertises,.tarifs,.preuves,.blog{content-visibility:auto;contain-intrinsic-size:800px}.bento{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.bento-card{padding:1.4rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);display:grid;gap:.8rem;transition:transform var(--t-200) ease,box-shadow var(--t-200) ease,border-color var(--t-200) ease}.bento-card:hover,.bento-card:focus{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(51,102,255,.35)}.bento-icon{width:36px;height:36px;color:var(--accent)}.methode{background:#fff}.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}.step{padding:1.4rem;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel);display:flex;gap:1rem;align-items:flex-start}.step span{font-size:2rem;font-weight:700;color:var(--accent)}.tarifs{background:linear-gradient(180deg,rgba(51,102,255,.06),transparent)}.pricing-head{display:flex;justify-content:space-between;gap:2rem;align-items:center;flex-wrap:wrap;margin-bottom:1.8rem}.pricing-note{color:var(--muted)}.switch{display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:1px solid var(--line);padding:.4rem .7rem;border-radius:999px;font-size:.9rem;cursor:pointer}.switch-track{width:44px;height:24px;background:#dbe3ff;border-radius:999px;position:relative}.switch-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:transform var(--t-200) ease}.switch[aria-checked=true] .switch-thumb{transform:translateX(20px)}.switch-live{font-size:.85rem;color:var(--muted);min-height:1.2rem}.pricing-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:20px;background:var(--panel)}.pricing-table{width:100%;border-collapse:collapse;min-width:820px}.pricing-table caption{text-align:left;padding:1.2rem;font-weight:600}.pricing-table th,.pricing-table td{padding:1rem;border-top:1px solid var(--line);text-align:center}.pricing-table th[scope=row]{text-align:left;color:var(--muted);font-weight:600}.pricing-table thead th{vertical-align:bottom;background:#fff}.pricing-table .sub{display:block;font-size:.85rem;color:var(--muted);font-weight:500}.pricing-table .roi{display:block;font-size:.82rem;color:var(--accent);margin-top:.4rem}.pricing-table .reco{position:sticky;top:6.5rem;background:#f8f9ff;z-index:2;border-left:1px solid var(--line);border-right:1px solid var(--line)}.badge{display:inline-block;margin:.4rem 0;padding:.2rem .6rem;border-radius:999px;background:rgba(51,102,255,.12);color:var(--accent);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.check{color:var(--accent);font-weight:700}.dash{color:#94a3b8}.cta-row td{background:#fbfbff}.pricing-cards{display:none;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.6rem}.price-card{padding:1.8rem;border-radius:20px;border:1px solid var(--line);background:var(--panel);display:grid;gap:.8rem}.price-card ul{display:grid;gap:.4rem;color:var(--muted)}.price{font-size:1.8rem;font-weight:700}.price-note{color:var(--muted)}.tag{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--accent);font-weight:700}.roi{color:var(--accent);font-size:.85rem}.highlight{border:1px solid var(--accent);box-shadow:0 22px 40px rgba(51,102,255,.18)}.sticky{position:sticky;top:6rem}.accordions{display:grid;gap:.8rem;margin-top:2rem}.accordion{border:1px solid var(--line);border-radius:14px;background:#fff;padding:.2rem .8rem}.accordion summary{cursor:pointer;font-weight:600;padding:.6rem 0}.accordion p{color:var(--muted);margin:.6rem 0}.preuves{background:#fff}.cases{display:grid;gap:1.4rem}.case-card{display:grid;grid-template-columns:160px 1fr;gap:1.2rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel)}.case-media{display:flex;align-items:center}.kpi{color:var(--muted)}.testimonials{margin:2.5rem 0}.testi-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}.testi-track{border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;background:var(--panel);min-height:140px}.testi-slide{display:none}.testi-slide.active{display:block}.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:2rem}.logo-card{display:flex;justify-content:center;align-items:center;padding:.8rem;border:1px solid var(--line);border-radius:12px;background:#fff}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:2rem}.gallery-item{border:none;background:transparent;padding:0;cursor:pointer;border-radius:12px;overflow:hidden;box-shadow:0 10px 20px rgba(17,17,19,.08)}.gallery-item img{width:100%;height:auto}.blog-grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.blog-card{padding:1.4rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);display:grid;gap:.9rem}.meta{font-size:.85rem;color:var(--accent)}.contact-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.contact-form{display:grid;gap:.8rem}.contact-form input,.contact-form textarea,.contact-form select{border:1px solid var(--line);border-radius:12px;padding:.7rem .8rem;font:inherit;background:#fff}.form-status{font-size:.9rem;color:var(--accent)}.footer{border-top:1px solid var(--line);background:#fff}.footer-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}.footer h3,.footer h4{margin-bottom:.8rem}.footer ul{display:grid;gap:.4rem;color:var(--muted)}.media-dialog{border:none;border-radius:20px;width:min(640px,92vw);padding:0}.media-dialog::backdrop{background:rgba(17,17,19,.6)}.dialog-content{background:#fff;border-radius:20px;padding:1.4rem}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}.dialog-content img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}.reveal{opacity:0;transform:translateY(12px);transition:opacity var(--t-400) ease,transform var(--t-400) ease}.reveal.in{opacity:1;transform:translateY(0)}@media (max-width:1020px){.grid-12{grid-template-columns:1fr}.hero-copy,.hero-media{grid-column:span 12}.timeline{grid-template-columns:1fr}.case-card{grid-template-columns:1fr}.pricing-table .reco{position:static}.sticky{position:static}}@media (max-width:820px){.nav{flex-wrap:wrap}.nav-toggle{display:inline-flex}.nav-menu{flex-direction:column;display:none;width:100%;padding:.8rem 0;border-top:1px solid var(--line)}.nav-menu.open{display:flex}.cta{width:100%;justify-content:center}.pricing-table-wrap{display:none}.pricing-cards{display:grid}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.ghost,.bento-card,.reveal,.switch-thumb{transition:none}.reveal{opacity:1;transform:none}}</style>
+  var applyTheme = function (theme) {
+    root.setAttribute('data-theme', theme);
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre');
+      themeToggle.querySelector('.theme-label').textContent = theme === 'dark' ? 'Mode clair' : 'Mode sombre';
+      themeToggle.querySelector('span[aria-hidden="true"]').textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+  };
 
-<script>(function(){var navToggle=document.querySelector('.nav-toggle');var navMenu=document.querySelector('.nav-menu');if(navToggle&&navMenu){navToggle.addEventListener('click',function(){var open=navMenu.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});}var focusLinks=document.querySelectorAll('[data-focus]');focusLinks.forEach(function(link){link.addEventListener('click',function(){var targetId=link.getAttribute('data-focus');var target=targetId?document.getElementById(targetId):null;if(target){setTimeout(function(){target.focus({preventScroll:true});},0);}});});var offerLinks=document.querySelectorAll('[data-offer]');offerLinks.forEach(function(link){link.addEventListener('click',function(){var offer=link.getAttribute('data-offer');if(!offer){return;}var params=new URLSearchParams(window.location.search);params.set('offre',offer);var next=window.location.pathname+'?'+params.toString()+window.location.hash;window.history.replaceState(null,'',next);});});var offerMap={"pack-lancement":"Pack Lancement","pack-croissance":"Pack Croissance","partenaire-croissance":"Partenaire Croissance"};var subjectInput=document.getElementById('contact-subject');var params=new URLSearchParams(window.location.search);if(subjectInput&&params.get('offre')){var key=params.get('offre');subjectInput.value='Offre: '+(offerMap[key]||key);}var progress=document.querySelector('.progress span');var onScroll=function(){var doc=document.documentElement;var total=doc.scrollHeight-doc.clientHeight;var scrolled=doc.scrollTop||document.body.scrollTop;var pct=total?Math.min(100,Math.max(0,scrolled/total*100)):0;if(progress){progress.style.width=pct+'%';}};window.addEventListener('scroll',onScroll,{passive:true});onScroll();var sections=[].slice.call(document.querySelectorAll('[data-section]'));var navLinks=[].slice.call(document.querySelectorAll('.nav-menu a'));if('IntersectionObserver'in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){var id=entry.target.getAttribute('id');navLinks.forEach(function(link){var active=link.getAttribute('href')==='#'+id;if(active){link.setAttribute('aria-current','page');}else{link.removeAttribute('aria-current');}});}});},{rootMargin:'-45% 0px -45% 0px',threshold:0});sections.forEach(function(section){if(section.id){observer.observe(section);}});}var revealItems=[].slice.call(document.querySelectorAll('.reveal'));if('IntersectionObserver'in window){var revealObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');revealObserver.unobserve(entry.target);}});},{threshold:.15});revealItems.forEach(function(item){revealObserver.observe(item);});}else{revealItems.forEach(function(item){item.classList.add('in');});}var counters=[].slice.call(document.querySelectorAll('[data-count]'));if('IntersectionObserver'in window&&counters.length){var counterObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){var el=entry.target;var target=parseInt(el.getAttribute('data-count'),10)||0;var suffix=el.getAttribute('data-suffix')||'';var start=0;var step=Math.max(1,Math.round(target/24));var tick=function(){start=Math.min(target,start+step);el.textContent=String(start)+suffix;if(start<target){requestAnimationFrame(tick);}else{el.textContent=String(target)+suffix;}};tick();counterObserver.unobserve(el);}});},{threshold:.4});counters.forEach(function(el){counterObserver.observe(el);});}var switchEl=document.querySelector('.switch');var switchLive=document.querySelector('.switch-live');var updateSwitch=function(state){if(!switchEl){return;}switchEl.setAttribute('aria-checked',String(state));if(switchLive){switchLive.textContent=state?'Mode mensuel sélectionné. Packs en paiement unique, mandat en mensuel.':'Mode unique sélectionné. Packs en paiement unique, mandat en mensuel.';}};if(switchEl){switchEl.addEventListener('click',function(){var state=switchEl.getAttribute('aria-checked')==='true';updateSwitch(!state);});switchEl.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();switchEl.click();}});updateSwitch(false);}var testiSlides=[].slice.call(document.querySelectorAll('.testi-slide'));var currentIndex=0;var setSlide=function(index){if(!testiSlides.length){return;}testiSlides.forEach(function(slide){slide.classList.remove('active');});currentIndex=(index+testiSlides.length)%testiSlides.length;testiSlides[currentIndex].classList.add('active');};var prev=document.querySelector('[data-testid="prev"]');var next=document.querySelector('[data-testid="next"]');if(prev&&next){prev.addEventListener('click',function(){setSlide(currentIndex-1);});next.addEventListener('click',function(){setSlide(currentIndex+1);});}var dialog=document.getElementById('media-dialog');var dialogImg=document.getElementById('media-image');var dialogTitle=document.getElementById('media-title');var lastFocus=null;var galleryItems=[].slice.call(document.querySelectorAll('.gallery-item'));var closeDialog=function(){if(dialog&&dialog.open){dialog.close();if(lastFocus){lastFocus.focus();}}};var trapFocus=function(e){if(!dialog||!dialog.open||e.key!=='Tab'){return;}var focusable=[].slice.call(dialog.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'));if(!focusable.length){return;}var first=focusable[0];var last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}};galleryItems.forEach(function(btn){btn.addEventListener('click',function(){if(!dialog){return;}lastFocus=btn;var src=btn.getAttribute('data-src');var title=btn.getAttribute('data-title')||'Aperçu média';if(dialogImg){dialogImg.setAttribute('src',src||'');dialogImg.setAttribute('alt',title);}if(dialogTitle){dialogTitle.textContent=title;}dialog.showModal();var closeBtn=dialog.querySelector('[data-dialog-close]');if(closeBtn){closeBtn.focus();}});});if(dialog){dialog.addEventListener('keydown',trapFocus);dialog.addEventListener('click',function(e){var rect=dialog.getBoundingClientRect();var within=e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom;if(!within){closeDialog();}});var closeBtn=dialog.querySelector('[data-dialog-close]');if(closeBtn){closeBtn.addEventListener('click',closeDialog);}dialog.addEventListener('close',function(){if(lastFocus){lastFocus.focus();}});}var form=document.getElementById('contact-form');if(form){form.addEventListener('submit',function(e){e.preventDefault();var name=document.getElementById('contact-name');var email=document.getElementById('contact-email');var message=document.getElementById('contact-message');var canton=document.getElementById('contact-canton');var status=form.querySelector('.form-status');var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());if(name.value.trim().length<2||!emailOk||message.value.trim().length<10||!canton.value){status.textContent='Merci de compléter tous les champs obligatoires avec un message clair.';status.style.color='#b42318';return;}status.textContent='Merci, votre demande a bien été reçue.';status.style.color='var(--accent)';form.reset();name.focus();});}function contrastRatio(hex1,hex2){function rgb(h){var s=h.replace('#','');if(s.length===3){s=s.split('').map(function(c){return c+c}).join('');}var num=parseInt(s,16);return[(num>>16)&255,(num>>8)&255,num&255];}function lum(c){var v=c/255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);}var r1=rgb(hex1),r2=rgb(hex2);var l1=.2126*lum(r1[0])+.7152*lum(r1[1])+.0722*lum(r1[2]);var l2=.2126*lum(r2[0])+.7152*lum(r2[1])+.0722*lum(r2[2]);var hi=Math.max(l1,l2),lo=Math.min(l1,l2);return(hi+.05)/(lo+.05);}function runTests(){var required=['hero','expertises','methode','tarifs','blog','contact'];required.forEach(function(id){console.assert(!!document.getElementById(id),'Section manquante:',id);});var table=document.querySelector('.pricing-table');console.assert(!!table,'Tableau comparatif manquant');var switchEl=document.querySelector('.switch');console.assert(!!switchEl&&switchEl.getAttribute('role')==='switch','Interrupteur tarifs absent');var reco=document.querySelector('.pricing-table .reco');if(reco){var pos=getComputedStyle(reco).position;console.assert(pos==='sticky'||pos==='static','Colonne recommandée non sticky');}var dialog=document.getElementById('media-dialog');console.assert(!!dialog,'Modal média manquant');var carousel=document.querySelector('.testi-track');console.assert(!!carousel,'Témoignages manquants');var styles=getComputedStyle(document.documentElement);var text=styles.getPropertyValue('--text').trim();var bg=styles.getPropertyValue('--bg').trim();console.assert(contrastRatio(text,bg)>=4.5,'Contraste de base insuffisant');if(params.get('offre')&&subjectInput){console.assert(subjectInput.value.indexOf('Offre:')===0,'Pré-remplissage sujet manquant');}}runTests();})();</script>
+  if (storedTheme) {
+    applyTheme(storedTheme);
+  } else {
+    applyTheme(prefersDark.matches ? 'dark' : 'light');
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      window.localStorage.setItem('theme', nextTheme);
+      applyTheme(nextTheme);
+    });
+  }
+
+  if (prefersDark.addEventListener) {
+    prefersDark.addEventListener('change', function (event) {
+      if (!window.localStorage.getItem('theme')) {
+        applyTheme(event.matches ? 'dark' : 'light');
+      }
+    });
+  }
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.nav-menu');
+  var navLinks = [].slice.call(document.querySelectorAll('.nav-menu a'));
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function () {
+      var open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var focusLinks = document.querySelectorAll('[data-focus]');
+  focusLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      var targetId = link.getAttribute('data-focus');
+      var target = targetId ? document.getElementById(targetId) : null;
+      if (target) {
+        setTimeout(function () {
+          target.focus({ preventScroll: true });
+        }, 0);
+      }
+    });
+  });
+
+  var offerLinks = document.querySelectorAll('[data-offer]');
+  offerLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      var offer = link.getAttribute('data-offer');
+      if (!offer) {
+        return;
+      }
+      var params = new URLSearchParams(window.location.search);
+      params.set('offre', offer);
+      var next = window.location.pathname + '?' + params.toString() + window.location.hash;
+      window.history.replaceState(null, '', next);
+    });
+  });
+
+  var offerMap = {
+    'pack-lancement': 'Pack Lancement',
+    'pack-croissance': 'Pack Croissance',
+    'partenaire-croissance': 'Partenaire Croissance'
+  };
+  var subjectInput = document.getElementById('contact-subject');
+  var params = new URLSearchParams(window.location.search);
+  if (subjectInput && params.get('offre')) {
+    var key = params.get('offre');
+    subjectInput.value = 'Offre: ' + (offerMap[key] || key);
+  }
+
+  var progress = document.querySelector('.progress span');
+  var onScroll = function () {
+    var doc = document.documentElement;
+    var total = doc.scrollHeight - doc.clientHeight;
+    var scrolled = doc.scrollTop || document.body.scrollTop;
+    var pct = total ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
+    if (progress) {
+      progress.style.width = pct + '%';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var sections = [].slice.call(document.querySelectorAll('[data-section]'));
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute('id');
+            navLinks.forEach(function (link) {
+              var active = link.getAttribute('href') === '#' + id;
+              if (active) {
+                link.setAttribute('aria-current', 'page');
+              } else {
+                link.removeAttribute('aria-current');
+              }
+            });
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+    sections.forEach(function (section) {
+      if (section.id) {
+        observer.observe(section);
+      }
+    });
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealItems = [].slice.call(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+  } else {
+    revealItems.forEach(function (item) {
+      item.classList.add('in');
+    });
+  }
+
+  var counters = [].slice.call(document.querySelectorAll('[data-count]'));
+  if ('IntersectionObserver' in window && counters.length && !reduceMotion) {
+    var counterObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+            var suffix = el.getAttribute('data-suffix') || '';
+            var start = 0;
+            var step = Math.max(1, Math.round(target / 24));
+            var tick = function () {
+              start = Math.min(target, start + step);
+              el.textContent = String(start) + suffix;
+              if (start < target) {
+                requestAnimationFrame(tick);
+              } else {
+                el.textContent = String(target) + suffix;
+              }
+            };
+            tick();
+            counterObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    counters.forEach(function (el) {
+      counterObserver.observe(el);
+    });
+  }
+
+  var switchEl = document.querySelector('.switch');
+  var switchLive = document.querySelector('.switch-live');
+  var priceValues = [].slice.call(document.querySelectorAll('.price-value'));
+  var billingLabels = [].slice.call(document.querySelectorAll('.billing-label'));
+  var updatePrices = function (monthly) {
+    priceValues.forEach(function (el) {
+      var value = monthly ? el.getAttribute('data-price-monthly') : el.getAttribute('data-price-unique');
+      if (value) {
+        el.textContent = value;
+      }
+    });
+    billingLabels.forEach(function (el) {
+      var value = monthly ? el.getAttribute('data-billing-monthly') : el.getAttribute('data-billing-unique');
+      if (value) {
+        el.textContent = value;
+      }
+    });
+    if (pricingNote) {
+      pricingNote.textContent = monthly
+        ? 'Mode mensuel sélectionné. Packs lissés sur 12 mois, mandat en mensuel. Hors TVA.'
+        : 'Mode unique sélectionné. Packs en paiement unique, mandat en mensuel. Hors TVA.';
+    }
+  };
+  var updateSwitch = function (state) {
+    if (!switchEl) {
+      return;
+    }
+    switchEl.setAttribute('aria-checked', String(state));
+    if (switchLive) {
+      switchLive.textContent = state
+        ? 'Mode mensuel sélectionné. Tarifs actualisés.'
+        : 'Mode unique sélectionné. Tarifs actualisés.';
+    }
+    updatePrices(state);
+  };
+  if (switchEl) {
+    switchEl.addEventListener('click', function () {
+      var state = switchEl.getAttribute('aria-checked') === 'true';
+      updateSwitch(!state);
+    });
+    switchEl.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        switchEl.click();
+      }
+    });
+    updateSwitch(false);
+  }
+
+  var testiSlides = [].slice.call(document.querySelectorAll('.testi-slide'));
+  var currentIndex = 0;
+  var setSlide = function (index) {
+    if (!testiSlides.length) {
+      return;
+    }
+    testiSlides.forEach(function (slide) {
+      slide.classList.remove('active');
+    });
+    currentIndex = (index + testiSlides.length) % testiSlides.length;
+    testiSlides[currentIndex].classList.add('active');
+  };
+  var prev = document.querySelector('[data-testid="prev"]');
+  var next = document.querySelector('[data-testid="next"]');
+  if (prev && next) {
+    prev.addEventListener('click', function () {
+      setSlide(currentIndex - 1);
+    });
+    next.addEventListener('click', function () {
+      setSlide(currentIndex + 1);
+    });
+  }
+
+  var dialog = document.getElementById('media-dialog');
+  var dialogImg = document.getElementById('media-image');
+  var dialogTitle = document.getElementById('media-title');
+  var lastFocus = null;
+  var galleryItems = [].slice.call(document.querySelectorAll('.gallery-item'));
+  var closeDialog = function () {
+    if (dialog && dialog.open) {
+      dialog.close();
+      if (lastFocus) {
+        lastFocus.focus();
+      }
+    }
+  };
+  var trapFocus = function (e) {
+    if (!dialog || !dialog.open || e.key !== 'Tab') {
+      return;
+    }
+    var focusable = [].slice.call(
+      dialog.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')
+    );
+    if (!focusable.length) {
+      return;
+    }
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+  galleryItems.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (!dialog) {
+        return;
+      }
+      lastFocus = btn;
+      var src = btn.getAttribute('data-src');
+      var title = btn.getAttribute('data-title') || 'Aperçu média';
+      if (dialogImg) {
+        dialogImg.setAttribute('src', src || '');
+        dialogImg.setAttribute('alt', title);
+      }
+      if (dialogTitle) {
+        dialogTitle.textContent = title;
+      }
+      dialog.showModal();
+      var closeBtn = dialog.querySelector('[data-dialog-close]');
+      if (closeBtn) {
+        closeBtn.focus();
+      }
+    });
+  });
+  if (dialog) {
+    dialog.addEventListener('keydown', trapFocus);
+    dialog.addEventListener('click', function (e) {
+      var rect = dialog.getBoundingClientRect();
+      var within = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!within) {
+        closeDialog();
+      }
+    });
+    var closeBtn = dialog.querySelector('[data-dialog-close]');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeDialog);
+    }
+    dialog.addEventListener('cancel', closeDialog);
+    dialog.addEventListener('close', function () {
+      if (lastFocus) {
+        lastFocus.focus();
+      }
+    });
+  }
+
+  var form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('contact-name');
+      var email = document.getElementById('contact-email');
+      var message = document.getElementById('contact-message');
+      var canton = document.getElementById('contact-canton');
+      var status = form.querySelector('.form-status');
+      var emailOk = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.value.trim());
+      if (name.value.trim().length < 2 || !emailOk || message.value.trim().length < 10 || !canton.value) {
+        status.textContent = 'Merci de compléter tous les champs obligatoires avec un message clair.';
+        status.style.color = '#b42318';
+        return;
+      }
+      status.textContent = 'Merci, votre demande a bien été reçue.';
+      status.style.color = 'var(--accent)';
+      form.reset();
+      name.focus();
+    });
+  }
+
+  function contrastRatio(hex1, hex2) {
+    function rgb(h) {
+      var s = h.replace('#', '');
+      if (s.length === 3) {
+        s = s
+          .split('')
+          .map(function (c) {
+            return c + c;
+          })
+          .join('');
+      }
+      var num = parseInt(s, 16);
+      return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+    }
+    function lum(c) {
+      var v = c / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    }
+    var r1 = rgb(hex1),
+      r2 = rgb(hex2);
+    var l1 = 0.2126 * lum(r1[0]) + 0.7152 * lum(r1[1]) + 0.0722 * lum(r1[2]);
+    var l2 = 0.2126 * lum(r2[0]) + 0.7152 * lum(r2[1]) + 0.0722 * lum(r2[2]);
+    var hi = Math.max(l1, l2),
+      lo = Math.min(l1, l2);
+    return (hi + 0.05) / (lo + 0.05);
+  }
+  function runTests() {
+    var required = ['hero', 'expertises', 'methode', 'tarifs', 'blog', 'contact'];
+    required.forEach(function (id) {
+      console.assert(!!document.getElementById(id), 'Section manquante:', id);
+    });
+    var table = document.querySelector('.pricing-table');
+    console.assert(!!table, 'Tableau comparatif manquant');
+    var switchEl = document.querySelector('.switch');
+    console.assert(!!switchEl && switchEl.getAttribute('role') === 'switch', 'Interrupteur tarifs absent');
+    var reco = document.querySelector('.pricing-table .reco');
+    if (reco) {
+      var pos = getComputedStyle(reco).position;
+      console.assert(pos === 'sticky' || pos === 'static', 'Colonne recommandée non sticky');
+    }
+    var dialog = document.getElementById('media-dialog');
+    console.assert(!!dialog, 'Modal média manquant');
+    var carousel = document.querySelector('.testi-track');
+    console.assert(!!carousel, 'Témoignages manquants');
+    var styles = getComputedStyle(document.documentElement);
+    var text = styles.getPropertyValue('--text').trim();
+    var bg = styles.getPropertyValue('--bg').trim();
+    console.assert(contrastRatio(text, bg) >= 4.5, 'Contraste de base insuffisant');
+    if (params.get('offre') && subjectInput) {
+      console.assert(subjectInput.value.indexOf('Offre:') === 0, 'Pré-remplissage sujet manquant');
+    }
+  }
+  runTests();
+})();
+</script>
 </body>
 </html>
