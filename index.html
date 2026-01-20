@@ -72,6 +72,13 @@
       color: var(--muted);
     }
 
+    .nav-cta {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
     .hero {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -117,6 +124,26 @@
       box-shadow: var(--shadow);
     }
 
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.15);
+      color: #7dd3fc;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .section-kicker {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
     section {
       position: relative;
     }
@@ -148,6 +175,12 @@
       display: grid;
       gap: 0.4rem;
       color: var(--muted);
+    }
+
+    .service-card li::before {
+      content: "✓";
+      color: #7dd3fc;
+      margin-right: 0.5rem;
     }
 
     .timeline {
@@ -196,6 +229,30 @@
       margin: 1rem 0;
     }
 
+    .price-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    .pricing-card li::before {
+      content: "✓";
+      color: #7dd3fc;
+      margin-right: 0.5rem;
+    }
+
+    .highlight {
+      border: 1px solid rgba(125, 211, 252, 0.6);
+      box-shadow: 0 30px 90px rgba(34, 211, 238, 0.25);
+    }
+
     .pricing-note {
       margin-top: 1.5rem;
       color: var(--muted);
@@ -206,6 +263,41 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       align-items: center;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 1rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .faq details {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      background: rgba(10, 10, 10, 0.7);
+    }
+
+    .faq details + details {
+      margin-top: 1rem;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .faq p {
+      color: var(--muted);
+      margin-top: 0.75rem;
     }
 
     form {
@@ -263,138 +355,297 @@
     <nav>
       <div class="logo">CLICOM</div>
       <div class="nav-links">
-        <a href="#services">Services</a>
+        <a href="#expertises">Expertises</a>
         <a href="#method">Méthode</a>
         <a href="#pricing">Tarifs</a>
         <a href="#contact">Contact</a>
       </div>
+      <a class="nav-cta" href="#audit">Audit Digital Offert</a>
     </nav>
 
     <section class="hero">
       <div>
-        <h1>Partenaire de Croissance des PME Suisses</h1>
-        <p>On ne fait pas faire, on sait faire. Nous combinons stratégie, création et performance pour accélérer vos revenus.</p>
-        <a class="cta" href="#contact">Audit Digital Offert</a>
+        <p class="section-kicker">Agence Marketing Digital Suisse</p>
+        <h1>Conseil, Création &amp; Production</h1>
+        <p>Chez Clicom, on ne fait pas faire, on sait faire. Stratégie digitale, SEO, campagnes publicitaires et création de contenu pour les PME ambitieuses de Suisse Romande.</p>
+        <div style="display: grid; gap: 0.6rem; color: var(--muted); margin-bottom: 2rem;">
+          <div>✓ Partenaire de croissance des PME romandes</div>
+          <div>✓ Réactivité maximale, sans intermédiaires</div>
+          <div>✓ ROI mesurable et optimisation continue</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <a class="cta" href="#audit">Obtenir un Audit Gratuit</a>
+          <a class="nav-cta" href="#expertises">Découvrir nos Services</a>
+        </div>
       </div>
       <div class="glass">
-        <h3>Écosystème Digital & CRM</h3>
-        <p>Une stack pensée pour la Suisse romande : vitrine premium, CRM sur-mesure et automatisations concrètes.</p>
+        <h3>CLICOM</h3>
+        <p>Chez Clicom, on ne fait pas faire, on sait faire.</p>
         <div style="margin-top: 1.5rem; display: grid; gap: 0.75rem; color: var(--muted);">
-          <div>✔️ Lead tracking en temps réel</div>
-          <div>✔️ Scoring & relances automatisées</div>
-          <div>✔️ Portail client sécurisé</div>
+          <div>✔️ SEO, SEA et Social Media pour PME romandes</div>
+          <div>✔️ Création de contenu et production vidéo</div>
+          <div>✔️ Conseil et exécution par des experts seniors</div>
         </div>
       </div>
     </section>
   </header>
 
   <main>
-    <section id="services" class="container">
-      <h2 class="section-title">Services premium orientés résultats</h2>
-      <p class="section-subtitle">Inspiré des meilleures agences européennes, notre modèle est conçu pour livrer vite et scaler proprement.</p>
+    <section id="expertises" class="container">
+      <p class="section-kicker">Nos Expertises Marketing Digital</p>
+      <h2 class="section-title">Une offre complète pour accélérer votre croissance digitale</h2>
+      <p class="section-subtitle">Stratégie, performance et production de contenu orchestrées pour des résultats concrets.</p>
       <div class="services-grid">
         <article class="glass service-card">
           <h3>Stratégie & Conseil</h3>
           <ul>
-            <li>Audit 360° de la présence digitale</li>
-            <li>Positionnement & différenciation</li>
-            <li>Roadmap de croissance trimestrielle</li>
+            <li>Audit digital 360° (SEO, SEA, Social Media)</li>
+            <li>Positionnement de marque et identité visuelle</li>
+            <li>Stratégie de contenu et planning éditorial</li>
+            <li>Analyse concurrentielle et veille marché</li>
           </ul>
         </article>
         <article class="glass service-card">
+          <span class="badge">Populaire</span>
           <h3>Performance & Growth</h3>
           <ul>
-            <li>SEO premium & analytics</li>
-            <li>Ads multi-canaux & lead gen</li>
-            <li>Optimisation du funnel</li>
+            <li>SEO technique et rédaction optimisée (Google)</li>
+            <li>Google Ads & Shopping (SEA, Display, Remarketing)</li>
+            <li>Social Ads (Meta, LinkedIn, TikTok)</li>
+            <li>Lead Generation et Smart Campaigns</li>
+            <li>Tracking et optimisation continue (Google Analytics 4)</li>
           </ul>
         </article>
         <article class="glass service-card">
-          <h3>Content Factory</h3>
+          <h3>Content Factory & Social</h3>
           <ul>
-            <li>Social media à haute fréquence</li>
-            <li>Vidéo & UGC brandés</li>
-            <li>Brand voice & storytelling</li>
+            <li>Brand Content et storytelling de marque</li>
+            <li>Création vidéo et motion design</li>
+            <li>Gestion réseaux sociaux (Community Management)</li>
+            <li>UGC (User Generated Content) et Employee Advocacy</li>
+            <li>Social Selling et influence B2B</li>
           </ul>
         </article>
       </div>
     </section>
 
     <section id="method" class="container">
-      <h2 class="section-title">Méthode 30-60-90</h2>
-      <p class="section-subtitle">Une exécution rapide, structurée autour d'une montée en puissance contrôlée.</p>
+      <p class="section-kicker">Notre Méthode 30-60-90</p>
+      <h2 class="section-title">Un processus éprouvé pour des résultats rapides et durables</h2>
       <div class="timeline">
         <div class="timeline-item">
           <h3>30 jours — Onboarding</h3>
-          <p>Audit, alignement stratégique, paramétrage CRM et quick wins prioritaires.</p>
+          <p>Audit complet, définition des objectifs, mise en place des outils de tracking et lancement des premières actions Quick Wins.</p>
+          <ul style="list-style: none; margin-top: 0.75rem; color: var(--muted); display: grid; gap: 0.4rem;">
+            <li>Audit digital 360° et analyse concurrentielle</li>
+            <li>Définition KPIs et objectifs SMART</li>
+            <li>Configuration Google Analytics 4 & Tag Manager</li>
+            <li>Création des premiers assets (site, landing pages)</li>
+          </ul>
         </div>
         <div class="timeline-item">
           <h3>60 jours — Croissance</h3>
-          <p>Activation des campagnes, création de contenus et génération des premiers leads qualifiés.</p>
+          <p>Déploiement des campagnes publicitaires, production de contenu régulière et optimisation SEO pour maximiser la visibilité.</p>
+          <ul style="list-style: none; margin-top: 0.75rem; color: var(--muted); display: grid; gap: 0.4rem;">
+            <li>Lancement campagnes SEA et Social Ads</li>
+            <li>Publication contenu optimisé (Blog, Social Media)</li>
+            <li>A/B Testing et optimisation des conversions</li>
+            <li>Premiers leads qualifiés générés</li>
+          </ul>
         </div>
         <div class="timeline-item">
           <h3>90 jours — Optimisation</h3>
-          <p>Analyse des données, automatisations et scale des canaux les plus rentables.</p>
+          <p>Analyse des données, ajustement de la stratégie et scaling des actions performantes pour un ROI optimal.</p>
+          <ul style="list-style: none; margin-top: 0.75rem; color: var(--muted); display: grid; gap: 0.4rem;">
+            <li>Analyse ROI et reporting détaillé</li>
+            <li>Optimisation budgets publicitaires</li>
+            <li>Scaling des campagnes performantes</li>
+            <li>Roadmap pour les 90 jours suivants</li>
+          </ul>
         </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <p class="section-kicker">L'Avantage CLICOM</p>
+      <div class="glass">
+        <h2 class="section-title">Pas d'intermédiaires, réactivité maximale.</h2>
+        <p class="section-subtitle">Vous travaillez directement avec nos experts seniors : stratèges, développeurs et créatifs. Des décisions rapides, une exécution irréprochable et un suivi personnalisé.</p>
       </div>
     </section>
 
     <section id="pricing" class="container">
-      <h2 class="section-title">Tarifs transparents</h2>
-      <p class="section-subtitle">Des offres claires pour passer de la visibilité à la conversion.</p>
+      <p class="section-kicker">Nos Offres & Tarifs Transparents</p>
+      <h2 class="section-title">Des solutions adaptées à chaque phase de votre croissance</h2>
       <div class="pricing-grid">
-        <article class="glass">
+        <article class="glass pricing-card">
           <h3>Starter</h3>
-          <div class="price">2'500 CHF</div>
-          <p>Site vitrine premium + setup CRM.</p>
+          <p class="price-subtitle">Idéal pour le lancement</p>
+          <div class="price">CHF 2'500 / projet</div>
+          <ul>
+            <li>Site vitrine responsive (5 pages)</li>
+            <li>Identité visuelle (logo + charte graphique)</li>
+            <li>Optimisation SEO de base</li>
+            <li>Intégration Google Analytics</li>
+            <li>Formulaire de contact</li>
+            <li>Hébergement 1 an inclus</li>
+            <li>Formation à la gestion du site</li>
+          </ul>
+          <a class="cta" style="margin-top: 1.5rem; width: 100%;" href="#audit">Démarrer mon projet</a>
         </article>
-        <article class="glass">
+        <article class="glass pricing-card highlight">
+          <span class="badge">Recommandé</span>
           <h3>Growth</h3>
-          <div class="price">5'000 CHF</div>
-          <p>Écosystème complet + campagnes d'acquisition.</p>
+          <p class="price-subtitle">Écosystème complet</p>
+          <div class="price">CHF 5'000 / projet</div>
+          <ul>
+            <li>Tout de l'offre Starter, plus :</li>
+            <li>Site e-commerce ou catalogue produits</li>
+            <li>Stratégie de contenu sur 3 mois</li>
+            <li>Campagne Google Ads (setup + gestion 1 mois)</li>
+            <li>Campagne Social Ads (Meta ou LinkedIn)</li>
+            <li>Création de 6 contenus (articles/vidéos)</li>
+            <li>Tracking avancé (GA4 + Tag Manager)</li>
+            <li>Reporting mensuel et optimisation continue</li>
+          </ul>
+          <a class="cta" style="margin-top: 1.5rem; width: 100%;" href="#audit">Accélérer ma croissance</a>
+        </article>
+        <article class="glass pricing-card">
+          <h3>Sur Mesure</h3>
+          <p class="price-subtitle">Budget flexible</p>
+          <div class="price">500 - 5'000 CHF / mois</div>
+          <ul>
+            <li>Accompagnement mensuel personnalisé</li>
+            <li>Gestion de vos campagnes publicitaires</li>
+            <li>Production de contenu régulière</li>
+            <li>Optimisation SEO continue</li>
+            <li>Community Management (réseaux sociaux)</li>
+            <li>Création vidéo et motion design</li>
+            <li>Social Selling et Employee Advocacy</li>
+            <li>Reporting hebdomadaire ou mensuel</li>
+          </ul>
+          <a class="cta" style="margin-top: 1.5rem; width: 100%;" href="#audit">Discuter de mon projet</a>
         </article>
       </div>
-      <p class="pricing-note">Budget mensuel flexible 500-5000 CHF.</p>
+      <p class="pricing-note">💡 Tous nos projets incluent : Support client réactif, mises à jour de sécurité, et un suivi personnalisé pour garantir votre succès digital.</p>
+    </section>
+
+    <section class="container faq">
+      <p class="section-kicker">Questions Fréquentes</p>
+      <h2 class="section-title">Tout ce que vous devez savoir avant de démarrer</h2>
+      <details>
+        <summary>Pourquoi choisir une agence locale en Suisse Romande ?</summary>
+        <p>Parce que vous gagnez en proximité, en compréhension du marché romand et en réactivité. Nos experts sont ancrés localement et disponibles rapidement.</p>
+      </details>
+      <details>
+        <summary>Quels sont les délais de création d'un site web ?</summary>
+        <p>La majorité des sites vitrines sont livrés en 4 à 6 semaines, selon la complexité et la réactivité des validations.</p>
+      </details>
+      <details>
+        <summary>Quel ROI puis-je attendre de mes campagnes publicitaires ?</summary>
+        <p>Nous visons un ROI mesurable dès les premières semaines via un tracking précis et des optimisations continues.</p>
+      </details>
+      <details>
+        <summary>Proposez-vous un contrat d'engagement minimum ?</summary>
+        <p>Les offres projets n'imposent aucun engagement long. Les accompagnements mensuels s'ajustent selon vos objectifs.</p>
+      </details>
+      <details>
+        <summary>Comment se passe la communication avec votre équipe ?</summary>
+        <p>Vous échangez directement avec les experts seniors via un canal dédié, avec un reporting régulier.</p>
+      </details>
+      <details>
+        <summary>Gérez-vous des clients hors de Suisse Romande ?</summary>
+        <p>Oui, mais notre expertise est centrée sur la Suisse romande pour garantir un maximum d'impact local.</p>
+      </details>
+    </section>
+
+    <section id="audit" class="container">
+      <div class="glass two-column">
+        <div>
+          <h2 class="section-title">Prêt à Accélérer Votre Croissance ?</h2>
+          <p class="section-subtitle">Obtenez un audit digital gratuit et découvrez comment CLICOM peut transformer votre présence en ligne en machine à générer des leads.</p>
+          <div class="contact-details">
+            <div><strong>Email</strong><br />hello@clicom.ch</div>
+            <div><strong>Téléphone</strong><br />078 823 89 50</div>
+            <div><strong>Localisation</strong><br />Agence basée en Suisse Romande</div>
+          </div>
+          <div class="contact-details">
+            <strong>Pourquoi nous faire confiance ?</strong>
+            <div>✓ Réponse sous 24h ouvrées</div>
+            <div>✓ Devis gratuit et sans engagement</div>
+            <div>✓ Premier audit digital offert</div>
+            <div>✓ Accompagnement personnalisé</div>
+          </div>
+        </div>
+        <form id="contactForm">
+          <div class="form-row">
+            <label for="contact_name">Nom complet *</label>
+            <input id="contact_name" name="contact_name" type="text" placeholder="Jean Dupont" required />
+          </div>
+          <div class="form-row">
+            <label for="company_name">Entreprise *</label>
+            <input id="company_name" name="company_name" type="text" placeholder="Votre Entreprise SA" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email professionnel *</label>
+            <input id="email" name="email" type="email" placeholder="jean.dupont@entreprise.ch" required />
+          </div>
+          <div class="form-row">
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" placeholder="078 123 45 67" />
+          </div>
+          <div class="form-row">
+            <label for="objective">Votre objectif principal *</label>
+            <input id="objective" name="objective" type="text" placeholder="Sélectionnez un objectif" required />
+          </div>
+          <div class="form-row">
+            <label for="message">Décrivez votre projet</label>
+            <textarea id="message" name="message" rows="4" placeholder="Parlez-nous de votre entreprise et de vos objectifs digitaux..."></textarea>
+          </div>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
+          <button class="cta" type="submit">Demander mon Audit Gratuit</button>
+          <div class="status" id="formStatus" aria-live="polite"></div>
+          <p class="form-note">En soumettant ce formulaire, vous acceptez que CLICOM collecte vos données pour traiter votre demande. Vos données ne seront jamais partagées à des tiers.</p>
+        </form>
+      </div>
     </section>
 
     <section id="contact" class="container">
-      <div class="contact-grid">
-        <div>
-          <h2 class="section-title">Parlons de votre projet</h2>
-          <p class="section-subtitle">Recevez un audit digital offert et une proposition claire sous 72 heures.</p>
+      <div class="two-column">
+        <div class="glass">
+          <h2 class="section-title">CLICOM</h2>
+          <p class="section-subtitle">Chez Clicom, on ne fait pas faire, on sait faire.</p>
+          <p class="section-subtitle">Agence marketing digital suisse spécialisée en SEO, SEA, Social Media et création de contenu pour PME en Suisse Romande.</p>
         </div>
-        <form id="contactForm" class="glass">
-          <div class="form-row">
-            <label for="contact_name">Nom complet</label>
-            <input id="contact_name" name="contact_name" type="text" placeholder="Claire Martin" required />
-          </div>
-          <div class="form-row">
-            <label for="company_name">Entreprise</label>
-            <input id="company_name" name="company_name" type="text" placeholder="Votre Entreprise SA" />
-          </div>
-          <div class="form-row">
-            <label for="email">Email professionnel</label>
-            <input id="email" name="email" type="email" placeholder="claire@entreprise.ch" required />
-          </div>
-          <div class="form-row">
-            <label for="phone">Téléphone (optionnel)</label>
-            <input id="phone" name="phone" type="tel" placeholder="+41 22 123 45 67" />
-          </div>
-          <div class="form-row">
-            <label for="message">Projet & objectifs</label>
-            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin..."></textarea>
-          </div>
-          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true" />
-          <button class="cta" type="submit">Recevoir mon audit</button>
-          <div class="status" id="formStatus" aria-live="polite"></div>
-          <p class="form-note">En soumettant ce formulaire, vous acceptez d'être recontacté par CLICOM.</p>
-        </form>
+        <div class="glass">
+          <h3>Services</h3>
+          <ul style="list-style: none; color: var(--muted); margin-top: 1rem; display: grid; gap: 0.4rem;">
+            <li>Stratégie & Conseil</li>
+            <li>SEO & SEA</li>
+            <li>Social Media</li>
+            <li>Création de Contenu</li>
+          </ul>
+          <h3 style="margin-top: 1.5rem;">Entreprise</h3>
+          <ul style="list-style: none; color: var(--muted); margin-top: 1rem; display: grid; gap: 0.4rem;">
+            <li>Notre Méthode</li>
+            <li>Nos Tarifs</li>
+            <li>FAQ</li>
+            <li>Contact</li>
+          </ul>
+          <h3 style="margin-top: 1.5rem;">Contact</h3>
+          <p class="section-subtitle">hello@clicom.ch<br />078 823 89 50<br />Suisse Romande</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2024 CLICOM — Écosystème Digital Premium Suisse.
+    © 2026 CLICOM - Agence Marketing Digital Suisse. Tous droits réservés.
+    <div style="margin-top: 0.75rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+      <span>Mentions Légales</span>
+      <span>Politique de Confidentialité</span>
+      <span>CGV</span>
+    </div>
   </footer>
 
   <script>
@@ -414,6 +665,7 @@
         company_name: formData.get('company_name') || '',
         email: formData.get('email'),
         phone: formData.get('phone') || '',
+        objective: formData.get('objective') || '',
         message: formData.get('message') || '',
         website: formData.get('website') // Honeypot anti-spam
       };
