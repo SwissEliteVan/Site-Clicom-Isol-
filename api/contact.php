@@ -16,7 +16,7 @@ require_once 'config.php';
 // =========================================
 // HEADERS CORS (Vercel -> Hostinger)
 // =========================================
-header('Access-Control-Allow-Origin: ' . ALLOWED_ORIGINS);
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
@@ -43,7 +43,7 @@ $companyName = isset($input['company_name']) ? sanitizeInput($input['company_nam
 $contactName = isset($input['contact_name']) ? sanitizeInput($input['contact_name']) : '';
 $email = isset($input['email']) ? sanitizeInput($input['email']) : '';
 $phone = isset($input['phone']) ? sanitizeInput($input['phone']) : '';
-$message = isset($input['message']) ? sanitizeInput($input['message']) : '';
+$project = isset($input['project']) ? sanitizeInput($input['project']) : '';
 $honeypot = isset($input['website']) ? $input['website'] : ''; // Champ piège anti-spam
 
 // =========================================
@@ -52,8 +52,7 @@ $honeypot = isset($input['website']) ? $input['website'] : ''; // Champ piège a
 
 // 1. Vérification Honeypot
 if (ENABLE_HONEYPOT && !empty($honeypot)) {
-    // Bot détecté
-    http_response_code(200); // Renvoyer 200 pour ne pas alerter le bot
+    http_response_code(200);
     echo json_encode(['success' => true, 'message' => 'Merci pour votre message']);
     exit;
 }
@@ -85,46 +84,28 @@ try {
 
     if ($existingClient) {
         $clientId = $existingClient['id'];
-
-        // Mettre à jour les informations si elles ont changé
-        $stmt = $db->prepare("
-            UPDATE clients
-            SET company_name = COALESCE(NULLIF(:company_name, ''), company_name),
-                contact_name = :contact_name,
-                phone = COALESCE(NULLIF(:phone, ''), phone),
-                updated_at = CURRENT_TIMESTAMP
-            WHERE id = :id
-        ");
-        $stmt->execute([
-            'company_name' => $companyName,
-            'contact_name' => $contactName,
-            'phone' => $phone,
-            'id' => $clientId
-        ]);
     } else {
         // Insérer nouveau client
         $stmt = $db->prepare("
-            INSERT INTO clients (company_name, contact_name, email, phone, status, source, notes)
-            VALUES (:company_name, :contact_name, :email, :phone, 'lead', 'website', :notes)
+            INSERT INTO clients (company_name, contact_name, email, phone, status)
+            VALUES (:company_name, :contact_name, :email, :phone, 'lead')
         ");
         $stmt->execute([
-            'company_name' => $companyName ?: 'Non renseigné',
+            'company_name' => $companyName ?: null,
             'contact_name' => $contactName,
             'email' => $email,
-            'phone' => $phone,
-            'notes' => $message
+            'phone' => $phone ?: null
         ]);
         $clientId = $db->lastInsertId();
     }
 
     // 2. Créer une tâche "Rappeler prospect" (Priorité Haute)
     $stmt = $db->prepare("
-        INSERT INTO tasks (related_to_id, related_to_type, type, priority, due_date, description, status)
-        VALUES (:client_id, 'client', 'Rappeler prospect', 'high', DATE_ADD(CURRENT_DATE, INTERVAL 1 DAY), :description, 'todo')
+        INSERT INTO tasks (related_to_id, type, priority, due_date)
+        VALUES (:client_id, 'Rappeler prospect', 'high', DATE_ADD(CURRENT_DATE, INTERVAL 1 DAY))
     ");
     $stmt->execute([
-        'client_id' => $clientId,
-        'description' => "Nouveau lead via formulaire web\nMessage: " . $message
+        'client_id' => $clientId
     ]);
 
     // =========================================
@@ -140,7 +121,7 @@ try {
                 <p><strong>Entreprise:</strong> {$companyName}</p>
                 <p><strong>Email:</strong> {$email}</p>
                 <p><strong>Téléphone:</strong> {$phone}</p>
-                <p><strong>Message:</strong><br>{$message}</p>
+                <p><strong>Projet:</strong><br>{$project}</p>
                 <hr>
                 <p style='color: #666;'>Source: Formulaire site vitrine</p>
             </body>
