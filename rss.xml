@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>CLICOM Blog</title>
+    <link>https://www.clicom.ch/blog/</link>
+    <description>Analyses pour accélérer la croissance des PME suisses romandes.</description>
+    <language>fr-CH</language>
+    <item>
+      <title>Pourquoi un site web ne suffit plus en 2025 ?</title>
+      <link>https://www.clicom.ch/blog/pourquoi-un-site-web-ne-suffit-plus/</link>
+      <description>Repenser l'acquisition et l'expérience pour vendre plus vite.</description>
+      <pubDate>Mon, 20 Jan 2026 08:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Comment digitaliser sa force de vente ?</title>
+      <link>https://www.clicom.ch/blog/digitaliser-force-de-vente/</link>
+      <description>Structurer votre pipeline pour gagner en efficacité.</description>
+      <pubDate>Mon, 20 Jan 2026 08:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SEO Local : Dominez votre canton.</title>
+      <link>https://www.clicom.ch/blog/seo-local-dominez-votre-canton/</link>
+      <description>Les actions concrètes pour remonter localement.</description>
+      <pubDate>Mon, 20 Jan 2026 08:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

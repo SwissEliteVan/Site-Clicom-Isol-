@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr-CH" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog | CLICOM</title>
+<meta name="description" content="Articles concrets pour améliorer votre acquisition et votre conversion en Suisse romande.">
+<link rel="canonical" href="https://www.clicom.ch/blog/">
+<meta property="og:title" content="Blog CLICOM">
+<meta property="og:description" content="Analyses locales, UX conversion et stratégies de croissance.">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+</head>
+<body>
+<a class="skip" href="#main-content">Aller au contenu</a>
+<header class="site-header">
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="logo" href="/">CLICOM.</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="/expertises/">Expertises</a>
+        <a href="/methode/">Méthode</a>
+        <a href="/tarifs/">Tarifs</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Activer le mode sombre"><span aria-hidden="true">🌙</span><span class="theme-label">Mode sombre</span></button>
+        <a class="cta" href="/contact/">Parler à un expert</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="page">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li>Blog</li></ol></nav>
+    <section class="page-hero">
+      <p class="eyebrow">Insights fr-CH</p>
+      <h1>Le blog qui transforme vos idées en actions.</h1>
+      <div class="search-box"><label class="sr-only" for="blog-search">Recherche</label><input id="blog-search" data-search type="search" placeholder="Rechercher un article (ex: SEO)"></div>
+    </section>
+    <section class="grid-3" data-post-list></section>
+    <div class="pagination">
+      <button class="ghost" type="button" data-page="-1">Précédent</button>
+      <span data-page-label>Page 1 / 2</span>
+      <button class="ghost" type="button" data-page="1">Suivant</button>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><h3>CLICOM.</h3><p>hello@clicom.ch<br><a href="tel:+41788238950">078 823 89 50</a></p><p>Suisse Romande</p></div>
+    <div><h4>Navigation</h4><ul><li><a href="/expertises/">Expertises</a></li><li><a href="/tarifs/">Tarifs</a></li><li><a href="/ressources/">Ressources</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+    <div><h4>Légal</h4><ul><li><a href="/legal/lpd/">LPD</a></li><li><a href="/legal/mentions/">Mentions</a></li><li><a href="/plan-du-site/">Plan du site</a></li></ul></div>
+  </div>
+</footer>
+<script>
+window.__BLOG_POSTS__ = {
+  posts: [
+    { title: 'Pourquoi un site web ne suffit plus en 2025 ?', description: 'Repenser l\'acquisition et l\'expérience pour vendre plus vite.', category: 'Stratégie', tags: ['site', 'acquisition'], readingTime: '6 min', url: '/blog/pourquoi-un-site-web-ne-suffit-plus/' },
+    { title: 'Comment digitaliser sa force de vente ?', description: 'Structurer votre pipeline et vos messages pour gagner en efficacité.', category: 'Vente', tags: ['crm', 'pipeline'], readingTime: '5 min', url: '/blog/digitaliser-force-de-vente/' },
+    { title: 'SEO Local : Dominez votre canton.', description: 'Les actions concrètes pour apparaître partout dans votre canton.', category: 'SEO', tags: ['seo', 'local'], readingTime: '4 min', url: '/blog/seo-local-dominez-votre-canton/' },
+    { title: 'Activation B2B en 2025', description: 'Aligner marketing et vente pour réduire les cycles de décision.', category: 'Go-to-market', tags: ['b2b', 'activation'], readingTime: '7 min', url: '/blog/activation-b2b-2025/' },
+    { title: 'Roadmap croissance PME', description: 'Les priorités trimestre par trimestre pour rester rentable.', category: 'Pilotage', tags: ['planning', 'pme'], readingTime: '6 min', url: '/blog/roadmap-croissance-pme/' },
+    { title: 'UX lead magnet suisse', description: 'Optimiser la conversion sans surcharger vos équipes.', category: 'UX', tags: ['ux', 'conversion'], readingTime: '5 min', url: '/blog/ux-lead-magnet/' }
+  ]
+};
+</script>
+<script src="/scripts/site.js"></script>
+</body>
+</html>
