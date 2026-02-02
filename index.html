@@ -3,626 +3,742 @@
 <!DOCTYPE html>
 <html lang="fr-CH">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CLICOM — Département marketing externalisé pour PME suisses</title>
-<meta name="description" content="CLICOM est votre département marketing externalisé en Suisse Romande. Stratégie, création et technologie pour PME, sans intermédiaire." />
-<meta name="theme-color" content="#3366ff" />
-<meta property="og:title" content="CLICOM — Votre département marketing externalisé" />
-<meta property="og:description" content="Stratégie, création et technologie pour les PME suisses. Sans intermédiaire." />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="fr_CH" />
-<meta name="twitter:card" content="summary" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CLICOM","email":"hello@clicom.ch","telephone":"+41788238950","areaServed":"Suisse Romande","url":"https://clicom.ch"}</script>
-<style>
-:root{color-scheme:light;--bg:#f6f6f4;--text:#0f172a;--muted:#4b5563;--accent:#3366ff;--border:rgba(15,23,42,.12);--card:#fff;--shadow:0 16px 40px rgba(15,23,42,.08);--radius:18px;--radius-sm:12px;--space-1:clamp(.5rem,.8vw,1rem);--space-2:clamp(1rem,1.6vw,1.5rem);--space-3:clamp(1.5rem,2.2vw,2.5rem);--space-4:clamp(2.2rem,3vw,3.5rem);--space-5:clamp(3rem,4vw,5rem);--h1:clamp(2.4rem,4.8vw,4.4rem);--h2:clamp(1.6rem,2.6vw,2.6rem);--h3:clamp(1.1rem,1.6vw,1.5rem);--body:clamp(1rem,1.1vw,1.1rem);--trans:180ms ease}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:var(--body)}
-img,svg{max-width:100%;display:block}
-main{overflow:hidden}
-section{padding:var(--space-5) 0;content-visibility:auto;contain-intrinsic-size:1px 800px}
-header{position:sticky;top:0;z-index:20;background:rgba(246,246,244,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.skip{position:absolute;left:-999px;top:1rem;background:#000;color:#fff;padding:.5rem 1rem;border-radius:8px}
-.skip:focus{left:1rem;z-index:999}
-.progress{height:3px;background:linear-gradient(90deg,var(--accent),#0f172a);width:0%}
-.container{width:min(1180px,92vw);margin:0 auto}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
-.logo{letter-spacing:.4em;text-transform:uppercase;font-weight:700;font-size:.9rem}
-.nav-links{display:flex;gap:1.5rem;font-size:.95rem;color:var(--muted)}
-.nav-links a{position:relative;padding:.2rem 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-.2rem;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--trans)}
-.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
-.cta{background:var(--accent);color:#fff;padding:.7rem 1.2rem;border-radius:999px;font-weight:600;box-shadow:0 8px 18px rgba(51,102,255,.28);transition:transform var(--trans),box-shadow var(--trans)}
-.cta:hover,.cta:focus-visible{transform:translateY(-2px);box-shadow:0 12px 24px rgba(51,102,255,.34)}
-.grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-2)}
-.hero{padding:var(--space-5) 0 var(--space-4)}
-.hero h1{font-size:var(--h1);letter-spacing:-.03em;line-height:1.05}
-.hero p{max-width:52ch;color:var(--muted);margin-top:var(--space-1)}
-.hero .slogan{font-weight:600;margin-top:var(--space-2)}
-.badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);border-radius:999px;padding:.2rem .8rem;font-size:.8rem;color:var(--muted)}
-.bento{grid-column:span 12;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-2)}
-.bento-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2);transition:transform var(--trans),box-shadow var(--trans),border var(--trans)}
-.bento-card:hover,.bento-card:focus-within{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(51,102,255,.5)}
-.bento-card h3{font-size:var(--h3);margin-bottom:.6rem}
-.bento-card p{color:var(--muted)}
-.method{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.method .card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:var(--space-3);box-shadow:var(--shadow)}
-.pricing{background:#fff}
-.pricing-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-2)}
-.switch{display:flex;align-items:center;gap:.8rem;border:1px solid var(--border);padding:.4rem .8rem;border-radius:999px}
-.switch button{border:1px solid var(--border);background:#fff;border-radius:999px;padding:.25rem .5rem;display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:var(--muted);cursor:pointer}
-.switch .dot{width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform var(--trans),background var(--trans)}
-.switch [aria-checked="true"]{color:var(--accent);border-color:rgba(51,102,255,.5)}
-.switch [aria-checked="true"] .dot{transform:translateX(18px);background:var(--accent)}
-.pricing-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-2)}
-.price-card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2);display:flex;flex-direction:column;gap:1rem;position:relative}
-.price-card.highlight{border-color:rgba(51,102,255,.6);box-shadow:var(--shadow)}
-.price-card.sticky{position:sticky;top:5.5rem;align-self:start}
-.price-title{display:flex;justify-content:space-between;align-items:center;gap:.6rem}
-.badge-strong{background:var(--accent);color:#fff;border-radius:999px;font-size:.75rem;padding:.2rem .6rem}
-.price{font-size:clamp(1.8rem,2.6vw,2.6rem);font-weight:700}
-.price small{font-size:.85rem;color:var(--muted);font-weight:500}
-.price-meta{color:var(--muted);font-size:.95rem}
-.price-list{display:grid;gap:.4rem;color:var(--muted);list-style:none;padding:0;margin:0}
-.price-list span{display:flex;gap:.5rem;align-items:center}
-.price-list svg{width:16px;height:16px;stroke:var(--accent)}
-.price-cta{margin-top:auto}
-.compare{margin-top:var(--space-3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.compare table{width:100%;border-collapse:collapse;font-size:.95rem}
-.compare th,.compare td{padding:1rem;border-bottom:1px solid var(--border);text-align:left}
-.compare th{background:rgba(51,102,255,.06);font-weight:600}
-.compare td .tick{width:18px;height:18px;stroke:var(--accent)}
-.accordion{margin-top:var(--space-2);display:grid;gap:.8rem}
-.accordion button{width:100%;text-align:left;background:var(--card);border:1px solid var(--border);padding:1rem;border-radius:12px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
-.accordion [role="region"]{padding:0 1rem 1rem;color:var(--muted)}
-.map-wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-2)}
-.map-card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2)}
-.map-legend{display:flex;flex-wrap:wrap;gap:.8rem;font-size:.9rem;color:var(--muted)}
-.map-legend span{display:flex;align-items:center;gap:.4rem}
-.map-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
-.map-tooltip{margin-top:.6rem;font-size:.95rem;color:var(--muted)}
-.canton{fill:#e7ecff;stroke:var(--accent);stroke-width:1.5;cursor:pointer;transition:fill var(--trans),transform var(--trans)}
-.canton:hover,.canton:focus-visible{fill:#cbd7ff;transform:translateY(-2px)}
-.canton.other{fill:#eceff3;stroke:#9aa3b2}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-2)}
-.blog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-2);display:grid;gap:.8rem}
-.blog-card ul{display:flex;gap:.6rem;flex-wrap:wrap;list-style:none;font-size:.8rem;color:var(--muted)}
-.contact{background:#fff;border-top:1px solid var(--border)}
-form{display:grid;gap:1rem}
-label{font-weight:600}
-input,select,textarea{width:100%;padding:.8rem;border-radius:12px;border:1px solid var(--border);font:inherit}
-input:focus,select:focus,textarea:focus,button:focus{outline:2px solid var(--accent);outline-offset:2px}
-textarea{min-height:140px;resize:vertical}
-.form-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
-.form-note{color:var(--muted);font-size:.9rem}
-.footer{background:#0f172a;color:#f8fafc;padding:var(--space-5) 0}
-.footer a{color:#f8fafc}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--space-2)}
-.footer small{color:#cbd5f5}
-.reveal{opacity:0;transform:translateY(12px);transition:opacity 220ms ease,transform 220ms ease}
-.reveal.is-visible{opacity:1;transform:translateY(0)}
-@media(min-width:768px){.hero .copy{grid-column:span 7}.hero .meta{grid-column:span 5}.price-card{grid-column:span 4}.price-card.sticky{grid-column:span 5}.price-card:nth-child(1){grid-column:span 3}.price-card:nth-child(2){grid-column:span 4}.map-card{grid-column:span 7}.map-info{grid-column:span 5}.nav-links{gap:1.2rem}}
-@media(min-width:1024px){.price-card.sticky{top:6.5rem}.compare{display:block}.price-cards-mobile{display:none}}
-@media(max-width:1023px){.compare{display:none}.price-card.sticky{position:static}}
-@media(max-width:900px){.nav-links{display:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>CLICOM - Agence Marketing Digital Suisse | CRM + Site Web + Stratégie | Suisse Romande</title>
+    <meta name="description" content="On ne fait pas faire, on sait faire. L'agence digitale suisse qui construit votre machine à générer des leads. Site Web + CRM + Contenu. Résultats en 90 jours.">
+    <meta name="keywords" content="agence marketing digital suisse, CRM intégré, site web haute performance, SEO Suisse, social selling, content factory, Pipedrive, Suisse Romande">
+    <meta name="author" content="CLICOM">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.clicom.ch">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.clicom.ch">
+    <meta property="og:title" content="CLICOM - On ne fait pas faire, on sait faire | Agence Marketing Digital Suisse">
+    <meta property="og:description" content="L'écosystème digital complet pour PME suisses : Site Web haute performance + CRM intégré + Stratégie de contenu. Résultats mesurables en 90 jours.">
+    <meta property="og:image" content="https://www.clicom.ch/assets/og-image-dark.jpg">
+    <meta property="og:locale" content="fr_CH">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.clicom.ch">
+    <meta name="twitter:title" content="CLICOM - Agence Marketing Digital Suisse">
+    <meta name="twitter:description" content="On ne fait pas faire, on sait faire. Site Web + CRM + Contenu. Zéro bullshit.">
+    <meta name="twitter:image" content="https://www.clicom.ch/assets/twitter-card-dark.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Fonts - Google Fonts avec preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "CLICOM",
+      "image": "https://www.clicom.ch/assets/logo-dark.png",
+      "@id": "https://www.clicom.ch",
+      "url": "https://www.clicom.ch",
+      "telephone": "+41788238950",
+      "email": "hello@clicom.ch",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Suisse Romande",
+        "addressCountry": "CH"
+      },
+      "priceRange": "CHF 2500 - 5000",
+      "slogan": "On ne fait pas faire, on sait faire",
+      "description": "Agence marketing digital suisse proposant un écosystème complet : Site Web haute performance + CRM intégré (Pipedrive) + Stratégie de contenu pour PME en Suisse Romande.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services Marketing Digital",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Offre Starter",
+              "description": "Site Web vitrine haute performance + Identité visuelle",
+              "price": "2500",
+              "priceCurrency": "CHF"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Offre Growth",
+              "description": "Écosystème digital complet : Site Web + CRM Pipedrive + Content Factory",
+              "price": "5000",
+              "priceCurrency": "CHF"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
-<body>
-<a class="skip" href="#main">Aller au contenu</a>
-<header>
-  <div class="progress" id="progress"></div>
-  <div class="container nav">
-    <div class="logo" aria-label="CLICOM">CLICOM</div>
-    <nav aria-label="Navigation principale" class="nav-links">
-      <a href="#expertises">Expertises</a>
-      <a href="#methode">Méthode</a>
-      <a href="#tarifs">Tarifs &amp; Mandats</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="cta" href="#contact">Parler à un expert</a>
-  </div>
-</header>
-<main id="main">
-  <section class="hero">
-    <div class="container grid-12">
-      <div class="copy reveal">
-        <span class="badge">Agence suisse romande</span>
-        <h1>Votre département marketing externalisé.</h1>
-        <p>Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.</p>
-        <p class="slogan">Chez Clicom, on ne fait pas faire, on sait faire.</p>
-      </div>
-      <div class="meta reveal" aria-hidden="true">
-        <div class="method card">
-          <h2 style="font-size:var(--h3);margin-bottom:.8rem">Impact immédiat</h2>
-          <p style="color:var(--muted)">Une équipe intégrée, un pilotage clair, des actions mesurables.</p>
+<body class="dark-mode">
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar" aria-label="Navigation principale">
+                <a href="/" class="logo" aria-label="CLICOM - Retour à l'accueil">
+                    <span class="logo-text">CLICOM</span>
+                    <span class="logo-dot">.</span>
+                </a>
 
-<!doctype html>
-<html lang="fr-CH" dir="ltr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CLICOM — Agence marketing en Suisse romande</title>
-<meta name="description" content="CLICOM, département marketing externalisé pour PME suisses. Stratégie, création et technologie, sans intermédiaire.">
-<meta name="theme-color" content="#3366ff">
-<meta name="color-scheme" content="light dark">
-<link rel="canonical" href="https://clicom.ch/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CLICOM — Votre département marketing externalisé">
-<meta property="og:description" content="Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.">
-<meta property="og:locale" content="fr_CH">
-<meta property="twitter:card" content="summary">
-<meta property="twitter:title" content="CLICOM — Votre département marketing externalisé">
-<meta property="twitter:description" content="Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CLICOM","email":"hello@clicom.ch","telephone":"+41788238950","areaServed":"Suisse Romande","url":"https://clicom.ch"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CLICOM","url":"https://clicom.ch/","potentialAction":{"@type":"SearchAction","target":"https://clicom.ch/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://clicom.ch/"},{"@type":"ListItem","position":2,"name":"Tarifs & Mandats","item":"https://clicom.ch/#tarifs"},{"@type":"ListItem","position":3,"name":"Contact","item":"https://clicom.ch/#contact"}]}</script>
-<link rel="stylesheet" href="styles/tokens.css">
-<link rel="stylesheet" href="styles/base.css">
-</head>
-<body>
-<a class="skip" href="#main-content">Aller au contenu</a>
-<a class="skip" href="#contact">Aller au contact</a>
-<header class="site-header" id="top" data-section>
-  <div class="progress" aria-hidden="true"><span></span></div>
-  <div class="wrap">
-    <nav class="nav" aria-label="Navigation principale">
-      <a class="logo" href="#top" aria-label="CLICOM, retour en haut">CLICOM.</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
-      <div class="nav-menu" id="nav-menu">
-        <a href="/expertises/">Expertises</a>
-        <a href="/methode/">Méthode</a>
-        <a href="/tarifs/">Tarifs &amp; Mandats</a>
-        <a href="/blog/">Blog</a>
-        <a href="/contact/">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Activer le mode sombre">
-          <span aria-hidden="true">🌙</span>
-          <span class="theme-label">Mode sombre</span>
-        </button>
-        <a class="cta" href="/contact/">Parler à un expert</a>
-      </div>
-    </nav>
-  </div>
-</header>
-<main id="main-content">
-  <section class="hero" id="hero" data-section>
-    <div class="wrap grid-12">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Agence suisse romande</p>
-        <h1>Votre département marketing externalisé.</h1>
-        <p class="lead">Stratégie, Création et Technologie pour les PME suisses. Sans intermédiaire.</p>
-        <p class="slogan">Chez Clicom, on ne fait pas faire, on sait faire.</p>
-        <div class="hero-actions">
-          <a class="cta" href="/contact/">Parler à un expert</a>
-          <a class="ghost" href="/expertises/">Découvrir nos expertises</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#expertises" class="nav-link">Expertises</a></li>
+                    <li><a href="#ecosysteme" class="nav-link">L'Écosystème</a></li>
+                    <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+                    <li><a href="#cas-clients" class="nav-link">Cas Clients</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <a href="#contact" class="btn btn-primary-glow" aria-label="Obtenir un audit digital gratuit">
+                    Audit Gratuit
+                </a>
+            </nav>
         </div>
-      </div>
-      <div class="hero-media reveal" aria-hidden="true">
-        <div class="media-card">
-          <svg viewBox="0 0 360 240" role="img" aria-label="Aperçu d'un dispositif marketing"><rect x="16" y="18" width="328" height="204" rx="18" fill="#f6f6f4" stroke="#cbd5f0" stroke-width="2"/><rect x="36" y="44" width="140" height="18" rx="9" fill="#dbe3ff"/><rect x="36" y="76" width="220" height="10" rx="5" fill="#e2e8ff"/><rect x="36" y="98" width="190" height="10" rx="5" fill="#e2e8ff"/><rect x="36" y="138" width="288" height="60" rx="12" fill="#fff" stroke="#dde4ff"/><circle cx="300" cy="60" r="18" fill="#3366ff" opacity="0.15"/></svg>
-          <div class="media-caption">
-            <p>Exécution précise. Résultats visibles.</p>
-          </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="accueil">
+        <div class="hero-bg-particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    <span>12 PME suisses ont multiplié leurs leads par 3 en 90j</span>
+                </div>
+
+                <h1 class="hero-title glitch-text">
+                    ON NE FAIT PAS FAIRE,<br>
+                    <span class="highlight-neon">ON SAIT FAIRE.</span>
+                </h1>
+
+                <p class="hero-lead">
+                    L'agence digitale suisse qui construit votre machine à générer des leads.<br>
+                    <strong>Site Web + CRM + Contenu.</strong> Tout intégré. Zéro bullshit.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary-large">
+                        <span>Démarrer Maintenant</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <a href="#ecosysteme" class="btn btn-secondary-large">
+                        Voir Notre Méthode
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M10 16L4 10M10 16L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="300">0</div>
+                        <div class="stat-label">% Leads en moyenne</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="90">0</div>
+                        <div class="stat-label">Jours pour résultats</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">Score Lighthouse</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-highlights">
-          <div class="panel-card"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><div><h3>Clarté &amp; rigueur</h3><p>Une exécution millimétrée, à chaque étape.</p></div></div>
-          <div class="panel-card"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><div><h3>Impact mesurable</h3><p>Des actions qui servent vos ventes.</p></div></div>
-          <div class="panel-card"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v14H4z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 9h16" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><div><h3>Sans intermédiaire</h3><p>Vous parlez aux experts qui produisent.</p></div></div>
+    </section>
 
+    <!-- BENTO GRID - 3 PILIERS -->
+    <section class="pillars" id="expertises">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">VOTRE ÉCOSYSTÈME DIGITAL COMPLET</h2>
+                <p class="section-lead">
+                    Trois piliers pour dominer votre marché digital
+                </p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Pilier 1 : Site Web -->
+                <article class="bento-card card-large">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="8" width="40" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4 16H44" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="10" cy="12" r="1.5" fill="currentColor"/>
+                            <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
+                            <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">SITE WEB HAUTE PERFORMANCE</h3>
+                    <p class="card-description">
+                        Votre vitrine digitale doit être une machine à convertir.
+                        Sites statiques ultra-rapides, SEO technique parfait, Lighthouse 100/100.
+                    </p>
+                    <ul class="card-features">
+                        <li>Lighthouse 100/100</li>
+                        <li>SEO technique optimisé</li>
+                        <li>Responsive mobile-first</li>
+                        <li>Hébergement Vercel inclus</li>
+                    </ul>
+                    <div class="card-badge">Performance</div>
+                </article>
+
+                <!-- Pilier 2 : CRM (Featured) -->
+                <article class="bento-card card-featured">
+                    <div class="card-glow glow-intense"></div>
+                    <div class="featured-badge">
+                        <span class="pulse-dot"></span>
+                        EXCLUSIVITÉ CLICOM
+                    </div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L28 16H40L30 24L34 36L24 28L14 36L18 24L8 16H20L24 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">CRM INTÉGRÉ + AUTOMATISATION</h3>
+                    <p class="card-description">
+                        Pendant que vos concurrents jonglent entre 5 outils,
+                        vous gérez tout depuis Pipedrive. Setup inclus, formation incluse, 0 friction.
+                    </p>
+                    <ul class="card-features">
+                        <li>Configuration Pipedrive complète</li>
+                        <li>Workflows automatisés</li>
+                        <li>Lead nurturing intelligent</li>
+                        <li>Dashboard temps réel</li>
+                    </ul>
+                    <div class="card-badge badge-neon">Premium</div>
+                </article>
+
+                <!-- Pilier 3 : Content Factory -->
+                <article class="bento-card card-large">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 18H32M16 24H28M16 30H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">STRATÉGIE & CONTENT FACTORY</h3>
+                    <p class="card-description">
+                        Le contenu est roi, la stratégie est reine.
+                        Écosystème de contenu complet : Blog, Social, Vidéo, Email.
+                    </p>
+                    <ul class="card-features">
+                        <li>Content Factory mensuel</li>
+                        <li>Social Selling (LinkedIn)</li>
+                        <li>Employee Advocacy</li>
+                        <li>SEO Content optimisé</li>
+                    </ul>
+                    <div class="card-badge">Croissance</div>
+                </article>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- MÉTHODE 30-60-90 -->
+    <section class="methode" id="ecosysteme">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">NOTRE MÉTHODE : 30-60-90 JOURS</h2>
+                <p class="section-lead">
+                    De zéro à une machine à leads en 3 mois
+                </p>
+            </div>
 
-  <section id="expertises">
-    <div class="container">
-      <h2>NOS 8 PÔLES D’EXPERTISE</h2>
-      <div class="bento" role="list">
-        <article class="bento-card reveal" role="listitem"><h3>Conseil &amp; Stratégie</h3><p>Audit de marché, Positionnement de marque, Identité visuelle.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Sites Web &amp; Opérations Spéciales</h3><p>Sites vitrines performants, Boutiques en ligne, Dispositifs sur-mesure.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Publicité &amp; Performance</h3><p>Référencement Google (SEO), Publicité ciblée (SEA), Acquisition.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Studio de Contenus</h3><p>Vidéo d’entreprise, Shooting photo, Rédaction, Contenus authentiques.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Réseaux Sociaux &amp; Influence</h3><p>Gestion de communauté, Partenariats influenceurs, E-Réputation.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Événementiel Digital &amp; Physique</h3><p>Organisation de webinaires, Événements hybrides et séminaires.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Programmes Ambassadeurs</h3><p>Formez vos équipes pour qu’elles deviennent vos premiers porte-paroles.</p></article>
-        <article class="bento-card reveal" role="listitem"><h3>Prospection B2B</h3><p>Campagnes de prospection digitale intelligentes et automatisées.</p></article<section class="expertises" id="expertises" data-section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Nos 8 pôles d’expertise</h2>
-        <p>Un dispositif complet pour couvrir toute votre chaîne marketing.</p>
-      </div>
-      <div class="bento">
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 9h10M7 12h6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><h3>Conseil &amp; Stratégie</h3><p>Audit de marché, Positionnement de marque, Identité visuelle.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6h14v12H5z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 18v-4h6v4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><h3>Sites Web &amp; Opérations Spéciales</h3><p>Sites vitrines performants, Boutiques en ligne, Dispositifs sur-mesure.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M4 20h16" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><h3>Publicité &amp; Performance</h3><p>Référencement Google (SEO), Publicité ciblée (SEA), Acquisition.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H4z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 19h10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><h3>Studio de Contenus</h3><p>Vidéo d’entreprise, Shooting photo, Rédaction, Contenus authentiques.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 100 16 8 8 0 000-16z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 12h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><h3>Réseaux Sociaux &amp; Influence</h3><p>Gestion de communauté, Partenariats influenceurs, E-Réputation.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14v4H5z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 13h10v6H7z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><h3>Événementiel Digital &amp; Physique</h3><p>Organisation de webinaires, Événements hybrides et séminaires.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h8v12H8z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 9h2M6 12h2M6 15h2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><h3>Programmes Ambassadeurs</h3><p>Formez vos équipes pour qu’elles deviennent vos premiers porte-paroles.</p></article>
-        <article class="bento-card reveal" tabindex="0"><span class="bento-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h16v8H4z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 12h6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><h3>Prospection B2B</h3><p>Campagnes de prospection digitale intelligentes et automatisées.</p></article>
+            <div class="timeline">
+                <div class="timeline-item" data-phase="30">
+                    <div class="timeline-number">
+                        <span class="number-value">30</span>
+                        <span class="number-unit">j</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">ONBOARDING</h3>
+                        <p class="timeline-description">
+                            Audit complet, setup technique, premiers Quick Wins
+                        </p>
+                        <ul class="timeline-list">
+                            <li>Audit digital 360°</li>
+                            <li>Configuration CRM (Pipedrive)</li>
+                            <li>Site Web en ligne</li>
+                            <li>Premiers contenus publiés</li>
+                        </ul>
+                        <div class="timeline-progress">
+                            <div class="progress-bar" style="--progress: 33%"></div>
+                        </div>
+                    </div>
+                </div>
 
-      </div>
-    </div>
-  </section>
+                <div class="timeline-item" data-phase="60">
+                    <div class="timeline-number">
+                        <span class="number-value">60</span>
+                        <span class="number-unit">j</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">CROISSANCE</h3>
+                        <p class="timeline-description">
+                            Campagnes publicitaires, production de contenu régulière
+                        </p>
+                        <ul class="timeline-list">
+                            <li>Lancement Google Ads + Social Ads</li>
+                            <li>Content Factory en rythme</li>
+                            <li>Premiers leads qualifiés</li>
+                            <li>A/B Testing continu</li>
+                        </ul>
+                        <div class="timeline-progress">
+                            <div class="progress-bar" style="--progress: 66%"></div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="timeline-item" data-phase="90">
+                    <div class="timeline-number">
+                        <span class="number-value">90</span>
+                        <span class="number-unit">j</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">OPTIMISATION</h3>
+                        <p class="timeline-description">
+                            ROI mesurable, scaling des actions performantes
+                        </p>
+                        <ul class="timeline-list">
+                            <li>Analyse ROI détaillée</li>
+                            <li>Optimisation budgets publicitaires</li>
+                            <li>Scaling campagnes performantes</li>
+                            <li>Roadmap 90 jours suivants</li>
+                        </ul>
+                        <div class="timeline-progress">
+                            <div class="progress-bar" style="--progress: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <section id="methode" class="method">
-    <div class="container">
-      <h2>Méthode 30-60-90</h2>
-      <p>30 jours pour intégrer, 60 jours pour construire, 90 jours pour optimiser.</p>
-    </div>
-  </section>
-
-  <section id="tarifs" class="pricing">
-    <div class="container">
-      <div class="pricing-header">
-        <div>
-          <h2>Tarifs &amp; Mandats</h2>
-          <p class="price-meta">Comparatif clair, objectifs de résultats et mandat évolutif.</p>
+            <div class="cta-box">
+                <div class="cta-box-content">
+                    <h3>L'AVANTAGE CLICOM</h3>
+                    <p>
+                        <strong>Pas d'intermédiaires, réactivité maximale.</strong><br>
+                        Vous travaillez directement avec nos experts seniors : stratèges, développeurs et créatifs.
+                        Des décisions rapides, une exécution irréprochable.
+                    </p>
+                    <a href="#tarifs" class="btn btn-secondary">Découvrir les Tarifs</a>
+                </div>
+            </div>
         </div>
-        <div class="switch" role="group" aria-label="Facturation">
-          <span>Facturation :</span>
-          <button type="button" id="billing-switch" role="switch" aria-checked="false">
-            <span>Unique</span><span class="dot" aria-hidden="true"></span><span>Mensuelle</span>
-          </button>
+    </section>
+
+    <!-- TARIFS -->
+    <section class="tarifs" id="tarifs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">TARIFS TRANSPARENTS</h2>
+                <p class="section-lead">
+                    Investissez dans votre croissance, pas dans des promesses
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Offre Starter -->
+                <article class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">STARTER</h3>
+                        <p class="pricing-tagline">Idéal pour le lancement</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">CHF</span>
+                        <span class="amount">2'500</span>
+                        <span class="period">one-time</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="feature-included">Site vitrine haute performance (5 pages)</li>
+                        <li class="feature-included">Identité visuelle complète</li>
+                        <li class="feature-included">SEO technique optimisé</li>
+                        <li class="feature-included">Hébergement Vercel 1 an</li>
+                        <li class="feature-included">Google Analytics 4</li>
+                        <li class="feature-included">Formation à la gestion</li>
+                        <li class="feature-excluded">CRM Pipedrive</li>
+                        <li class="feature-excluded">Content Factory</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-ghost">Commander</a>
+                </article>
+
+                <!-- Offre Growth (Featured) -->
+                <article class="pricing-card pricing-featured">
+                    <div class="pricing-badge">
+                        <span class="pulse-dot"></span>
+                        RECOMMANDÉ
+                    </div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">GROWTH</h3>
+                        <p class="pricing-tagline">Écosystème complet</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">CHF</span>
+                        <span class="amount">5'000</span>
+                        <span class="period">one-time</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="feature-included"><strong>Tout de l'offre Starter, plus:</strong></li>
+                        <li class="feature-included">Configuration CRM Pipedrive complète</li>
+                        <li class="feature-included">Workflows automatisés (Lead Nurturing)</li>
+                        <li class="feature-included">Content Factory 3 mois (12 contenus)</li>
+                        <li class="feature-included">Campagne Google Ads (setup + 1 mois)</li>
+                        <li class="feature-included">Social Ads (Meta ou LinkedIn)</li>
+                        <li class="feature-included">Dashboard analytics personnalisé</li>
+                        <li class="feature-included">Reporting mensuel détaillé</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary-large">Démarrer Growth</a>
+                </article>
+
+                <!-- Offre Sur Mesure -->
+                <article class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">SUR MESURE</h3>
+                        <p class="pricing-tagline">Budget flexible</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="amount-range">500 - 5'000</span>
+                        <span class="currency-small">CHF / mois</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="feature-included">Accompagnement mensuel personnalisé</li>
+                        <li class="feature-included">Gestion campagnes publicitaires</li>
+                        <li class="feature-included">Production de contenu régulière</li>
+                        <li class="feature-included">Community Management</li>
+                        <li class="feature-included">SEO continu</li>
+                        <li class="feature-included">Social Selling avancé</li>
+                        <li class="feature-included">Reporting hebdomadaire</li>
+                        <li class="feature-included">Accès prioritaire à l'équipe</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-ghost">Discuter du Projet</a>
+                </article>
+            </div>
+
+            <div class="roi-calculator">
+                <h3>CALCULATEUR ROI</h3>
+                <p class="roi-intro">
+                    Avec 10 leads/mois à 500 CHF/lead, vous générez <strong class="highlight-neon">5'000 CHF/mois</strong>.<br>
+                    Retour sur investissement Growth : <strong class="highlight-neon">1 mois</strong>.
+                </p>
+                <p class="roi-comparison">
+                    💡 <strong>Prix d'un commercial junior</strong> : 60'000 CHF/an<br>
+                    vs <strong>Écosystème CLICOM Growth</strong> : 5'000 CHF one-time + 500 CHF/mois
+                </p>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="pricing-grid price-cards-mobile">
-        <article class="price-card reveal" data-plan="pack-lancement">
-          <div class="price-title"><h3>PACK LANCEMENT</h3><span class="badge">Unique</span></div>
-          <div class="price">2’500 CHF <small>/ unique</small></div>
-          <p class="price-meta">Site Web</p>
-          <div class="price-list">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Site Vitrine Design</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Configuration</span>
-          </div>
-          <p class="price-meta">Objectif : 6 RDV/mois</p>
-          <div class="price-cta"><a class="cta" href="#contact" data-subject="Pack Lancement">Parler à un expert</a></div>
-        </article>
+    <!-- CAS CLIENTS -->
+    <section class="cas-clients" id="cas-clients">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ILS NOUS ONT FAIT CONFIANCE</h2>
+                <p class="section-lead">
+                    12 PME suisses ont multiplié leurs leads par 3 en 90 jours
+                </p>
+            </div>
 
-        <article class="price-card reveal" data-plan="pack-croissance">
-          <div class="price-title"><h3>PACK CROISSANCE</h3><span class="badge">Recommandé</span></div>
-          <div class="price">5’000 CHF <small>/ unique</small></div>
-          <p class="price-meta">Site + Outils</p>
-          <div class="price-list">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Site Avancé</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>CRM Clicom installé</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Campagne de lancement</span>
-          </div>
-          <p class="price-meta">Objectif : 12 RDV/mois</p>
-          <div class="price-cta"><a class="cta" href="#contact" data-subject="Pack Croissance">Parler à un expert</a></div>
-        </article>
+            <div class="clients-grid">
+                <article class="client-card">
+                    <div class="client-header">
+                        <div class="client-logo-placeholder">LOGO</div>
+                        <span class="client-industry">Industrie Tech</span>
+                    </div>
+                    <div class="client-stats">
+                        <div class="client-stat">
+                            <span class="stat-value">+250%</span>
+                            <span class="stat-label">Leads</span>
+                        </div>
+                        <div class="client-stat">
+                            <span class="stat-value">60j</span>
+                            <span class="stat-label">Délai</span>
+                        </div>
+                        <div class="client-stat">
+                            <span class="stat-value">4:1</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                    </div>
+                    <blockquote class="client-quote">
+                        "CLICOM a transformé notre approche digitale. En 2 mois,
+                        nous avons généré plus de leads qu'en 6 mois avec notre ancienne agence."
+                    </blockquote>
+                    <div class="client-author">
+                        <strong>Jean Dupont</strong>, CEO
+                    </div>
+                </article>
 
-        <article class="price-card sticky highlight reveal" data-plan="mandat-gestion">
-          <div class="price-title"><h3>Partenaire Croissance</h3><span class="badge-strong" aria-label="Le plus choisi">Le plus choisi</span></div>
-          <div class="price">500 à 5’000 CHF <small>/ mois</small></div>
-          <p class="price-meta">Déléguez-nous votre marketing au quotidien.</p>
-          <div class="price-list">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Gestion des pubs</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Animation réseaux</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Création contenus</span>
-          </div>
-          <p class="price-meta">Objectif : 20 RDV/mois</p>
-          <div class="price-cta"><a class="cta" href="#contact" data-subject="Partenaire Croissance">Parler à un expert</a></div>
-        </article>
-      </div>
+                <article class="client-card">
+                    <div class="client-header">
+                        <div class="client-logo-placeholder">LOGO</div>
+                        <span class="client-industry">Services B2B</span>
+                    </div>
+                    <div class="client-stats">
+                        <div class="client-stat">
+                            <span class="stat-value">+180%</span>
+                            <span class="stat-label">Conversions</span>
+                        </div>
+                        <div class="client-stat">
+                            <span class="stat-value">45j</span>
+                            <span class="stat-label">Délai</span>
+                        </div>
+                        <div class="client-stat">
+                            <span class="stat-value">5:1</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                    </div>
+                    <blockquote class="client-quote">
+                        "L'intégration du CRM Pipedrive a changé la donne.
+                        Nous suivons maintenant chaque lead du premier contact à la signature."
+                    </blockquote>
+                    <div class="client-author">
+                        <strong>Marie Martin</strong>, Directrice Marketing
+                    </div>
+                </article>
 
-      <div class="compare" aria-label="Comparatif des fonctionnalités">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Fonctionnalités</th>
-              <th scope="col">Pack Lancement</th>
-              <th scope="col">Pack Croissance</th>
-              <th scope="col">Partenaire Croissance</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Site vitrine</th>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-            </tr>
-            <tr>
-              <th scope="row">CRM Clicom</th>
-              <td>—</td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-            </tr>
-            <tr>
-              <th scope="row">Campagne de lancement</th>
-              <td>—</td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-            </tr>
-            <tr>
-              <th scope="row">Gestion des pubs</th>
-              <td>—</td>
-              <td>—</td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-            </tr>
-            <tr>
-              <th scope="row">Animation réseaux</th>
-              <td>—</td>
-              <td>—</td>
-              <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></td>
-
-  <section class="methode" id="methode" data-section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Méthode 30-60-90</h2>
-        <p>30 jours pour intégrer, 60 jours pour construire, 90 jours pour optimiser.</p>
-      </div>
-      <div class="timeline reveal">
-        <div class="step"><span>30</span><div><h3>Intégrer</h3><p>Aligner vos équipes et vos objectifs de croissance.</p></div></div>
-        <div class="step"><span>60</span><div><h3>Construire</h3><p>Déployer les dispositifs et les contenus prioritaires.</p></div></div>
-        <div class="step"><span>90</span><div><h3>Optimiser</h3><p>Mesurer, améliorer, accélérer les résultats.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="tarifs" id="tarifs" data-section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Tarifs &amp; Mandats</h2>
-        <p>Des packs clairs et un mandat de gestion pour accompagner votre croissance.</p>
-      </div>
-      <div class="pricing-head">
-        <div>
-          <p class="pricing-note" id="pricing-note" aria-live="polite">Packs en paiement unique. Mandat en mensuel. Hors TVA.</p>
-          <div class="switch" role="switch" tabindex="0" aria-checked="false" aria-describedby="pricing-note" aria-label="Basculer entre paiement unique et mensuel"><span>Unique</span><span class="switch-track"><span class="switch-thumb"></span></span><span>Mensuel</span></div>
-          <p class="switch-live" aria-live="polite"></p>
+                <article class="client-card">
+                    <div class="client-header">
+                        <div class="client-logo-placeholder">LOGO</div>
+                        <span class="client-industry">E-commerce</span>
+                    </div>
+                    <div class="client-stats">
+                        <div class="client-stat">
+                            <span class="stat-value">+320%</span>
+                            <span class="stat-label">Trafic</span>
+                        </div>
+                        <div class="client-stat">
+                            <span class="stat-value">90j</span>
+                            <span class="stat-label">Délai</span>
+                        </div>
+                        <div class="client-stat">
+                            <span class="stat-value">6:1</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                    </div>
+                    <blockquote class="client-quote">
+                        "Le site ultra-rapide combiné aux campagnes Google Ads
+                        a doublé notre taux de conversion. Résultats visibles dès le premier mois."
+                    </blockquote>
+                    <div class="client-author">
+                        <strong>Pierre Leroy</strong>, Fondateur
+                    </div>
+                </article>
+            </div>
         </div>
-        <div class="pricing-cta"><a class="ghost" href="/contact/">Demander une recommandation</a></div>
-      </div>
+    </section>
 
-      <div class="pricing-table-wrap" aria-describedby="pricing-note">
-        <table class="pricing-table" role="table">
-          <caption>Comparatif des offres CLICOM</caption>
-          <thead>
-            <tr>
-              <th scope="col">Fonctionnalités</th>
-              <th scope="col" id="col-pack-start">PACK LANCEMENT (Site Web)<span class="sub price-value" data-price-unique="2’500 CHF" data-price-monthly="350 CHF / mois">2’500 CHF</span><span class="sub billing-label" data-billing-unique="Unique" data-billing-monthly="Mensuel">Unique</span><span class="roi">Objectif: 2–3 RDV qualifiés/mois</span></th>
-              <th scope="col" id="col-pack-growth">PACK CROISSANCE (Site + Outils)<span class="sub price-value" data-price-unique="5’000 CHF" data-price-monthly="620 CHF / mois">5’000 CHF</span><span class="sub billing-label" data-billing-unique="Unique" data-billing-monthly="Mensuel">Unique</span><span class="roi">Objectif: 3–5 RDV qualifiés/mois</span></th>
-              <th scope="col" id="col-reco" class="reco">Partenaire Croissance<span class="badge">Recommandé</span><span class="sub price-value" data-price-unique="500 à 5’000 CHF / mois" data-price-monthly="500 à 5’000 CHF / mois">500 à 5’000 CHF / mois</span><span class="sub billing-label" data-billing-unique="Mensuel" data-billing-monthly="Mensuel">Mensuel</span><span class="roi">Objectif: 4–6 RDV qualifiés/mois</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Site vitrine</th><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">CRM Clicom</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Campagne de lancement</th><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Gestion publicités</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Animation réseaux</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Création contenus</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Support</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Reporting trimestriel</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Ateliers ambassadeurs</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Prospection B2B</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">SEO local</th><td><span class="dash" aria-label="Non inclus">—</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr><th scope="row">Maintenance</th><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td><td><span class="check" aria-label="Inclus">✔</span></td></tr>
-            <tr class="cta-row">
-              <th scope="row">Action</th>
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2 class="section-title">PRÊT À MULTIPLIER VOS LEADS PAR 3 ?</h2>
+                    <p class="contact-lead">
+                        Obtenez un audit digital gratuit (valeur 1'500 CHF) et découvrez
+                        comment CLICOM peut transformer votre présence digitale.
+                    </p>
 
-              <td><a class="ghost" href="/contact/?offre=pack-lancement">Lancer le pack</a></td>
-              <td><a class="ghost" href="/contact/?offre=pack-croissance">Activer le pack</a></td>
-              <td><a class="cta" href="/contact/?offre=partenaire-croissance">Parler d’un mandat</a></td>
+                    <div class="contact-features">
+                        <div class="contact-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Réponse en 24h ouvrées</span>
+                        </div>
+                        <div class="contact-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Audit digital offert</span>
+                        </div>
+                        <div class="contact-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Sans engagement</span>
+                        </div>
+                    </div>
 
-              <td><a class="ghost" href="#contact" data-offer="pack-lancement">Lancer le pack</a></td>
-              <td><a class="ghost" href="#contact" data-offer="pack-croissance">Activer le pack</a></td>
-              <td><a class="cta" href="#contact" data-offer="partenaire-croissance">Parler d’un mandat</a></td>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 8L10.89 13.26C11.54 13.67 12.46 13.67 13.11 13.26L21 8M5 19H19C20.1 19 21 18.1 21 17V7C21 5.9 20.1 5 19 5H5C3.9 5 3 5.9 3 7V17C3 18.1 3.9 19 5 19Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:hello@clicom.ch">hello@clicom.ch</a>
+                            </div>
+                        </div>
 
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 16.92V19.92C22 20.49 21.54 20.95 20.97 20.95C9.43 20.95 0.05 11.57 0.05 0.03C0.05 -0.54 0.51 -1 1.08 -1H4.08C4.65 -1 5.11 -0.54 5.11 0.03C5.11 1.56 5.35 3.04 5.81 4.42C5.94 4.85 5.81 5.3 5.47 5.59L3.9 7.16C5.51 10.37 8.63 13.49 11.84 15.1L13.41 13.53C13.7 13.19 14.15 13.06 14.58 13.19C15.96 13.65 17.44 13.89 18.97 13.89C19.54 13.89 20 14.35 20 14.92V16.92Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <a href="tel:+41788238950">078 823 89 50</a>
+                            </div>
+                        </div>
 
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Localisation</h4>
+                                <p>Suisse Romande</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                            <span class="form-error" id="nameError"></span>
+                        </div>
 
-      <div class="accordion" id="pricing-accordion">
-        <button type="button" aria-expanded="false" aria-controls="details-panel">Détails inclus <span aria-hidden="true">+</span></button>
-        <div id="details-panel" role="region" hidden>Chaque pack inclut un atelier de cadrage, un planning clair et un livrable mesurable.</div>
-        <button type="button" aria-expanded="false" aria-controls="faq-panel">FAQ Tarifs <span aria-hidden="true">+</span></button>
-        <div id="faq-panel" role="region" hidden>
-          <p><strong>Quel est le délai moyen ?</strong> 4 à 6 semaines pour un pack, 90 jours pour la montée en cadence du mandat.</p>
-          <p><strong>Peut-on évoluer ?</strong> Oui, vous passez du pack au mandat sans perdre vos acquis.</p>
-          <p><strong>Quels moyens mobilisés ?</strong> Une équipe dédiée en Suisse Romande avec un pilote unique.</p>
+                        <div class="form-group">
+                            <label for="company">Entreprise *</label>
+                            <input type="text" id="company" name="company" required placeholder="Votre Entreprise SA">
+                            <span class="form-error" id="companyError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email professionnel *</label>
+                            <input type="email" id="email" name="email" required placeholder="jean.dupont@entreprise.ch">
+                            <span class="form-error" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="078 123 45 67">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="objective">Votre objectif principal *</label>
+                            <select id="objective" name="objective" required>
+                                <option value="">Sélectionnez un objectif</option>
+                                <option value="starter">Offre Starter (Site Web 2'500 CHF)</option>
+                                <option value="growth">Offre Growth (Écosystème complet 5'000 CHF)</option>
+                                <option value="custom">Sur Mesure (Budget mensuel flexible)</option>
+                                <option value="audit">Audit digital gratuit</option>
+                                <option value="other">Autre projet digital</option>
+                            </select>
+                            <span class="form-error" id="objectiveError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Décrivez votre projet</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Parlez-nous de vos objectifs digitaux..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-block">
+                            <span>Demander mon Audit Gratuit</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+
+                        <p class="form-privacy">
+                            En soumettant ce formulaire, vous acceptez notre
+                            <a href="#politique-confidentialite">politique de confidentialité</a> (LPD Suisse).
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="map-tooltip" id="billing-note" aria-live="polite">Affichage en mode facturation unique.</div>
-    </div>
-  </section>
+    </section>
 
-  <section id="carte">
-    <div class="container map-wrap">
-      <div class="map-card reveal">
-        <h2>Carte des cantons servis</h2>
-        <svg viewBox="0 0 600 420" role="img" aria-labelledby="map-title map-desc">
-          <title id="map-title">Couverture Suisse Romande</title>
-          <desc id="map-desc">Carte interactive des cantons Genève, Vaud, Valais, Fribourg, Neuchâtel et Jura.</desc>
-          <g>
-            <path class="canton" tabindex="0" data-canton="GE" d="M70 240 L120 220 L150 250 L120 290 L80 280 Z" />
-            <path class="canton" tabindex="0" data-canton="VD" d="M140 200 L280 170 L340 220 L300 280 L180 300 L120 250 Z" />
-            <path class="canton" tabindex="0" data-canton="VS" d="M160 310 L320 300 L420 320 L430 360 L200 360 Z" />
-            <path class="canton" tabindex="0" data-canton="FR" d="M300 190 L380 190 L400 240 L340 260 L280 230 Z" />
-            <path class="canton" tabindex="0" data-canton="NE" d="M360 160 L450 160 L470 200 L400 210 Z" />
-            <path class="canton" tabindex="0" data-canton="JU" d="M320 110 L400 110 L430 150 L350 150 Z" />
-            <path class="canton other" d="M470 90 L560 110 L560 300 L470 320 Z" />
-          </g>
-        </svg>
-        <div class="map-legend" aria-hidden="true">
-          <span><i style="background:#cbd7ff"></i>Cantons servis</span>
-          <span><i style="background:#eceff3"></i>Hors zone</span>
-        </div>
-        <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite">Survolez un canton pour voir le détail.</div>
-      </div>
-      <div class="map-card map-info reveal">
-        <h3>Filtre témoignages</h3>
-        <p class="price-meta" id="testimonial-filter">Aucun canton sélectionné.</p>
-        <ul class="price-list">
-          <li>“Un pilotage clair, des décisions rapides.”</li>
-          <li>“Une équipe locale, réactive, fiable.”</li>
-          <li>“Nos ventes progressent dès le 2e mois.”</li>
-        </ul>
-        <p class="price-meta">Cliquez sur un canton pour nous contacter avec votre zone pré-sélectionnée.</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="logo-text">CLICOM<span class="logo-dot">.</span></h3>
+                    <p class="footer-slogan">On ne fait pas faire, on sait faire.</p>
+                    <p class="footer-description">
+                        L'agence digitale suisse qui construit votre machine à générer des leads.
+                        Site Web + CRM + Contenu. Zéro bullshit.
+                    </p>
+                </div>
 
-      <div class="pricing-cards" aria-label="Offres en cartes">
-        <article class="price-card reveal"><p class="tag">PACK LANCEMENT (Site Web)</p><p class="price price-value" data-price-unique="2’500 CHF" data-price-monthly="350 CHF / mois">2’500 CHF</p><p class="price-note billing-label" data-billing-unique="Unique · Hors TVA" data-billing-monthly="Mensuel · Hors TVA">Unique · Hors TVA</p><p class="roi">Objectif: 2–3 RDV qualifiés/mois</p><ul><li>Site vitrine</li><li>Campagne de lancement</li><li>Maintenance</li></ul><a class="ghost" href="/contact/?offre=pack-lancement">Lancer le pack</a></article>
-        <article class="price-card reveal"><p class="tag">PACK CROISSANCE (Site + Outils)</p><p class="price price-value" data-price-unique="5’000 CHF" data-price-monthly="620 CHF / mois">5’000 CHF</p><p class="price-note billing-label" data-billing-unique="Unique · Hors TVA" data-billing-monthly="Mensuel · Hors TVA">Unique · Hors TVA</p><p class="roi">Objectif: 3–5 RDV qualifiés/mois</p><ul><li>Site vitrine</li><li>CRM Clicom</li><li>Campagne de lancement</li><li>Création contenus</li></ul><a class="ghost" href="/contact/?offre=pack-croissance">Activer le pack</a></article>
-        <article class="price-card highlight sticky reveal" aria-label="Mandat de gestion mis en avant"><span class="badge">Recommandé</span><p class="tag">Partenaire Croissance</p><p class="price price-value" data-price-unique="500 à 5’000 CHF / mois" data-price-monthly="500 à 5’000 CHF / mois">500 à 5’000 CHF / mois</p><p class="price-note billing-label" data-billing-unique="Mensuel · Hors TVA" data-billing-monthly="Mensuel · Hors TVA">Mensuel · Hors TVA</p><p class="roi">Objectif: 4–6 RDV qualifiés/mois</p><ul><li>Gestion des pubs</li><li>Animation réseaux</li><li>Création contenus</li><li>Prospection B2B</li></ul><a class="cta" href="/contact/?offre=partenaire-croissance">Parler d’un mandat</a></article>
-      </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#expertises">Site Web Haute Performance</a></li>
+                            <li><a href="#expertises">CRM + Automatisation</a></li>
+                            <li><a href="#expertises">Content Factory</a></li>
+                            <li><a href="#ecosysteme">Méthode 30-60-90</a></li>
+                        </ul>
+                    </div>
 
-      <div class="accordions">
-        <details class="accordion"><summary>Détails inclus</summary><div><p>Chaque pack comprend un cadrage stratégique, un chef de projet dédié et une feuille de route claire. Le mandat mensuel s’adapte au rythme commercial et à vos objectifs trimestriels.</p></div></details>
-        <details class="accordion"><summary>FAQ Tarifs</summary><div><p><strong>Quels sont les délais ?</strong> Le Pack Lancement est livrable en 3 à 5 semaines, le Pack Croissance en 5 à 7 semaines.</p><p><strong>Y a-t-il un engagement ?</strong> Les packs sont uniques. Le mandat mensuel est réajustable tous les 3 mois.</p><p><strong>Conformité LPD ?</strong> Oui, nous appliquons des standards de confidentialité alignés sur la LPD suisse.</p><p><strong>Qui possède les assets ?</strong> Vous gardez l’ensemble des livrables, sources et accès.</p></div></details>
-        <details class="accordion"><summary>Conditions &amp; Mentions</summary><div><p>Les prix sont exprimés en CHF, hors TVA. Toute adaptation majeure fait l’objet d’un devis complémentaire validé avant production.</p></div></details>
-      </div>
-    </div>
-  </section>
+                    <div class="footer-col">
+                        <h4>Entreprise</h4>
+                        <ul>
+                            <li><a href="#ecosysteme">L'Écosystème</a></li>
+                            <li><a href="#tarifs">Tarifs</a></li>
+                            <li><a href="#cas-clients">Cas Clients</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
 
-  <section class="preuves" id="preuves" data-section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Preuves &amp; Médias</h2>
-        <p>Études de cas, témoignages et signaux de confiance pour sécuriser vos décisions.</p>
-      </div>
-      <div class="cases">
-        <article class="case-card reveal"><div class="case-media"><svg viewBox="0 0 240 160" role="img" aria-label="Maquette tableau de bord"><rect x="12" y="12" width="216" height="136" rx="16" fill="#fff" stroke="#dbe3ff"/><rect x="28" y="32" width="120" height="12" rx="6" fill="#e2e8ff"/><rect x="28" y="56" width="160" height="8" rx="4" fill="#eef2ff"/><rect x="28" y="76" width="180" height="48" rx="10" fill="#f6f6f4" stroke="#dde4ff"/></svg></div><div><h3>Hôtel Léman</h3><p>Refonte du site et activation locale.</p><p class="kpi"><strong data-count="42" data-suffix="%">0%</strong> ↑ trafic · <strong data-count="18" data-suffix="%">0%</strong> ↓ CPA · <strong data-count="12" data-suffix="">0</strong> RDV</p><a class="ghost" href="/etudes-de-cas/hotel-leman/">Lire le cas</a></div></article>
-        <article class="case-card reveal"><div class="case-media"><svg viewBox="0 0 240 160" role="img" aria-label="Maquette d'interface commerciale"><rect x="12" y="12" width="216" height="136" rx="16" fill="#fff" stroke="#dbe3ff"/><rect x="28" y="32" width="80" height="12" rx="6" fill="#e2e8ff"/><rect x="28" y="56" width="184" height="60" rx="12" fill="#f6f6f4" stroke="#dde4ff"/><circle cx="196" cy="46" r="10" fill="#3366ff" opacity="0.15"/></svg></div><div><h3>Clinique Riviera</h3><p>Mandat annuel et visibilité cantonale.</p><p class="kpi"><strong data-count="36" data-suffix="%">0%</strong> ↑ demandes · <strong data-count="22" data-suffix="%">0%</strong> ↓ coûts · <strong data-count="9" data-suffix="">0</strong> RDV</p><a class="ghost" href="/etudes-de-cas/clinique-riviera/">Lire le cas</a></div></article>
-        <article class="case-card reveal"><div class="case-media"><svg viewBox="0 0 240 160" role="img" aria-label="Maquette campagne digitale"><rect x="12" y="12" width="216" height="136" rx="16" fill="#fff" stroke="#dbe3ff"/><rect x="28" y="32" width="96" height="12" rx="6" fill="#e2e8ff"/><rect x="28" y="56" width="140" height="8" rx="4" fill="#eef2ff"/><rect x="28" y="76" width="120" height="8" rx="4" fill="#eef2ff"/><rect x="28" y="104" width="184" height="28" rx="10" fill="#f6f6f4" stroke="#dde4ff"/></svg></div><div><h3>Groupe Alpina</h3><p>Programme ambassadeurs et prospection B2B.</p><p class="kpi"><strong data-count="28" data-suffix="%">0%</strong> ↑ leads · <strong data-count="17" data-suffix="%">0%</strong> ↓ délais · <strong data-count="15" data-suffix="">0</strong> RDV</p><a class="ghost" href="/etudes-de-cas/groupe-alpina/">Lire le cas</a></div></article>
-      </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:hello@clicom.ch">hello@clicom.ch</a></li>
+                            <li><a href="tel:+41788238950">078 823 89 50</a></li>
+                            <li>Suisse Romande</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-      <div class="testimonials">
-        <div class="testi-head">
-          <h3>Témoignages</h3>
-          <div class="testi-controls">
-            <button class="ghost" type="button" data-testid="prev">Précédent</button>
-            <button class="ghost" type="button" data-testid="next">Suivant</button>
-          </div>
-        </div>
-        <div class="testi-track" aria-live="polite">
-          <article class="testi-slide active" data-index="0"><p>« Un partenaire fiable, très structuré, qui a aligné nos équipes en 30 jours. »</p><p><strong>Élodie P.</strong> — Directrice, canton de Vaud</p></article>
-          <article class="testi-slide" data-index="1"><p>« Le mandat a clarifié nos priorités et augmenté les rendez-vous qualifiés. »</p><p><strong>Marc R.</strong> — CEO, canton de Genève</p></article>
-          <article class="testi-slide" data-index="2"><p>« Une équipe réactive et précise, avec des résultats concrets dès le second mois. »</p><p><strong>Sophie L.</strong> — Marketing, canton du Valais</p></article>
-        </div>
-      </div>
-
-      <div class="logos" aria-label="Logos clients et presse">
-        <div class="logo-card" title="Vaud"><svg viewBox="0 0 120 40" role="img" aria-label="Léman Horizon"><rect width="120" height="40" rx="10" fill="#fff" stroke="#e2e8ff"/><text x="16" y="25" font-size="12" fill="#111113" font-family="system-ui">Léman Horizon</text></svg></div>
-        <div class="logo-card" title="Genève"><svg viewBox="0 0 120 40" role="img" aria-label="Rive Sud"><rect width="120" height="40" rx="10" fill="#fff" stroke="#e2e8ff"/><text x="18" y="25" font-size="12" fill="#111113" font-family="system-ui">Rive Sud</text></svg></div>
-        <div class="logo-card" title="Valais"><svg viewBox="0 0 120 40" role="img" aria-label="Alpina"><rect width="120" height="40" rx="10" fill="#fff" stroke="#e2e8ff"/><text x="30" y="25" font-size="12" fill="#111113" font-family="system-ui">Alpina</text></svg></div>
-        <div class="logo-card" title="Fribourg"><svg viewBox="0 0 120 40" role="img" aria-label="Nova Santé"><rect width="120" height="40" rx="10" fill="#fff" stroke="#e2e8ff"/><text x="16" y="25" font-size="12" fill="#111113" font-family="system-ui">Nova Santé</text></svg></div>
-        <div class="logo-card" title="Neuchâtel"><svg viewBox="0 0 120 40" role="img" aria-label="Mont Jura"><rect width="120" height="40" rx="10" fill="#fff" stroke="#e2e8ff"/><text x="20" y="25" font-size="12" fill="#111113" font-family="system-ui">Mont Jura</text></svg></div>
-        <div class="logo-card" title="Jura"><svg viewBox="0 0 120 40" role="img" aria-label="Arc Press"><rect width="120" height="40" rx="10" fill="#fff" stroke="#e2e8ff"/><text x="24" y="25" font-size="12" fill="#111113" font-family="system-ui">Arc Press</text></svg></div>
-      </div>
-
-      <div class="gallery" aria-label="Galerie médias">
-        <button class="gallery-item" type="button" data-title="Campagne locale" data-src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'><rect width='320' height='200' rx='16' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><rect x='24' y='28' width='140' height='16' rx='8' fill='%23e2e8ff'/><rect x='24' y='60' width='200' height='10' rx='5' fill='%23eef2ff'/><rect x='24' y='88' width='240' height='80' rx='12' fill='%23f6f6f4' stroke='%23dde4ff'/></svg>"><img loading="lazy" alt="Vignette campagne locale" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='120'><rect width='200' height='120' rx='12' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><rect x='16' y='18' width='90' height='10' rx='5' fill='%23e2e8ff'/><rect x='16' y='40' width='120' height='8' rx='4' fill='%23eef2ff'/><rect x='16' y='60' width='160' height='40' rx='10' fill='%23f6f6f4' stroke='%23dde4ff'/></svg>"></button>
-        <button class="gallery-item" type="button" data-title="Atelier équipe" data-src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'><rect width='320' height='200' rx='16' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><circle cx='60' cy='80' r='20' fill='%23e2e8ff'/><rect x='100' y='60' width='180' height='16' rx='8' fill='%23eef2ff'/><rect x='100' y='90' width='150' height='10' rx='5' fill='%23eef2ff'/><rect x='24' y='130' width='260' height='40' rx='12' fill='%23f6f6f4' stroke='%23dde4ff'/></svg>"><img loading="lazy" alt="Vignette atelier équipe" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='120'><rect width='200' height='120' rx='12' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><circle cx='38' cy='50' r='16' fill='%23e2e8ff'/><rect x='70' y='38' width='100' height='12' rx='6' fill='%23eef2ff'/><rect x='20' y='70' width='160' height='30' rx='10' fill='%23f6f6f4' stroke='%23dde4ff'/></svg>"></button>
-        <button class="gallery-item" type="button" data-title="Tableau ROI" data-src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'><rect width='320' height='200' rx='16' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><rect x='24' y='28' width='120' height='14' rx='7' fill='%23e2e8ff'/><rect x='24' y='56' width='260' height='80' rx='12' fill='%23f6f6f4' stroke='%23dde4ff'/><rect x='24' y='150' width='180' height='12' rx='6' fill='%23eef2ff'/></svg>"><img loading="lazy" alt="Vignette tableau ROI" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='120'><rect width='200' height='120' rx='12' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><rect x='16' y='18' width='90' height='10' rx='5' fill='%23e2e8ff'/><rect x='16' y='40' width='160' height='50' rx='10' fill='%23f6f6f4' stroke='%23dde4ff'/><rect x='16' y='98' width='110' height='8' rx='4' fill='%23eef2ff'/></svg>"></button>
-        <button class="gallery-item" type="button" data-title="Pilotage multi-canal" data-src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'><rect width='320' height='200' rx='16' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><rect x='24' y='28' width='140' height='14' rx='7' fill='%23e2e8ff'/><rect x='24' y='60' width='120' height='10' rx='5' fill='%23eef2ff'/><rect x='24' y='84' width='220' height='60' rx='12' fill='%23f6f6f4' stroke='%23dde4ff'/><circle cx='260' cy='70' r='14' fill='%233366ff' opacity='0.15'/></svg>"><img loading="lazy" alt="Vignette pilotage multi-canal" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='120'><rect width='200' height='120' rx='12' fill='%23ffffff' stroke='%23dbe3ff' stroke-width='2'/><rect x='16' y='18' width='90' height='10' rx='5' fill='%23e2e8ff'/><rect x='16' y='40' width='140' height='8' rx='4' fill='%23eef2ff'/><rect x='16' y='60' width='160' height='40' rx='10' fill='%23f6f6f4' stroke='%23dde4ff'/></svg>"></button>
-
-      </div>
-    </div>
-  </section>
-
-
-  <section id="blog">
-    <div class="container">
-      <h2>Blog</h2>
-      <div class="blog-grid">
-        <article class="blog-card reveal">
-          <h3>Pourquoi un site web ne suffit plus en 2025 ?</h3>
-          <p class="price-meta">Temps de lecture : 4 min</p>
-          <ul><li>Stratégie</li><li>Outils</li><li>SEO Local</li></ul>
-        </article>
-        <article class="blog-card reveal">
-          <h3>Comment digitaliser sa force de vente ?</h3>
-          <p class="price-meta">Temps de lecture : 5 min</p>
-          <ul><li>Stratégie</li><li>Outils</li><li>SEO Local</li></ul>
-        </article>
-        <article class="blog-card reveal">
-          <h3>SEO Local : Dominez votre canton.</h3>
-          <p class="price-meta">Temps de lecture : 3 min</p>
-          <ul><li>Stratégie</li><li>Outils</li><li>SEO Local</li></ul>
-        </article>
-
-  <section class="blog" id="blog" data-section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Blog / Ressources</h2>
-        <p>Des analyses concrètes pour décider avec confiance.</p>
-      </div>
-      <div class="blog-grid">
-
-        <article class="blog-card reveal"><p class="meta">Stratégie · 6 min</p><h3>Pourquoi un site web ne suffit plus en 2025 ?</h3><p>Le point de départ pour repenser votre dispositif complet.</p><a class="ghost" href="/blog/pourquoi-un-site-web-ne-suffit-plus/">Lire l'article</a></article>
-        <article class="blog-card reveal"><p class="meta">Outils · 5 min</p><h3>Comment digitaliser sa force de vente ?</h3><p>Structurer votre prospection pour gagner en efficacité.</p><a class="ghost" href="/blog/digitaliser-force-de-vente/">Lire l'article</a></article>
-        <article class="blog-card reveal"><p class="meta">SEO Local · 4 min</p><h3>SEO Local : Dominez votre canton.</h3><p>Les leviers concrets pour gagner en visibilité locale.</p><a class="ghost" href="/blog/seo-local-dominez-votre-canton/">Lire l'article</a></article>
-
-        <article class="blog-card reveal"><p class="meta">Stratégie · 6 min</p><h3>Pourquoi un site web ne suffit plus en 2025 ?</h3><p>Le point de départ pour repenser votre dispositif complet.</p><a class="ghost" href="#contact" data-focus="contact-name">Recevoir un conseil</a></article>
-        <article class="blog-card reveal"><p class="meta">Outils · 5 min</p><h3>Comment digitaliser sa force de vente ?</h3><p>Structurer votre prospection pour gagner en efficacité.</p><a class="ghost" href="#contact" data-focus="contact-name">Parler à un expert</a></article>
-        <article class="blog-card reveal"><p class="meta">SEO Local · 4 min</p><h3>SEO Local : Dominez votre canton.</h3><p>Les leviers concrets pour gagner en visibilité locale.</p><a class="ghost" href="#contact" data-focus="contact-name">Demander un audit</a></article>
-
-
-      </div>
-    </div>
-  </section>
-
-
-  <section id="contact" class="contact">
-    <div class="container grid-12">
-      <div class="reveal" style="grid-column:span 5">
-        <h2>Contact</h2>
-        <p class="price-meta">Parlons de votre croissance en Suisse Romande.</p>
-        <p><a href="mailto:hello@clicom.ch">hello@clicom.ch</a> | <a href="tel:+41788238950">078 823 89 50</a></p>
-        <p><a href="tel:+41788238950">WhatsApp / SMS</a></p>
-      </div>
-      <div class="reveal" style="grid-column:span 7">
-        <form id="contact-form" novalidate>
-          <input type="hidden" id="subject" name="subject" />
-          <div>
-            <label for="name">Nom</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div>
-            <label for="phone">Téléphone (facultatif)</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" />
-          </div>
-          <div>
-            <label for="canton">Canton</label>
-            <select id="canton" name="canton" required>
-              <option value="">Sélectionner</option>
-              <option>GE</option><option>VD</option><option>VS</option><option>FR</option><option>NE</option><option>JU</option><option>Autre</option>
-            </select>
-          </div>
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="cta" type="submit">Envoyer</button>
-            <span class="form-note" id="form-status" role="status" aria-live="polite"></span>
-          </div>
-  <section class="contact" id="contact" data-section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Expliquez votre contexte, nous répondons sous 24 heures.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <h3>Coordonnées</h3>
-          <p><a href="mailto:hello@clicom.ch">hello@clicom.ch</a><br><a href="tel:+41788238950">078 823 89 50</a></p>
-          <p>Agence basée en Suisse Romande</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CLICOM - Agence Marketing Digital Suisse. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#mentions-legales">Mentions Légales</a>
+                    <a href="#politique-confidentialite">Politique de Confidentialité (LPD)</a>
+                    <a href="#cgv">CGV</a>
+                </div>
+            </div>
         </div>
         <form class="contact-form reveal" id="contact-form" novalidate>
           <label for="contact-name">Nom</label>
