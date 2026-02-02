@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr-CH" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tarifs & Calculateur | CLICOM</title>
+<meta name="description" content="Grille tarifaire claire, packs en unique et mandat mensuel, avec calculateur d'estimation.">
+<link rel="canonical" href="https://www.clicom.ch/tarifs/">
+<meta property="og:title" content="Tarifs CLICOM">
+<meta property="og:description" content="Choisissez le bon pack et estimez votre budget en CHF.">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+</head>
+<body>
+<a class="skip" href="#main-content">Aller au contenu</a>
+<header class="site-header">
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="logo" href="/">CLICOM.</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="/expertises/">Expertises</a>
+        <a href="/methode/">Méthode</a>
+        <a href="/tarifs/" aria-current="page">Tarifs</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Activer le mode sombre"><span aria-hidden="true">🌙</span><span class="theme-label">Mode sombre</span></button>
+        <a class="cta" href="/contact/">Parler à un expert</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="page">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li>Tarifs</li></ol></nav>
+    <section class="page-hero">
+      <p class="eyebrow">Tarifs transparents</p>
+      <h1>Choisissez le bon pack et estimez votre investissement.</h1>
+      <p class="pricing-note" id="pricing-note" aria-live="polite">Packs en paiement unique. Mandat en mensuel. Hors TVA.</p>
+      <div class="switch" role="switch" tabindex="0" aria-checked="false" aria-describedby="pricing-note" aria-label="Basculer entre paiement unique et mensuel"><span>Unique</span><span class="switch-track"><span class="switch-thumb"></span></span><span>Mensuel</span></div>
+      <p class="switch-live" aria-live="polite"></p>
+    </section>
+    <section>
+      <table class="table" role="table">
+        <thead><tr><th>Offre</th><th>Pack Lancement</th><th>Pack Croissance</th><th class="reco">Partenaire Croissance <span class="badge">Recommandé</span></th></tr></thead>
+        <tbody>
+          <tr><th>Prix</th><td><span class="price-value" data-price-unique="2’500 CHF" data-price-monthly="350 CHF / mois">2’500 CHF</span><div class="billing-label" data-billing-unique="Unique" data-billing-monthly="Mensuel">Unique</div></td><td><span class="price-value" data-price-unique="5’000 CHF" data-price-monthly="620 CHF / mois">5’000 CHF</span><div class="billing-label" data-billing-unique="Unique" data-billing-monthly="Mensuel">Unique</div></td><td><span class="price-value" data-price-unique="500 à 5’000 CHF / mois" data-price-monthly="500 à 5’000 CHF / mois">500 à 5’000 CHF / mois</span><div class="billing-label" data-billing-unique="Mensuel" data-billing-monthly="Mensuel">Mensuel</div></td></tr>
+          <tr><th>Objectif</th><td>2–3 RDV / mois</td><td>3–5 RDV / mois</td><td>4–6 RDV / mois</td></tr>
+          <tr><th>Action</th><td><a class="ghost" href="/contact/?offre=pack-lancement">Lancer le pack</a></td><td><a class="ghost" href="/contact/?offre=pack-croissance">Activer le pack</a></td><td><a class="cta" href="/contact/?offre=partenaire-croissance">Parler d'un mandat</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="card" data-calculator>
+      <h2>Calculateur d'estimation</h2>
+      <p>Choisissez vos besoins, nous calculons une estimation arrondie au 0.05 CHF.</p>
+      <div class="form-grid">
+        <div>
+          <p><strong>Base</strong></p>
+          <label><input type="radio" name="base" value="2500" data-offer="pack-lancement" checked> Pack Lancement</label><br>
+          <label><input type="radio" name="base" value="5000" data-offer="pack-croissance"> Pack Croissance</label><br>
+          <label><input type="radio" name="base" value="12000" data-offer="partenaire-croissance"> Mandat Partenaire (12 mois)</label>
+        </div>
+        <div>
+          <p><strong>Options</strong></p>
+          <label><input type="checkbox" name="option" value="900"> SEO local premium</label><br>
+          <label><input type="checkbox" name="option" value="1500"> Shooting photo</label><br>
+          <label><input type="checkbox" name="option" value="700"> Automatisation CRM</label>
+        </div>
+      </div>
+      <p class="badge" data-estimate>CHF 2’500.00 hors TVA</p>
+      <p class="tooltip">Note ROI<span>Une hausse de 15% des RDV couvre l'investissement.</span></p>
+      <a class="cta" data-estimate-cta href="/contact/">Demander un devis précis</a>
+      <p>Hors TVA · Packs en unique, mandat en mensuel.</p>
+      <details class="accordion"><summary>FAQ</summary><div><p><strong>Quel délai ?</strong> 3 à 7 semaines selon le pack.</p><p><strong>Engagement ?</strong> Packs en unique, mandat révisé trimestriellement.</p><p><strong>LPD ?</strong> Données hébergées en Suisse.</p><p><strong>ROI ?</strong> Objectif mesuré en rendez-vous qualifiés.</p></div></details>
+    </section>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><h3>CLICOM.</h3><p>hello@clicom.ch<br><a href="tel:+41788238950">078 823 89 50</a></p><p>Suisse Romande</p></div>
+    <div><h4>Navigation</h4><ul><li><a href="/expertises/">Expertises</a></li><li><a href="/methode/">Méthode</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+    <div><h4>Légal</h4><ul><li><a href="/legal/lpd/">LPD</a></li><li><a href="/legal/mentions/">Mentions</a></li><li><a href="/plan-du-site/">Plan du site</a></li></ul></div>
+  </div>
+</footer>
+<script src="/scripts/site.js"></script>
+</body>
+</html>

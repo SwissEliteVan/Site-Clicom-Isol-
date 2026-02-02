@@ -3,7 +3,6 @@
    Direction Artistique 2025
    ========================================== */
 
-/* === CSS VARIABLES (Design Tokens) === */
 :root {
     /* === COULEURS FONDAMENTALES === */
     --black-primary: #0a0a0a;
@@ -95,10 +94,7 @@
     --container-max-width: 1280px;
 }
 
-/* === RESET & BASE === */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -172,28 +168,19 @@ a {
     text-decoration: none;
     transition: color var(--transition-fast);
 }
+a:hover { color: var(--color-primary-dark); }
 
 a:hover {
     color: var(--white-pure);
 }
 
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* === UTILITIES === */
 .container {
     width: 100%;
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 var(--space-4);
 }
+@media (min-width: 768px) { .container { padding: 0 var(--space-6); } }
 
 @media (min-width: 768px) {
     .container {
@@ -231,6 +218,14 @@ img {
     position: relative;
     overflow: hidden;
 }
+.btn-primary { background-color: var(--color-primary); color: white; border-color: var(--color-primary); }
+.btn-primary:hover { background-color: var(--color-primary-dark); border-color: var(--color-primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-secondary { background-color: transparent; color: var(--color-secondary); border-color: var(--color-secondary); }
+.btn-secondary:hover { background-color: var(--color-secondary); color: white; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-outline { background-color: transparent; color: var(--color-primary); border-color: var(--color-primary); }
+.btn-outline:hover { background-color: var(--color-primary); color: white; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-lg { padding: var(--space-4) var(--space-8); font-size: var(--text-lg); }
+.btn-block { display: block; width: 100%; }
 
 .btn::before {
     content: '';
@@ -318,6 +313,12 @@ img {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: all var(--transition-base);
 }
+.header.scrolled { box-shadow: var(--shadow-md); }
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) 0; gap: var(--space-4); }
+.logo { font-family: var(--font-heading); font-size: var(--text-2xl); font-weight: 800; color: var(--color-secondary); }
+.logo:hover { color: var(--color-primary); }
+.logo-text { position: relative; }
+.logo-text::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 3px; background-color: var(--color-primary); border-radius: 2px; }
 
 .header.scrolled {
     background: rgba(10, 10, 10, 0.95);
@@ -430,10 +431,14 @@ img {
 .menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
     opacity: 0;
 }
+.nav-link { font-family: var(--font-heading); font-size: var(--text-base); font-weight: 600; color: var(--color-secondary); padding: var(--space-2) 0; transition: color var(--transition-fast); }
+.nav-link:hover { color: var(--color-primary); }
 
-.menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
-    transform: rotate(-45deg) translateY(-6px);
-}
+.menu-toggle { display: flex; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: var(--space-2); }
+.hamburger { width: 24px; height: 2px; background-color: var(--color-secondary); transition: all var(--transition-base); }
+.menu-toggle[aria-expanded="true"] .hamburger:nth-child(1) { transform: rotate(45deg) translateY(6px); }
+.menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
 
 @media (min-width: 768px) {
     .nav-menu {
@@ -455,7 +460,6 @@ img {
     }
 }
 
-/* === HERO SECTION === */
 .hero {
     position: relative;
     min-height: 100vh;
